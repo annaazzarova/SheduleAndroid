@@ -1,0 +1,48 @@
+public class Lesson {
+
+        public int number;
+        public String week;
+        public String lesson;
+        public String teacher;
+        public String auditory;
+        public String hull;
+        public String day;
+        public String _idL;
+
+        // Конструктор
+        public Lesson(){
+
+        }
+    }
+
+    public class Group {
+
+        public String nameg;
+        public String _id;
+        public String _v;
+        public ArrayList<Lesson> saturday;
+        public ArrayList<Lesson> friday;
+        public ArrayList<Lesson> thursday;
+        public ArrayList<Lesson> wednesday;
+        public ArrayList<Lesson> tuesday;
+        public ArrayList<Lesson> monday;
+
+        // Конструктор
+        public Group(){
+
+        }
+    }
+
+
+    public class lesson {
+        public String namel;
+        public String teacher;
+        public String place;
+        public int number;
+
+        public lesson() {
+
+        }
+    }
+
+    ArrayList<lesson> day = new ArrayList<lesson>();
