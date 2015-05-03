@@ -8,7 +8,6 @@
         android:layout_height="40dp"
         android:text="ПН"
         android:textSize="20sp"
-        android:background="@drawable/myrect"
         android:elevation="3dp"
         android:padding="8dp"
         android:layout_marginLeft="10dp"

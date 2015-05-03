@@ -11,6 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-        android:background="#FFFBF1"/>
+        android:background="@drawable/shedule_background"
+        android:layout_toRightOf="@+id/linearLayout2"
+        android:layout_toEndOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="10dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentStart="false"
+        android:background="#83c3c3"
+        android:id="@+id/linearLayout2"
+        android:elevation="5dp"
+        android:transitionGroup="true"></LinearLayout>
 
 </RelativeLayout>
