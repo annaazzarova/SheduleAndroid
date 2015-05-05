@@ -2,6 +2,8 @@ package com.example.anna.shedule_v2;
 
 import android.app.FragmentManager;
 import android.app.ListFragment;
+import android.content.Context;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class MyListFragment1 extends ListFragment implements DayList.OnFragmentInteractionListener{
 
@@ -26,13 +31,8 @@ public class MyListFragment1 extends ListFragment implements DayList.OnFragmentI
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        ListAdapter myListAdapter = new ArrayAdapter<String>(
-            getActivity(),
-            R.layout.list_item,
-            R.id.label,
-            day_of_week);
-        setListAdapter(myListAdapter);
+        MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(getActivity(), day_of_week);
+        setListAdapter(adapter);
 
     }
 

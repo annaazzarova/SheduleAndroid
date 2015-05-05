@@ -7,5 +7,15 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="monday">ПН</string>
+
+    <string name="carddemo_extras_title_expandinside">MixExpand</string>
+
+    <string name="carddemo_extras_header_expand_area_inside_rose">Rose...[click for more details]</string>
+    <string name="carddemo_extras_header_expand_area_inside_snow">Snow...[click for more details]</string>
+    <string name="carddemo_extras_header_expand_area_inside_sea">I love this...[click for more details]</string>
+    <string name="carddemo_extras_header_expand_area_inside_img2">Swans...[click for more details]</string>
+    <string name="carddemo_extras_header_expand_area_inside_water">waterfalls...[click for more details]</string>
+    <string name="demo_expand_basetitle">123</string>
 
 </resources>

@@ -1,11 +1,13 @@
 package com.example.anna.shedule_v2;
 
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,11 +18,10 @@ public class MyRecyclerViewAdapter extends RecyclerView
     private ArrayList<DataObject> mDataset;
     private static MyClickListener myClickListener;
 
-
-
     public static class DataObjectHolder extends RecyclerView.ViewHolder
             implements View
             .OnClickListener {
+
         TextView textView_name;
         TextView textView_teacher;
         TextView textView_place;
@@ -35,6 +36,16 @@ public class MyRecyclerViewAdapter extends RecyclerView
             textView_start_time = (TextView) itemView.findViewById(R.id.textView_start_time);
             textView_end_time = (TextView) itemView.findViewById(R.id.textView_end_time);
             Log.i(LOG_TAG, "Adding Listener");
+
+            Typeface font = Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/Open_Sans_Condensed/OpenSans-CondBold.ttf");
+            this.textView_name.setTypeface(font);
+
+            Typeface font2 = Typeface.createFromAsset(itemView.getContext().getAssets(), "fonts/Open_Sans_Condensed/OpenSans-CondLight.ttf");
+            this.textView_teacher.setTypeface(font2);
+            this.textView_place.setTypeface(font2);
+            this.textView_start_time.setTypeface(font2);
+            this.textView_end_time.setTypeface(font2);
+
             itemView.setOnClickListener(this);
         }
 

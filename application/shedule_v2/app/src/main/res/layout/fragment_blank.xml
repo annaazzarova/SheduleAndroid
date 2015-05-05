@@ -13,7 +13,8 @@
             card_view:cardCornerRadius="2dp"
             card_view:contentPadding="5dp"
             card_view:cardBackgroundColor="#FFFBF1"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:clickable="true">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -73,16 +74,15 @@
                     android:layout_alignParentTop="true"
                     android:layout_toRightOf="@+id/linearLayout"
                     android:layout_toEndOf="@+id/linearLayout"
-                    android:layout_marginLeft="20px">
+                    android:layout_marginLeft="20dp">
 
                     <TextView
                         android:id="@+id/textView_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
-                        android:layout_alignParentTop="true"
                         android:text="Управление программными продуктами"
-                        android:textSize="18dp"
+                        android:textSize="18sp"
                         android:layout_marginRight="3dp"
                         android:textIsSelectable="false" />
 
@@ -113,6 +113,7 @@
                             android:layout_marginLeft="15dp"
                             android:clickable="false"
                             android:capitalize="words" />
+
                     </LinearLayout>
 
                 </LinearLayout>

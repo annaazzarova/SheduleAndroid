@@ -1,6 +1,8 @@
 package com.example.anna.shedule_v2;
 
 import android.app.Activity;
+import android.content.Context;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -10,6 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -65,6 +70,7 @@ public class DayList extends Fragment {
         // Required empty public constructor
     }
 
+    TextView txt_help_gest;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,6 +82,7 @@ public class DayList extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new MyRecyclerViewAdapter(getDataSet());
         mRecyclerView.setAdapter(mAdapter);
+
         return rootView;
     }
 
