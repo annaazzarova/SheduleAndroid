@@ -1,9 +1,9 @@
 package com.example.anna.shedule_v2;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,19 +14,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.CardHeader;
-import it.gmariotti.cardslib.library.recyclerview.internal.CardArrayRecyclerViewAdapter;
-import it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView;
-
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link android.app.Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link DayList.OnFragmentInteractionListener} interface
+ * {@link com.example.anna.shedule_v2.DayList_temp.OnFragmentInteractionListener} interface
  * to handle interaction events.
  */
-public class DayList extends Fragment {
+public class DayList_temp extends Fragment {
 
     String[] names = {
             "Русский",
@@ -67,53 +62,23 @@ public class DayList extends Fragment {
     private static String LOG_TAG = "CardViewActivity";
     private OnFragmentInteractionListener mListener;
 
-    public DayList() {
+    public DayList_temp() {
         // Required empty public constructor
     }
 
+    TextView txt_help_gest;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.recycle, container, false);
+        View rootView = inflater.inflate(R.layout.recycle_view, container, false);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new MyRecyclerViewAdapter(getDataSet());
+        mRecyclerView.setAdapter(mAdapter);
 
-        Bundle bundle = this.getArguments();
-        int length = bundle.getInt("someInt");
-
-        ArrayList<Card> cards = new ArrayList<Card>();
-
-        for (int i = 0; i < length; i++) {
-            // Create a Card
-            //Create a Card
-            Card card = new CustomCard(getActivity());
-            // Create a CardHeader
-            CardHeader header = new CardHeader(getActivity());
-            // Add Header to card
-            header.setTitle("Управление программными проектами");
-            header.setButtonExpandVisible(true);
-
-            card.addCardHeader(header);
-            //This provide a simple (and useless) expand area
-            CustomExpandCard expand = new CustomExpandCard(getActivity());
-
-            //Add expand to card
-            card.addCardExpand(expand);
-
-            cards.add(card);
-        }
-
-
-        CardArrayRecyclerViewAdapter mCardArrayAdapter = new CardArrayRecyclerViewAdapter(getActivity(), cards);
-
-        //Staggered grid view
-        CardRecyclerView mRecyclerView = (CardRecyclerView) rootView.findViewById(R.id.carddemo_recyclerview);
-        mRecyclerView.setHasFixedSize(false);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        //Set the empty view
-        if (mRecyclerView != null) {
-            mRecyclerView.setAdapter(mCardArrayAdapter);
-        }
         return rootView;
     }
 
@@ -121,8 +86,28 @@ public class DayList extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        ((MyRecyclerViewAdapter) mAdapter).setOnItemClickListener(new MyRecyclerViewAdapter
+                .MyClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                Log.i(LOG_TAG, " Clicked on Item " + position);
+            }
+        });
     }
 
+    private ArrayList<DataObject> getDataSet() {
+        ArrayList results = new ArrayList<DataObject>();
+
+        for (int index = 0; index < 5; index++) {
+            DataObject obj = new DataObject(
+                    names[index],
+                    teachers[index],
+                    places[index],
+                    numbers[index]);
+            results.add(index, obj);
+        }
+        return results;
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

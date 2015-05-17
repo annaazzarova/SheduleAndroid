@@ -1,6 +1,8 @@
 package com.example.anna.shedule_v2;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Context;
 import android.graphics.Typeface;
@@ -17,7 +19,8 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class MyListFragment1 extends ListFragment implements DayList.OnFragmentInteractionListener{
+public class MyListFragment1 extends ListFragment implements
+        DayList.OnFragmentInteractionListener{
 
     String[] day_of_week ={
             "ПН",
@@ -56,17 +59,48 @@ public class MyListFragment1 extends ListFragment implements DayList.OnFragmentI
             }
         }
 
+        int lessons = 1;
+        if (position == 0) {
+            lessons = 2;
+        }
+        if (position == 1) {
+            lessons = 3;
+        }
+        if (position == 2) {
+            lessons = 1;
+        }
+        if (position == 3) {
+            lessons = 2;
+        }
+        if (position == 4) {
+            lessons = 5;
+        }
+        if (position == 5) {
+            lessons = 2;
+        }
+        if (position == 6) {
+            lessons = 0;
+        }
+
+        android.app.FragmentManager myFragmentManager = getFragmentManager();
+
+        DayList fragment = new DayList();
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("someInt", lessons);
+
+        fragment.setArguments(bundle);
+
+        FragmentTransaction fragmentTransaction = myFragmentManager
+                .beginTransaction();
+        fragmentTransaction.replace(R.id.fragment2, fragment);
+        fragmentTransaction.commit();
+
+
         Toast.makeText(
                 getActivity(),
                 getListView().getItemAtPosition(position).toString(),
                 Toast.LENGTH_LONG).show();
-        DayList youFragment = new DayList();
-
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .add(R.id.fragment2, youFragment)
-                .addToBackStack("myStack")
-                .commit();
     }
 
 
