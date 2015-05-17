@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_list_item_active">#85c2c5</color>
+    <color name="color_list_item_inactive">#6A9B9F</color>
+    <color name="color_list_item_inactive_text">#b5c1c1</color>
+    <color name="color_list_item_active_text">#E3EEF0</color>
+
+</resources>
