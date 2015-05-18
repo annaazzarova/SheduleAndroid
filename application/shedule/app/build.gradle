@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 19
+    buildToolsVersion '19.1.0'
 
     defaultConfig {
         applicationId "com.example.anna.shedule"
-        minSdkVersion 14
-        targetSdkVersion 21
+        minSdkVersion 15
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
     }
@@ -16,6 +17,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+}
+
+apt {
+    arguments {
+        resourcePackageName android.defaultConfig.applicationId
+        androidManifestFile variant.outputs[0].processResources.manifestFile
     }
 }
 
@@ -28,6 +36,9 @@ dependencies {
     compile 'com.android.support:cardview-v7:+'
     compile 'com.android.support:recyclerview-v7:+'
     compile 'com.android.support:palette-v7:+'
+
+    provided "org.projectlombok:lombok:1.12.6"
+    apt "org.projectlombok:lombok:1.12.6"
 }
 
 dependencies {
