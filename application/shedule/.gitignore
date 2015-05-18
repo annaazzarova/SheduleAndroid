@@ -1,6 +1,11 @@
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+syntax: glob
+.gradle/*
+local.properties
+.idea/*
 .DS_Store
-/build
+app/build/*
+build/*
+.gradle*
+*.log
+*.orig
+*.rej
