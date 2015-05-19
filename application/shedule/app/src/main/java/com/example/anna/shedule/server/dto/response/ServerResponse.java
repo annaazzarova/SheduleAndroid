@@ -1,4 +1,4 @@
-package com.example.anna.shedule.server;
+package com.example.anna.shedule.server.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,7 +18,6 @@ public class ServerResponse<T> {
 
     private int code;
     private String message;
-
     private T response;
 
     public ServerResponse(int code) {
