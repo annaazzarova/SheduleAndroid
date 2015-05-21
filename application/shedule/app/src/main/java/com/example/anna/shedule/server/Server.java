@@ -11,7 +11,7 @@ import com.example.anna.shedule.server.utils.MessageTransfer;
 
 import static com.example.anna.shedule.server.utils.ServerResponseCreator.*;
 
-public class Service {
+public class Server {
 
     public static final String SERVER_ULR = "http://45.55.200.41:3000/";
 
