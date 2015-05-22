@@ -1,4 +1,4 @@
-package com.example.anna.shedule.application;
+package com.example.anna.shedule.application.user.model;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User implements Entity {
 
-    public static final String TABLE_NAME = "user";
+    public static final String TABLE_NAME = "users";
 
     private long id;
     private String name;

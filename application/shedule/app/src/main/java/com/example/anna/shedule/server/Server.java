@@ -31,4 +31,9 @@ public class Server {
         ResponseWithStatusCode response = MessageTransfer.get(loginPath);
         return convertToArrayResponse(response, LessonDTO.class);
     }
+
+    public static ServerResponseArray<LessonDTO> getScheduleByTeacherId(String extendedId) {
+        //todo implement me
+        return new ServerResponseArray<LessonDTO>(ServerResponse.NO_CONNECTION_ERROR);
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.anna.shedule.application;
+package com.example.anna.shedule.application.user.model;
 
 import lombok.Getter;
 

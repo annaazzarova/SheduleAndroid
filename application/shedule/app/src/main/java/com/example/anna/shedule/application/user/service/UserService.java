@@ -1,13 +1,15 @@
-package com.example.anna.shedule.application;
+package com.example.anna.shedule.application.user.service;
 
 
+import com.example.anna.shedule.application.user.model.User;
+import com.example.anna.shedule.application.user.model.UserType;
 import com.example.anna.shedule.server.Server;
 import com.example.anna.shedule.server.dto.LoginDTO;
 import com.example.anna.shedule.server.dto.response.ServerResponse;
 
 import static com.example.anna.shedule.application.database.Database.getDbInstance;
 
-public class UserModule {
+public class UserService {
 
     private User user;
 
