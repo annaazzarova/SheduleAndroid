@@ -16,4 +16,6 @@ public interface Entity {
     void load(Cursor cursor);
 
     String getTableName();
+
+    String getSqlTableFields();
 }

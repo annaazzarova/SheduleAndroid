@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.anna.shedule.application.User;
 import com.example.anna.shedule.utils.ContextUtils;
 
 import java.io.File;
@@ -21,7 +22,7 @@ public class Database {
 
     private SQLiteDatabase db;
 
-    public static synchronized Database getInstance() {
+    public static synchronized Database getDbInstance() {
         if (instance == null) {
             instance = new Database();
         }
@@ -144,7 +145,13 @@ public class Database {
     }
 
     private void initDatabase() {
-        createTable("user", "name VARCHAR, isTeacher BOOLEAN");
+        createTable(User.class);
+    }
+
+    @SneakyThrows
+    private void createTable(Class<? extends Entity> cs) {
+        Entity entity = cs.newInstance();
+        createTable(entity.getTableName(), entity.getSqlTableFields());
     }
 
     private void createTable(String tableName, String fields) {
@@ -155,5 +162,12 @@ public class Database {
     private static boolean isDatabaseExists() {
         File dbFile = ContextUtils.getContext().getDatabasePath(DB_PATH);
         return dbFile.exists();
+    }
+
+    public int getNumberOfRecordsInTable(String tableName) {
+        Cursor cursor = db.rawQuery("SELECT COUNT(id) FROM " + tableName, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
     }
 }
