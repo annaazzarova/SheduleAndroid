@@ -1,10 +1,7 @@
 package com.example.anna.shedule.server.dto.response;
 
-import com.example.anna.shedule.server.dto.LessonDTO;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

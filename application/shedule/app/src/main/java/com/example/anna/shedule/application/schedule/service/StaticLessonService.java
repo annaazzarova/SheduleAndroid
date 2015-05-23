@@ -6,7 +6,6 @@ import com.example.anna.shedule.application.schedule.model.WeekPeriodicity;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.server.Server;
-import com.example.anna.shedule.server.dto.LessonDTO;
 import com.example.anna.shedule.server.dto.response.ServerResponse;
 import com.example.anna.shedule.server.dto.response.ServerResponseArray;
 
@@ -17,16 +16,32 @@ import static com.example.anna.shedule.application.database.Database.getDbInstan
 
 public class StaticLessonService {
 
+    private GroupService groupService;
+
+    public StaticLessonService() {
+        this.groupService = new GroupService();
+    }
+
     public List<Lesson> getLessons(WeekPeriodicity periodicity, int dayOfWeek) {
         String query = "SELECT * FROM " + Lesson.TABLE_NAME
                 + " WHERE dayOfWeek='" + dayOfWeek
-                + "' AND ='" + periodicity.getId() + "'";
+                + "' AND " + getPeriodicityCondition(periodicity);
 
-        return getDbInstance().getByQuery(Lesson.class, query);
+        return getLessonsByQuery(query);
+    }
+
+    private String getPeriodicityCondition(WeekPeriodicity periodicity) {
+        return "(weekPeriodicity='" + periodicity.getId() + "' OR weekPeriodicity='" + WeekPeriodicity.BOTH.getId() + "')";
+    }
+
+    private List<Lesson> getLessonsByQuery(String query) {
+        List<Lesson> lessons = getDbInstance().getByQuery(Lesson.class, query);
+        groupService.mapGroupsOnLessons(lessons);
+        return lessons;
     }
 
     public boolean updateLessons() {
-        ServerResponseArray<LessonDTO> response = getScheduleByCurrentUser();
+        ServerResponseArray<Lesson> response = getScheduleByCurrentUser();
         boolean isSuccess = response.isSuccess();
         if (isSuccess) {
             updateLessonsInDb(response.getResponse());
@@ -34,30 +49,20 @@ public class StaticLessonService {
         return isSuccess;
     }
 
-    private void updateLessonsInDb(List<LessonDTO> lessonsDto) {
+    private void updateLessonsInDb(List<Lesson> lessons) {
         Database db = getDbInstance();
         db.dropAllElements(Lesson.TABLE_NAME);
-        saveLessons(lessonsDto);
+        db.save(lessons);
     }
 
-    private List<Lesson> saveLessons(List<LessonDTO> dtoItems) {
-        List<Lesson> lessons = new ArrayList<>(dtoItems.size());
-        for (LessonDTO dto: dtoItems) {
-            //todo FIX ME
-            Lesson lesson = new Lesson(dto);
-            lessons.add(lesson);
-        }
-        return lessons;
-    }
-
-    private ServerResponseArray<LessonDTO> getScheduleByCurrentUser() {
+    private ServerResponseArray<Lesson> getScheduleByCurrentUser() {
         User user = new UserService().getCurrentUser();
         return getScheduleByUser(user);
     }
 
-    private ServerResponseArray<LessonDTO> getScheduleByUser(User user) {
+    private ServerResponseArray<Lesson> getScheduleByUser(User user) {
         if (user == null) {
-            return ServerResponse.getLogicError(LessonDTO.class);
+            return ServerResponse.getLogicError(Lesson.class);
         }
 
         switch (user.getType()) {
@@ -67,7 +72,7 @@ public class StaticLessonService {
             case CLASS_LEADER:
                 return Server.getScheduleByGroupId(user.getExtendedId());
             default:
-                return ServerResponse.getLogicError(LessonDTO.class);
+                return ServerResponse.getLogicError(Lesson.class);
         }
     }
 
@@ -75,5 +80,8 @@ public class StaticLessonService {
 
     }
 
-
+    public List<Lesson> getAllLessons() {
+        String query = "SELECT * FROM " + Lesson.TABLE_NAME;
+        return getLessonsByQuery(query);
+    }
 }

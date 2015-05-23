@@ -1,7 +1,6 @@
 package com.example.anna.shedule.server;
 
-import com.example.anna.shedule.server.cookies.CookieManager;
-import com.example.anna.shedule.server.dto.LessonDTO;
+import com.example.anna.shedule.application.schedule.model.Lesson;
 import com.example.anna.shedule.server.dto.LoginDTO;
 import com.example.anna.shedule.server.dto.request.LoginRequest;
 import com.example.anna.shedule.server.utils.ResponseWithStatusCode;
@@ -26,14 +25,18 @@ public class Server {
         MessageTransfer.clearCookies();
     }
 
-    public static ServerResponseArray<LessonDTO> getScheduleByGroupId(String groupId) {
-        String loginPath = SERVER_ULR + "api/schedule/?group=" + groupId;
-        ResponseWithStatusCode response = MessageTransfer.get(loginPath);
-        return convertToArrayResponse(response, LessonDTO.class);
+    public static ServerResponseArray<Lesson> getScheduleByGroupId(String groupId) {
+        String schedulePath = SERVER_ULR + "api/schedule/?group=" + groupId;
+        return getScheduleByPath(schedulePath);
     }
 
-    public static ServerResponseArray<LessonDTO> getScheduleByTeacherId(String extendedId) {
-        //todo implement me
-        return new ServerResponseArray<LessonDTO>(ServerResponse.NO_CONNECTION_ERROR);
+    public static ServerResponseArray<Lesson> getScheduleByTeacherId(String teacherId) {
+        String schedulePath = SERVER_ULR + "api/schedule?teacher=" + teacherId;
+        return getScheduleByPath(schedulePath);
+    }
+
+    private static ServerResponseArray<Lesson> getScheduleByPath(String schedulePath) {
+        ResponseWithStatusCode response = MessageTransfer.get(schedulePath);
+        return convertToArrayResponse(response, Lesson.class);
     }
 }

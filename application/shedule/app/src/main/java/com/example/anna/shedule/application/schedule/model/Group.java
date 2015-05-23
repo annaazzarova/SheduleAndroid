@@ -16,19 +16,30 @@ public class Group implements Entity {
 
     private long id;
     private String groupId;
-    private String title;
+    private String group;
+    private String faculty;
+    private String specialty;
+    private String groupCode;
+    private String formOfEducation;
 
     @Override
     public void save(ContentValues values) {
         values.put("groupId", groupId);
-        values.put("title", title);
+        values.put("faculty", faculty);
+        values.put("specialty", specialty);
+        values.put("groupCode", groupCode);
+        values.put("formOfEducation", formOfEducation);
     }
 
     @Override
     public void load(Cursor cursor) {
         id = cursor.getLong(0);
         groupId = cursor.getString(1);
-        title = cursor.getString(2);
+        group = cursor.getString(2);
+        faculty = cursor.getString(3);
+        specialty = cursor.getString(4);
+        groupCode = cursor.getString(5);
+        formOfEducation = cursor.getString(6);
     }
 
     @Override
@@ -37,7 +48,29 @@ public class Group implements Entity {
     }
 
     @Override
+    public String toString() {
+        String res = "";
+        String sep = "";
+        if (group != null) {
+            res += group;
+            sep = " ";
+        }
+
+        if (groupCode != null) {
+            res += sep + "(" + groupCode + ")";
+            sep = " ";
+        }
+
+        if (formOfEducation != null) {
+            res += sep + "(" + formOfEducation + ")";
+        }
+
+        return res;
+    }
+
+    @Override
     public String getSqlTableFields() {
-        return "groupId VARCHAR, title VARCHAR";
+        return "groupId VARCHAR, group VARCHAR, faculty VARCHAR, " +
+                "specialty VARCHAR, groupCode VARCHAR, formOfEducation VARCHAR";
     }
 }

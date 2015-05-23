@@ -1,5 +1,7 @@
 package com.example.anna.shedule.application.schedule.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import lombok.Getter;
 
 @Getter
@@ -22,6 +24,7 @@ public enum LessonTime {
         this.endTime = end;
     }
 
+    @JsonCreator
     public static LessonTime getByTypeId(int id) {
         for (LessonTime time: values()) {
             if (time.id == id) {

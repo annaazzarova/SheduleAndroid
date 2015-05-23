@@ -32,7 +32,10 @@ public class Database {
     }
 
     public static void dropDatabase() {
-        instance = null;
+        if (instance != null) {
+            instance.close();
+            instance = null;
+        }
         ContextUtils.getContext().deleteDatabase(DB_PATH);
     }
 
@@ -169,7 +172,7 @@ public class Database {
     }
 
     public int getNumberOfRecordsInTable(String tableName) {
-        Cursor cursor = db.rawQuery("SELECT COUNT(id) FROM " + tableName, null);
+        Cursor cursor = db.rawQuery("SELECT id FROM " + tableName, null);
         int count = cursor.getCount();
         cursor.close();
         return count;

@@ -1,5 +1,7 @@
 package com.example.anna.shedule.application.schedule.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 import lombok.Getter;
 
 @Getter
@@ -21,6 +23,16 @@ public enum WeekPeriodicity {
             }
         }
         return null;
+    }
+
+    @JsonCreator
+    public static WeekPeriodicity getByType(String type) {
+        switch (type) {
+            case "red": return RED;
+            case "blue": return BLUE;
+            case "both": return BOTH;
+            default: return null;
+        }
     }
 
 }
