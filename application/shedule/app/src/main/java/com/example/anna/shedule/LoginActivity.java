@@ -121,7 +121,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+            //mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
             cancel = true;
         }
@@ -210,7 +210,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             emails.add(cursor.getString(ProfileQuery.ADDRESS));
             cursor.moveToNext();
         }
-// вызов добавления
+// РІС‹Р·РѕРІ РґРѕР±Р°РІР»РµРЅРёСЏ
 //        addEmailsToAutoComplete(emails);
     }
 
@@ -229,7 +229,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         int IS_PRIMARY = 1;
     }
 
-//доабавление я пока закоментил
+//РґРѕР°Р±Р°РІР»РµРЅРёРµ СЏ РїРѕРєР° Р·Р°РєРѕРјРµРЅС‚РёР»
     /*private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
@@ -247,10 +247,12 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         private final String mEmail;
         private final String mPassword;
+        private final String isMobile;
 
         UserLoginTask(String email, String password) {
             mEmail = email;
             mPassword = password;
+            isMobile = "true";
         }
 
         @Override
