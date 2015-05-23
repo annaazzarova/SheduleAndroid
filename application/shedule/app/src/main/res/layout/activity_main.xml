@@ -2,31 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:weightSum="1">
+    android:layout_height="fill_parent">
 
     <fragment
         android:name="com.example.anna.shedule.WeekList"
         android:id="@+id/fragment1"
-        android:layout_weight="0.2"
-        android:layout_width="0px"
+        android:layout_width="44dp"
         android:layout_height="match_parent"
         tools:layout="@layout/left_column" />
 
     <FrameLayout
         android:id="@+id/blue_line"
-        android:layout_weight="0.01"
-        android:layout_width="0px"
+        android:layout_width="8dp"
         android:layout_height="match_parent"
-        android:background="#ff59c9cc"
-        android:touchscreenBlocksFocus="true"
-        android:focusable="false"
-        android:focusableInTouchMode="false" />
+        android:background="@color/color_list_item_active" />
 
     <FrameLayout
         android:id="@+id/fragment2"
-        android:layout_weight="0.79"
-        android:layout_width="0px"
+        android:layout_width="310dp"
         android:layout_height="match_parent"
         tools:layout = "@layout/right_recycle_list" />
 

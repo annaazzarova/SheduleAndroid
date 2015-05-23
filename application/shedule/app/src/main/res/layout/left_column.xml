@@ -3,13 +3,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:showDividers="end"
-    android:textAlignment="center">
+    android:background="@drawable/left_layout"
+    android:showDividers="none">
 
     <ListView
         android:id="@id/android:list"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:choiceMode="singleChoice"/>
+        android:layout_height="match_parent"
+        android:choiceMode="singleChoice"
+        android:divider="#00fdfffd" />
 
 </LinearLayout>

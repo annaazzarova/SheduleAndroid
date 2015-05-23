@@ -26,7 +26,6 @@ public class WeekListArrayAdapter extends ArrayAdapter<String> {
         TextView textView = (TextView) rowView.findViewById(R.id.label);
         textView.setText(values[position]);
         textView.setTypeface(Typeface.createFromAsset(getContext().getAssets(), "fonts/Open_Sans_Condensed/OpenSans-CondBold.ttf"));
-
         String s = values[position];
 
         return rowView;

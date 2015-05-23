@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import it.gmariotti.cardslib.library.internal.Card;
 
@@ -53,9 +54,10 @@ public class CustomCard extends Card {
 
         //Retrieve elements
         mTitle = (TextView) parent.findViewById(R.id.textView_name);
-        mSecondaryTitle = (TextView) parent.findViewById(R.id.textView_teacher);
+        mSecondaryTitle = (TextView) parent.findViewById(R.id.textView_group);
 
 
+        mSecondaryTitle.setClickable(true);
         if (mTitle!=null);
             //mTitle.setText("123");
 

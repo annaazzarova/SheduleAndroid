@@ -5,4 +5,52 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="card">
+        <!-- this style should be empty -->
+    </style>
+
+    <!--Recycler view-->
+    <style name="recyclerview_card">
+        <item name="android:layout_marginLeft">@dimen/native_recyclerview_card_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/native_recyclerview_card_margin_right</item>
+        <item name="android:layout_marginBottom">@dimen/native_recyclerview_card_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/native_recyclerview_card_margin_top</item>
+    </style>
+
+    <!-- Thumbnail list -->
+    <style name="recyclerview_card.thumbnail">
+
+    </style>
+
+    <style name="card.main_layout_foreground">
+        <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:background">@color/card_native_background</item>
+        <item name="android:layout_marginTop">@dimen/card_main_layout_native_view_margin_top</item>
+        <item name="android:layout_marginBottom">@dimen/card_main_layout_native_view_margin_bottom</item>
+        <item name="android:layout_marginLeft">@dimen/card_main_layout_native_view_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/card_main_layout_native_view_margin_right</item>
+    </style>
+
+    <!--Style for Content View-->
+    <style name="card.content_outer_layout" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">@dimen/card_base_empty_height</item>
+        <item name="android:paddingLeft">@dimen/card_main_content_native_default_paddingLeft</item>
+        <item name="android:paddingRight">@dimen/card_main_content_native_default_paddingRight</item>
+        <item name="android:paddingTop">@dimen/card_main_content_native_default_paddingTop</item>
+        <item name="android:paddingBottom">@dimen/card_main_content_native_default_paddingBottom</item>
+    </style>
+
+    <!-- Style for Hidden Expand Layout ****************************************-->
+
+
+    <style name="card.main_contentExpand" >
+        <item name="android:background">@color/card_backgroundExpand</item>
+        <item name="android:layout_marginLeft">@dimen/card_expand_native_margin_right</item>
+        <item name="android:layout_marginRight">@dimen/card_expand_native_margin_right</item>
+        <item name="android:paddingLeft">@dimen/card_expand_native_layout_padding_left</item>
+        <item name="android:paddingRight">@dimen/card_expand_native_layout_padding_right</item>
+        <item name="android:paddingTop">@dimen/card_expand_native_layout_padding_top</item>
+        <item name="android:paddingBottom">@dimen/card_expand_native_layout_padding_bottom</item>
+    </style>
 </resources>

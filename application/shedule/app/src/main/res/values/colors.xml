@@ -5,5 +5,12 @@
     <color name="color_list_item_inactive">#6A9B9F</color>
     <color name="color_list_item_inactive_text">#b5c1c1</color>
     <color name="color_list_item_active_text">#E3EEF0</color>
+    <color name="color_list_item_background">#606062</color>
+    <color name="color_list_shadow_right_inactive">#486b6d</color>
+    <color name="color_list_shadow_right">#3c3c3e</color>
+    <color name="color_list_shadow_bottom">#3e3e40</color>
+
+    <color name="card_backgroundExpand">#515254</color>
+    <color name="card_native_background">@android:color/transparent</color>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.anna.shedule;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
@@ -9,17 +10,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class WeekList extends ListFragment {
 
     String[] day_of_week ={
-            "ПН",
-            "ВТ",
-            "СР",
-            "ЧТ",
-            "ПТ",
-            "СБ"
+            "П",
+            "В",
+            "С",
+            "Ч",
+            "П",
+            "С"
     };
 
     @Override
@@ -37,16 +39,19 @@ public class WeekList extends ListFragment {
         return view;
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
         for (int a = 0; a < l.getChildCount(); a++) {
             if ( a == position ) {
-                l.getChildAt(a).findViewById(R.id.label).setBackgroundResource(R.drawable.myrect_active);
+                l.getChildAt(a).findViewById(R.id.label).setBackgroundResource(R.drawable.list_item_active);
+                TextView tw = (TextView) l.getChildAt(a).findViewById(R.id.label);
+                tw.setTextColor(R.color.color_list_item_active_text);
             }
             else {
-                l.getChildAt(a).findViewById(R.id.label).setBackgroundResource(R.drawable.myrect_default);
+                l.getChildAt(a).findViewById(R.id.label).setBackgroundResource(R.drawable.list_item_inactive);
             }
         }
 

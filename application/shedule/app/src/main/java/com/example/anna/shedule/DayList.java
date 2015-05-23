@@ -9,13 +9,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import it.gmariotti.cardslib.library.internal.Card;
+import it.gmariotti.cardslib.library.internal.CardExpand;
+import it.gmariotti.cardslib.library.internal.CardExpandableListAdapter;
 import it.gmariotti.cardslib.library.internal.CardHeader;
+import it.gmariotti.cardslib.library.internal.ViewToClickToExpand;
 import it.gmariotti.cardslib.library.recyclerview.internal.CardArrayRecyclerViewAdapter;
 import it.gmariotti.cardslib.library.recyclerview.view.CardRecyclerView;
+import it.gmariotti.cardslib.library.view.CardView;
 
 
 /**
@@ -81,17 +86,23 @@ public class DayList extends Fragment {
             //Create a Card
             Card card = new CustomCard(getActivity());
             // Create a CardHeader
-            CardHeader header = new CardHeader(getActivity());
+            //CardHeader header = new CardHeader(getActivity());
             // Add Header to card
-            header.setTitle("Управление программными проектами");
-            header.setButtonExpandVisible(true);
+            //header.setTitle("Управление программными проектами");
+            //header.setButtonExpandVisible(true);
 
-            card.addCardHeader(header);
+            //card.addCardHeader(header);
             //This provide a simple (and useless) expand area
             CustomExpandCard expand = new CustomExpandCard(getActivity());
-
             //Add expand to card
             card.addCardExpand(expand);
+            card.setCardElevation(0);
+
+            ViewToClickToExpand viewToClickToExpand =
+                    ViewToClickToExpand.builder()
+                            .highlightView(true)
+                            .setupCardElement(ViewToClickToExpand.CardElementUI.CARD);
+            card.setViewToClickToExpand(viewToClickToExpand);
 
             cards.add(card);
         }

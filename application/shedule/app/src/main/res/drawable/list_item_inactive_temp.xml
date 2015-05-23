@@ -1,0 +1,4 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/color_list_shadow_right_inactive"/>
+    <item android:drawable="@drawable/myrect_default" android:right="8dp"/>
+</layer-list>

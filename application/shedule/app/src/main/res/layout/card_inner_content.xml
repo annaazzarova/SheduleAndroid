@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:clickable="true">
+        >
 
 
         <LinearLayout
@@ -84,21 +85,17 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="III 429"
-                    android:id="@+id/textView_place"
-                    android:elegantTextHeight="false"
-                    android:enabled="true" />
+                    android:id="@+id/textView_place"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="Нехорошкова Л.Г."
-                    android:id="@+id/textView_teacher"
+                    android:text="ПС-31, ПС-32, ПС-21"
+                    android:id="@+id/textView_group"
                     android:elegantTextHeight="false"
                     android:enabled="true"
-                    android:layout_marginLeft="15dp"
-                    android:clickable="false"
-                    android:capitalize="words" />
+                    android:layout_marginLeft="15dp" />
 
             </LinearLayout>
 
