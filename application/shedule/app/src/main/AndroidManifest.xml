@@ -22,7 +22,7 @@
         </activity>
 
         <service
-            android:name=".service.ScheduleService"
+            android:name=".service.ScheduleIntentService"
             android:label="@string/service_name" />
 
         <receiver android:name=".service.receivers.AlarmReceiver" />

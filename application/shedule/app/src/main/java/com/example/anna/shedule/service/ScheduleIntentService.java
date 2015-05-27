@@ -6,13 +6,13 @@ import android.content.Intent;
 import com.example.anna.shedule.service.receivers.AlarmReceiver;
 import com.example.anna.shedule.utils.ContextUtils;
 
-public class ScheduleService extends IntentService {
+public class ScheduleIntentService extends IntentService {
 
-    public ScheduleService() {
+    public ScheduleIntentService() {
         this("Schedule service");
     }
 
-    public ScheduleService(String name) {
+    public ScheduleIntentService(String name) {
         super(name);
     }
 

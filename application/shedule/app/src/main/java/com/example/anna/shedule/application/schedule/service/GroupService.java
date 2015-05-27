@@ -1,7 +1,7 @@
 package com.example.anna.shedule.application.schedule.service;
 
 import com.example.anna.shedule.application.schedule.model.Group;
-import com.example.anna.shedule.application.schedule.model.Lesson;
+import com.example.anna.shedule.application.schedule.model.StaticLesson;
 import com.example.anna.shedule.utils.StringUtils;
 
 import java.util.ArrayList;
@@ -17,12 +17,12 @@ import static com.example.anna.shedule.application.database.Database.getDbInstan
 
 public class GroupService {
 
-    public List<Lesson> mapGroupsOnLessons(List<Lesson> lessons) {
+    public List<StaticLesson> mapGroupsOnLessons(List<StaticLesson> lessons) {
         Set<String> setOfGroupIds = new HashSet<>();
         Map<Long, List<String>> lessonIdToGroupIds = new HashMap<>();
         Map<String, Group> groupIdToGroup = new HashMap<>();
 
-        for (Lesson lesson: lessons) {
+        for (StaticLesson lesson: lessons) {
             String groupIds = lesson.getGroupIds();
             if (groupIds != null) {
                 List<String> ids = StringUtils.split(groupIds, ',');
@@ -38,7 +38,7 @@ public class GroupService {
             }
         }
 
-        for (Lesson lesson: lessons) {
+        for (StaticLesson lesson: lessons) {
             List<String> groupIds = lessonIdToGroupIds.get(lesson.getId());
             mapGroupsOnLesson(lesson, groupIds, groupIdToGroup);
         }
@@ -46,7 +46,7 @@ public class GroupService {
         return lessons;
     }
 
-    private void mapGroupsOnLesson(Lesson lesson, List<String> groupIds, Map<String, Group> groupIdToGroup) {
+    private void mapGroupsOnLesson(StaticLesson lesson, List<String> groupIds, Map<String, Group> groupIdToGroup) {
         if (groupIds == null) return;
         List<Group> groups = new ArrayList<>(groupIds.size());
         for (String groupId: groupIds) {

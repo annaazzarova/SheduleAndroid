@@ -2,6 +2,10 @@ package com.example.anna.shedule.application.schedule.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 import lombok.Getter;
 
 @Getter
@@ -11,6 +15,14 @@ public enum WeekPeriodicity {
     BOTH(3);
 
     private int id;
+
+    private static final long START_OF_YEAR_2015;
+
+    static {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2015, 0, 0);
+        START_OF_YEAR_2015 = calendar.getTimeInMillis();
+    }
 
     WeekPeriodicity(int id) {
         this.id = id;
@@ -33,6 +45,13 @@ public enum WeekPeriodicity {
             case "both": return BOTH;
             default: return null;
         }
+    }
+
+    public static WeekPeriodicity getPeriodicity(long timeInMillis) {
+        long diff = timeInMillis - START_OF_YEAR_2015;
+        long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+        int currentWeek = (int)(days / 7);
+        return (currentWeek % 2 == 0) ? BLUE : RED;
     }
 
 }

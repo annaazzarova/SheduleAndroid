@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.content.WakefulBroadcastReceiver;
 
-import com.example.anna.shedule.service.ScheduleService;
+import com.example.anna.shedule.service.ScheduleIntentService;
 
 public class AlarmReceiver extends WakefulBroadcastReceiver {
 
@@ -17,7 +17,7 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Intent service = new Intent(context, ScheduleService.class);
+        Intent service = new Intent(context, ScheduleIntentService.class);
         startWakefulService(context, service);
     }
 

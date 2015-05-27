@@ -6,8 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.anna.shedule.application.note.model.Note;
+import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.Group;
-import com.example.anna.shedule.application.schedule.model.Lesson;
+import com.example.anna.shedule.application.schedule.model.StaticLesson;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.utils.ContextUtils;
 
@@ -152,7 +154,9 @@ public class Database {
     private void initDatabase() {
         createTable(User.class);
         createTable(Group.class);
-        createTable(Lesson.class);
+        createTable(StaticLesson.class);
+        createTable(Change.class);
+        createTable(Note.class);
     }
 
     @SneakyThrows
