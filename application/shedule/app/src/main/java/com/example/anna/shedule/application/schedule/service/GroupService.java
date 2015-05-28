@@ -17,6 +17,8 @@ import static com.example.anna.shedule.application.database.Database.getDbInstan
 
 public class GroupService {
 
+    private List<Group> groups;
+
     public List<StaticLesson> mapGroupsOnLessons(List<StaticLesson> lessons) {
         Set<String> setOfGroupIds = new HashSet<>();
         Map<Long, List<String>> lessonIdToGroupIds = new HashMap<>();
@@ -46,6 +48,55 @@ public class GroupService {
         return lessons;
     }
 
+    public Set<String> getFaculties() {
+        Set<String> faculties = new HashSet<>();
+        for (Group group: getGroups()) {
+            String faculty = group.getFaculty();
+            if (faculty != null) {
+                faculties.add(faculty);
+            }
+        }
+        return faculties;
+    }
+
+    public Set<String> getSpecialities(String faculty) {
+        Set<String> specialities = new HashSet<>();
+        for (Group group: getGroups()) {
+            String groupFaculty = group.getFaculty();
+            String speciality = group.getSpecialty();
+            if (faculty.equals(groupFaculty) && speciality != null) {
+                specialities.add(speciality);
+            }
+        }
+        return specialities;
+    }
+
+    public Set<String> getCourses(String faculty, String speciality) {
+        Set<String> courses = new HashSet<>();
+        for (Group group: getGroups()) {
+            String groupFaculty = group.getFaculty();
+            String groupSpecialty = group.getSpecialty();
+            String course = group.getCourse();
+            if (faculty.equals(groupFaculty) && speciality.equals(groupSpecialty) && course != null) {
+                courses.add(course);
+            }
+        }
+        return courses;
+    }
+
+    public List<Group> getGroups(String faculty, String speciality, String course) {
+        List<Group> groups = new ArrayList<>();
+        for (Group group: getGroups()) {
+            String groupFaculty = group.getFaculty();
+            String groupSpecialty = group.getSpecialty();
+            String groupCourse = group.getCourse();
+            if (faculty.equals(groupFaculty) && speciality.equals(groupSpecialty) && course.equals(groupCourse)) {
+                groups.add(group);
+            }
+        }
+        return groups;
+    }
+
     private void mapGroupsOnLesson(StaticLesson lesson, List<String> groupIds, Map<String, Group> groupIdToGroup) {
         if (groupIds == null) return;
         List<Group> groups = new ArrayList<>(groupIds.size());
@@ -66,4 +117,14 @@ public class GroupService {
         return getDbInstance().getByQuery(Group.class, query);
     }
 
+    public List<Group> getGroups() {
+        if (groups == null) {
+            groups = getGroupsFromDb();
+        }
+        return groups;
+    }
+
+    public List<Group> getGroupsFromDb() {
+        return getDbInstance().getAll(Group.class);
+    }
 }

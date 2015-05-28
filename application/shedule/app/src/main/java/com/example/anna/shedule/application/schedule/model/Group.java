@@ -21,6 +21,7 @@ public class Group implements Entity {
     private String specialty;
     private String groupCode;
     private String formOfEducation;
+    private String course;
 
     @Override
     public void save(ContentValues values) {
@@ -29,6 +30,7 @@ public class Group implements Entity {
         values.put("specialty", specialty);
         values.put("groupCode", groupCode);
         values.put("formOfEducation", formOfEducation);
+        values.put("course", course);
     }
 
     @Override
@@ -40,6 +42,7 @@ public class Group implements Entity {
         specialty = cursor.getString(4);
         groupCode = cursor.getString(5);
         formOfEducation = cursor.getString(6);
+        course = cursor.getString(7);
     }
 
     @Override
@@ -71,6 +74,6 @@ public class Group implements Entity {
     @Override
     public String getSqlTableFields() {
         return "groupId VARCHAR, group VARCHAR, faculty VARCHAR, " +
-                "specialty VARCHAR, groupCode VARCHAR, formOfEducation VARCHAR";
+                "specialty VARCHAR, groupCode VARCHAR, formOfEducation VARCHAR, course VARCHAR";
     }
 }
