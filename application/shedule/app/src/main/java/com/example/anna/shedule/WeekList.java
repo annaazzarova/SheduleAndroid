@@ -73,19 +73,8 @@ public class WeekList extends ListFragment {
             lessons = 0;
         }
 
-        FragmentManager myFragmentManager = getFragmentManager();
-
-        DayList fragment = new DayList();
-
         Bundle bundle = new Bundle();
         bundle.putInt("someInt", lessons);
-
-        fragment.setArguments(bundle);
-
-        FragmentTransaction fragmentTransaction = myFragmentManager
-                .beginTransaction();
-        fragmentTransaction.replace(R.id.fragment2, fragment);
-        fragmentTransaction.commit();
 
 
         Toast.makeText(

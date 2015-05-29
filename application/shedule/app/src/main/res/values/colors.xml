@@ -5,5 +5,10 @@
     <color name="color_list_item_inactive">#6A9B9F</color>
     <color name="color_list_item_inactive_text">#b5c1c1</color>
     <color name="color_list_item_active_text">#E3EEF0</color>
+    <color name="note_title">#212121</color>
+    <color name="text_light">#757575</color>
+    <color name="class_leader_icon_background">#C5CAE9</color>
+    <color name="teacher_icon_background">#FC5B5B</color>
+    <color name="notes_list_background_color">#EDEDED</color>
 
 </resources>
