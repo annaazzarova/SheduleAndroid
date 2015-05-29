@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="color_status_bar">#222b60</color>
+    <color name="color_background_for_blue_buttons">#3F51B5</color>
+    <color name="color_background_for_red_buttons">#fc5b5b</color>
+    <color name="color_background_activity">#ff2a347c</color>
     <color name="color_list_item_active">#85c2c5</color>
     <color name="color_list_item_inactive">#6A9B9F</color>
     <color name="color_list_item_inactive_text">#b5c1c1</color>

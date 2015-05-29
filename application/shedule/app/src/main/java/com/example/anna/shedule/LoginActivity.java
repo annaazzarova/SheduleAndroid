@@ -54,6 +54,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+//        ActionBar actionBar = getActionBar();
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.login);
         populateAutoComplete();
