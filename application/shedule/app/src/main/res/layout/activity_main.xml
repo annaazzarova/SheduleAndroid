@@ -1,26 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <fragment
-        android:name="com.example.anna.shedule.WeekList"
-        android:id="@+id/fragment1"
-        android:layout_width="44dp"
-        android:layout_height="match_parent"
-        tools:layout="@layout/left_column" />
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
 
-    <FrameLayout
-        android:id="@+id/blue_line"
-        android:layout_width="8dp"
-        android:layout_height="match_parent"
-        android:background="@color/color_list_item_active" />
+    <com.example.anna.shedule.SlidingTabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:background="@color/colorTabsBackground"/>
 
-    <FrameLayout
-        android:id="@+id/fragment2"
-        android:layout_width="310dp"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
         android:layout_height="match_parent"
-        tools:layout = "@layout/right_recycle_list" />
+        android:layout_width="match_parent"></android.support.v4.view.ViewPager>
 
 </LinearLayout>

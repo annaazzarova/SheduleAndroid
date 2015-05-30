@@ -1,38 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    style="@style/card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:divider="@color/colorListDividor">
 
-    <!-- Card visible layout -->
-    <it.gmariotti.cardslib.library.view.ForegroundLinearLayout
-        android:id="@+id/card_main_layout"
-        style="@style/card.main_layout_foreground"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="18dp">
 
-        <!-- Main Content View -->
-        <FrameLayout
-            android:id="@+id/card_main_content_layout"
-            style="@style/card.content_outer_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/table">
 
-    </it.gmariotti.cardslib.library.view.ForegroundLinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="10dp"
+                android:showDividers="middle|beginning|end">
 
-    <!-- Expand layout. You can customize this element with your CardExpand class -->
-    <FrameLayout
-        android:id="@+id/card_content_expand_layout"
-        style="@style/card.main_contentExpand"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+                <TextView
+                    android:id="@+id/startTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/time_text_size"
+                    android:text="9:00"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTimeText"
+                    android:layout_marginTop="4dp" />
 
-    </FrameLayout>
+                <TextView
+                    android:id="@+id/endTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/time_text_size"
+                    android:text="11:30"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTimeText"
+                    android:layout_marginTop="20dp"/>
+            </LinearLayout>
+            <View
+                android:id="@+id/line1"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#FF909090"
+                android:padding="2dp" />
+>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/textType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/lesson_type_text_size"
+                    android:text="Лекция"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/textLesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/main_text_size"
+                    android:text="TextView"
+                    android:textColor="@color/colorMainText"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/textGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/more_info_text_size"
+                    android:text="text"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+
+            </LinearLayout>
+         </TableRow>
+    </TableLayout>
 
 </LinearLayout>

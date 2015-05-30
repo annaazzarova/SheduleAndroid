@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#2e3b84</color>
 
-    <color name="color_list_item_active">#85c2c5</color>
-    <color name="color_list_item_inactive">#6A9B9F</color>
-    <color name="color_list_item_inactive_text">#b5c1c1</color>
-    <color name="color_list_item_active_text">#E3EEF0</color>
-    <color name="color_list_item_background">#606062</color>
-    <color name="color_list_shadow_right_inactive">#486b6d</color>
-    <color name="color_list_shadow_right">#3c3c3e</color>
-    <color name="color_list_shadow_bottom">#3e3e40</color>
+    <color name="fab_colorNormal">#3F51B5</color>
+    <color name="fab_colorPressed">#2e3b84</color>
+    <color name="fab_colorRipple">#2e3b84</color>
 
-    <color name="card_backgroundExpand">#515254</color>
-    <color name="card_native_background">@android:color/transparent</color>
+    <color name="colorLightText">#ffffff</color>
 
+    <color name="colorTabsBackground">#ffffff</color>
+    <color name="colorTabsTextColorActive">#3F51B5</color>
+    <color name="colorTabsTextColorInctive">#BCBCBC</color>
+    <color name="colorTabsScrollColor">#3f51b5</color>
+
+    <color name="colorMainText">#212121</color>
+    <color name="colorSecondaryText">#212121</color>
+    757575
+    <color name="colorTimeText">#707070</color>
+
+    <color name="colorButton">#FC5B5B</color>
+
+    <color name="colorListDividor">#f7f7f7</color>
 </resources>

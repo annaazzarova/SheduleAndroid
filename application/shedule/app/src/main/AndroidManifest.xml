@@ -22,17 +22,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name=".GroupSelectionActivity"
+            android:name=".login.GroupSelectionActivity"
             android:label="@string/title_activity_group_selection"
-            android:parentActivityName=".LoginActivity" >
+            android:parentActivityName=".login.LoginActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.anna.shedule.LoginActivity" />
+                android:value=".login.LoginActivity" />
         </activity>
     </application>
 
