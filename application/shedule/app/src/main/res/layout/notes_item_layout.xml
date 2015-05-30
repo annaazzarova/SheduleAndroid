@@ -61,7 +61,7 @@
             <TextView
                 android:id="@+id/note_text"
                 android:text="Example Text Example Text Example Text Example Text Example Text Example Text Example Text"
-                android:textSize="@dimen/text_size"
+                android:textSize="15sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"

@@ -15,4 +15,18 @@
         <item>дек</item>
     </string-array>
 
+    <string-array name="nav_drawer_items">
+        <item>Расписание</item>
+        <item>Изменения</item>
+        <item>Настройки</item>
+        <item>О приложении</item>
+    </string-array>
+
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_event_note_black_24dp</item>
+        <item>@drawable/ic_chat_black_24dp</item>
+        <item>@drawable/ic_settings_black_24dp</item>
+        <item>@drawable/ic_info_black_24dp</item>
+    </array>
+
 </resources>

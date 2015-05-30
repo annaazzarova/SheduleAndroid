@@ -1,6 +1,5 @@
-package com.example.anna.shedule;
+package com.example.anna.shedule.activities;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,17 +9,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import com.example.anna.shedule.activities.menu.BaseActivity;
+import com.example.anna.shedule.R;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import lombok.Data;
 
-public class NotesListActivity extends Activity {
+public class NotesListActivity extends BaseActivity {
 
     private String classLeader;
     private String[] months;

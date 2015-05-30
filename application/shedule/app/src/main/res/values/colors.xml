@@ -6,9 +6,16 @@
     <color name="color_list_item_inactive_text">#b5c1c1</color>
     <color name="color_list_item_active_text">#E3EEF0</color>
     <color name="note_title">#212121</color>
-    <color name="text_light">#757575</color>
+    <color name="gray">#757575</color>
+
+    <color name="text_light">@color/gray</color>
     <color name="class_leader_icon_background">#C5CAE9</color>
     <color name="teacher_icon_background">#FC5B5B</color>
     <color name="notes_list_background_color">#EDEDED</color>
+    <color name="color_primary">#3F51B5</color>
+    <color name="window_background">#fff</color>
+
+    <color name="menu_icon_color">@color/gray</color>
+    <color name="selected_menu_item">@color/color_primary</color>
 
 </resources>
