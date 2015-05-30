@@ -27,4 +27,8 @@
     <string name="select_course">Выберите курс:</string>
     <string name="select_group">Выберите группу:</string>
     <string name="title_activity_group_selection">GroupSelectionActivity</string>
+    <string name="title_activity_main_activity_new">MainActivityNew</string>
+    <string name="btnStudentName">Студент</string>
+    <string name="btnTeacherName">Преподаватель</string>
+    <string name="btnStewardName">Староста</string>
 </resources>
