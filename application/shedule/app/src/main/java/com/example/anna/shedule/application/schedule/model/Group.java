@@ -27,13 +27,13 @@ public class Group implements Entity {
     private String faculty;
 
     @JsonProperty
-    private String specialty;
+    private String speciality;
 
     @JsonProperty
     private String code;
 
     @JsonProperty
-    private String educationFrom;
+    private String educationForm;
 
     @JsonProperty
     private String course;
@@ -42,9 +42,9 @@ public class Group implements Entity {
     public void save(ContentValues values) {
         values.put("groupId", groupId);
         values.put("faculty", faculty);
-        values.put("specialty", specialty);
+        values.put("speciality", speciality);
         values.put("code", code);
-        values.put("educationFrom", educationFrom);
+        values.put("educationForm", educationForm);
         values.put("course", course);
         values.put("groupNumber", group);
     }
@@ -55,9 +55,9 @@ public class Group implements Entity {
         groupId = cursor.getString(1);
         group = cursor.getString(2);
         faculty = cursor.getString(3);
-        specialty = cursor.getString(4);
+        speciality = cursor.getString(4);
         code = cursor.getString(5);
-        educationFrom = cursor.getString(6);
+        educationForm = cursor.getString(6);
         course = cursor.getString(7);
     }
 
@@ -80,8 +80,8 @@ public class Group implements Entity {
             sep = " ";
         }
 
-        if (educationFrom != null) {
-            res += sep + "(" + educationFrom + ")";
+        if (educationForm != null) {
+            res += sep + "(" + educationForm + ")";
         }
 
         return res;
@@ -90,6 +90,6 @@ public class Group implements Entity {
     @Override
     public String getSqlTableFields() {
         return " groupId VARCHAR, groupNumber VARCHAR, faculty VARCHAR, " +
-                "specialty VARCHAR, code VARCHAR, educationFrom VARCHAR, course VARCHAR";
+                "speciality VARCHAR, code VARCHAR, educationForm VARCHAR, course VARCHAR";
     }
 }

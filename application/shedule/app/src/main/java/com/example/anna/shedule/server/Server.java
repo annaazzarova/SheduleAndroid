@@ -2,6 +2,7 @@ package com.example.anna.shedule.server;
 
 import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.schedule.model.Change;
+import com.example.anna.shedule.application.schedule.model.Group;
 import com.example.anna.shedule.application.schedule.model.StaticLesson;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.server.dto.request.LoginRequest;
@@ -115,5 +116,11 @@ public class Server {
     public static ServerResponseArray<Note> getNotesByTeacherId(String lastNoteId, String userId) {
         // todo implement me
         return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
+    }
+
+    public static ServerResponseArray<Group> getAllGroups() {
+        String groupsPath = SERVER_ULR + "group";
+        ResponseWithStatusCode response = MessageTransfer.get(groupsPath);
+        return convertToArrayResponse(response, Group.class);
     }
 }

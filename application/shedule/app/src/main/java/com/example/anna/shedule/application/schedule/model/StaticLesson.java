@@ -99,6 +99,6 @@ public class StaticLesson implements Entity {
     public String getSqlTableFields() {
         return "title VARCHAR, hull VARCHAR, auditory VARCHAR, dayOfWeek INTEGER, " +
                 "teacherId VARCHAR, weekPeriodicity INTEGER, lessonTime INTEGER, " +
-                "lessonId VARCHAR, teacherName VARCHAR type VARCHAR";
+                "lessonId VARCHAR, teacherName VARCHAR, type VARCHAR";
     }
 }
