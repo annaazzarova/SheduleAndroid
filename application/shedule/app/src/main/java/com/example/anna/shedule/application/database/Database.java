@@ -153,10 +153,10 @@ public class Database {
 
     private void initDatabase() {
         createTable(User.class);
-        createTable(Group.class);
         createTable(StaticLesson.class);
         createTable(Change.class);
         createTable(Note.class);
+        createTable(Group.class);
     }
 
     @SneakyThrows
@@ -167,7 +167,7 @@ public class Database {
 
     private void createTable(String tableName, String fields) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + tableName +
-                "(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE," + fields + ")");
+                "(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, " + fields + ")");
     }
 
     private static boolean isDatabaseExists() {

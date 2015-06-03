@@ -36,32 +36,32 @@ public class RequestFactory {
 
     public ServerResponse<Object> cancelChange(String changeId) {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).cancelChange(changeId, user.getExtendedId());
+        return getRequestsByUser(user).cancelChange(changeId, user.getGroupId());
     }
 
     public ServerResponse<Change> createChange(Change change) {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).createChange(change, user.getExtendedId());
+        return getRequestsByUser(user).createChange(change, user.getGroupId());
     }
 
     public ServerResponse<Change> updateChange(Change change) {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).updateChange(change, user.getExtendedId());
+        return getRequestsByUser(user).updateChange(change, user.getGroupId());
     }
 
     public ServerResponse<Note> createNote(Note note) {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).createNote(note, user.getExtendedId());
+        return getRequestsByUser(user).createNote(note, user.getGroupId());
     }
 
     public ServerResponseArray<StaticLesson> getScheduleByCurrentUser() {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).getSchedule(user.getExtendedId());
+        return getRequestsByUser(user).getSchedule(user.getGroupId());
     }
 
     public ServerResponseArray<Note> getNotes(String lastNoteId) {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).getNotes(lastNoteId, user.getExtendedId());
+        return getRequestsByUser(user).getNotes(lastNoteId, user.getGroupId());
     }
 
     private abstract static class Requests {
@@ -100,7 +100,7 @@ public class RequestFactory {
     private static Requests TEACHER_REQUESTS = new Requests() {
         @Override
         public ServerResponseArray<Change> getScheduleChanges(User user, long dateFrom, long dateTo) {
-            return Server.getScheduleChangesByTeacher(dateFrom, dateTo, user.getExtendedId());
+            return Server.getScheduleChangesByTeacher(dateFrom, dateTo, user.getGroupId());
         }
 
         @Override
@@ -124,7 +124,7 @@ public class RequestFactory {
     private static Requests STUDENT_REQUESTS = new Requests() {
         @Override
         public ServerResponseArray<Change> getScheduleChanges(User user, long dateFrom, long dateTo) {
-            return Server.getScheduleChangesByStudent(dateFrom, dateTo, user.getExtendedId());
+            return Server.getScheduleChangesByStudent(dateFrom, dateTo, user.getGroupId());
         }
 
         @Override
@@ -143,7 +143,7 @@ public class RequestFactory {
     private static Requests CLASS_LEADER_REQUESTS = new Requests() {
         @Override
         public ServerResponseArray<Change> getScheduleChanges(User user, long dateFrom, long dateTo) {
-            return Server.getScheduleChangesByClassLeader(dateFrom, dateTo, user.getExtendedId());
+            return Server.getScheduleChangesByClassLeader(dateFrom, dateTo, user.getGroupId());
         }
 
         @Override
