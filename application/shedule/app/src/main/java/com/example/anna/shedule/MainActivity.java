@@ -18,8 +18,7 @@ import com.example.anna.shedule.utils.ContextUtils;
 import java.util.Calendar;
 
 
-public class MainActivity extends ActionBarActivity implements
-        DayList.OnFragmentInteractionListener{
+public class MainActivity extends ActionBarActivity{
     
     // Declaring Your View and Variables
 
@@ -67,7 +66,6 @@ public class MainActivity extends ActionBarActivity implements
         });
         slidingTabLayout.setViewPager(viewPager);
 
-
         //Database.dropDatabase();
 
         final UserService userService = new UserService();
@@ -81,7 +79,7 @@ public class MainActivity extends ActionBarActivity implements
 //            List<StaticLesson> lessons34 = staticLessonsService.getLessons(WeekPeriodicity.BLUE, 5);
 
         } else {
-            userService.login("нехорошкова л.г.", "NJZR4QB_S", new UserService.LoginListener() {
+            userService.login("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ.", "NJZR4QB_S", new UserService.LoginListener() {
                 @Override
                 public void onSuccess(User user) {
                     final StaticLessonsService staticLessonsService = new StaticLessonsService();
@@ -116,10 +114,5 @@ public class MainActivity extends ActionBarActivity implements
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 }

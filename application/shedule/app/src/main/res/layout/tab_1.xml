@@ -27,5 +27,4 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="false"
         android:layout_alignBottom="@+id/listView" />
-
 </RelativeLayout>
