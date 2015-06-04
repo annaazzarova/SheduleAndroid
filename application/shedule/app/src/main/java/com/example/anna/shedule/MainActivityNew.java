@@ -1,17 +1,33 @@
 package com.example.anna.shedule;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
-public class MainActivityNew extends ActionBarActivity {
+public class MainActivityNew extends ActionBarActivity implements View.OnClickListener {
+    Button btnStudent = null;
+    Button btnTeacher = null;
+    Button btnSteward = null;
+    Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity_new);
+
+        btnStudent = (Button) findViewById(R.id.btnStudent);
+        btnTeacher = (Button) findViewById(R.id.btnTeacher);
+        btnSteward = (Button) findViewById(R.id.btnSteward);
+
+        btnStudent.setOnClickListener(this);
+        btnSteward.setOnClickListener(this);
+        btnTeacher.setOnClickListener(this);
+        intent = new Intent(MainActivityNew.this, com.example.anna.shedule.login.LoginActivity.class);
     }
 
     @Override
@@ -34,5 +50,23 @@ public class MainActivityNew extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnStudent:
+                intent.putExtra("TypeUser", R.id.btnStudent);
+                startActivity(intent);
+                break;
+            case R.id.btnTeacher:
+                intent.putExtra("TypeUser", R.id.btnTeacher);
+                startActivity(intent);
+                break;
+            case R.id.btnSteward:
+                intent.putExtra("TypeUser", R.id.btnSteward);
+                startActivity(intent);
+                break;
+        }
     }
 }

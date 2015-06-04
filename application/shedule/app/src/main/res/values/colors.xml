@@ -13,6 +13,8 @@
     <color name="color_list_shadow_right">#3c3c3e</color>
     <color name="color_list_shadow_bottom">#3e3e40</color>
 
+    <color name="collor_for_view_underscore">#e0e0e0</color>
+    
     <color name="colorLightText">#ffffff</color>
 
     <color name="colorPrimary">#3f51b5</color>
@@ -33,6 +35,7 @@
 
     <color name="colorMainText">#212121</color>
     <color name="colorSecondaryText">#212121</color>
+    <!--757575-->
     <color name="colorTimeText">#707070</color>
 
     <color name="colorButton">#FC5B5B</color>
