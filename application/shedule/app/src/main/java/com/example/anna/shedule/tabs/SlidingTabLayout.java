@@ -1,8 +1,7 @@
-package com.example.anna.shedule;
+package com.example.anna.shedule.tabs;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
@@ -15,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.anna.shedule.R;
 
 
 public class SlidingTabLayout extends HorizontalScrollView {
@@ -46,6 +47,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private ViewPager.OnPageChangeListener mViewPagerPageChangeListener;
 
     private final SlidingTabStrip mTabStrip;
+    public String[] subtitle= new String[] {"ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ"};
 
     public SlidingTabLayout(Context context) {
         this(context, null);
@@ -90,6 +92,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
      */
     public void setSelectedIndicatorColors(int... colors) {
         mTabStrip.setSelectedIndicatorColors(colors);
+
     }
 
     /**
@@ -160,12 +163,14 @@ public class SlidingTabLayout extends HorizontalScrollView {
         for (int i = 0; i < adapter.getCount(); i++) {
             View tabView = null;
             TextView tabTitleView = null;
+            TextView tabSubtitleView = null;
 
             if (mTabViewLayoutId != 0) {
                 // If there is a custom tab view layout id set, try and inflate it
                 tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip,
                         false);
-                tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);
+                tabSubtitleView = (TextView) tabView.findViewById(R.id.tabDayTitle);
+                tabTitleView = (TextView) tabView.findViewById(R.id.tabTitle);
             }
 
             if (tabView == null) {
@@ -181,6 +186,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 lp.width = 0;
                 lp.weight = 1;
             }
+            tabSubtitleView.setText(subtitle[i]);
             tabTitleView.setText(adapter.getPageTitle(i));
             tabView.setOnClickListener(tabClickListener);
             String desc = mContentDescriptions.get(i, null);

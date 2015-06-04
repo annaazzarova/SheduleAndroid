@@ -11,6 +11,7 @@
         android:id="@+id/action_search"
         android:orderInCategory="200"
         android:title="СЕГОДНЯ"
+        android:textSize="14dp"
         app:showAsAction="ifRoom"
         ></item>
 </menu>

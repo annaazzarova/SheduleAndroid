@@ -15,6 +15,17 @@
 
     <color name="colorLightText">#ffffff</color>
 
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#2e3b84</color>
+
+    <color name="fab_colorNormal">#3f51b5</color>
+    <color name="fab_colorPressed">#2e3b84</color>
+    <color name="fab_colorRipple">#2e3b84</color>
+
+    <color name="colorTabDayText">#dedede</color>
+    <color name="colorTabDateText">#bdbdbd</color>
+    <color name="colorTabDateActiveText">#3f51b5</color>
+
     <color name="colorTabsBackground">#ffffff</color>
     <color name="colorTabsTextColorActive">#3F51B5</color>
     <color name="colorTabsTextColorInctive">#BCBCBC</color>
@@ -22,7 +33,6 @@
 
     <color name="colorMainText">#212121</color>
     <color name="colorSecondaryText">#212121</color>
-    757575
     <color name="colorTimeText">#707070</color>
 
     <color name="colorButton">#FC5B5B</color>

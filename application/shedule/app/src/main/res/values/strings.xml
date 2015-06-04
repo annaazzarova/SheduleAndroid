@@ -31,4 +31,6 @@
     <string name="btnStudentName">Студент</string>
     <string name="btnTeacherName">Преподаватель</string>
     <string name="btnStewardName">Староста</string>
+
+    <string name="cancel">Отменена</string>
 </resources>

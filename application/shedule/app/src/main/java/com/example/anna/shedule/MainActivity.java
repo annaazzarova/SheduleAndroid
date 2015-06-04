@@ -1,18 +1,17 @@
 package com.example.anna.shedule;
 
+import android.content.SharedPreferences;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import com.example.anna.shedule.tabs.SampleFragmentPagerAdapter;
+import com.example.anna.shedule.tabs.SlidingTabLayout;
+
 import java.util.Calendar;
-import java.util.Date;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -20,20 +19,17 @@ public class MainActivity extends ActionBarActivity {
     // Declaring Your View and Variables
 
     Toolbar toolbar;
-    ViewPager pager;
-    ViewPagerAdapter adapter;
-    SlidingTabLayout tabs;
-    CharSequence Titles[]={"", "", "", "", "", ""};
-    int Numboftabs = 6;
+    public String[] Titles= new String[] {"", "", "", "", "", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         Calendar c = Calendar.getInstance();
         int date = c.get(Calendar.DATE);
-        int day_of_week = c.get(Calendar.DAY_OF_WEEK_IN_MONTH);
+        int day_of_week = c.get(Calendar.DAY_OF_WEEK);
         int firstdate = date - day_of_week +1;
         for (int i = 0; i != 6; ++i){
             Titles[i] = String.valueOf(firstdate++);
@@ -47,28 +43,26 @@ public class MainActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
 
+        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
+                MainActivity.this, Titles));
 
-        // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
-        adapter =  new ViewPagerAdapter(getSupportFragmentManager(),Titles,Numboftabs);
-
-        // Assigning ViewPager View and setting the adapter
-        pager = (ViewPager) findViewById(R.id.pager);
-        pager.setAdapter(adapter);
-
-        // Assiging the Sliding Tab Layout View
-        tabs = (SlidingTabLayout) findViewById(R.id.tabs);
-        tabs.setDistributeEvenly(true); // To make the Tabs Fixed set this true, This makes the tabs Space Evenly in Available width
-
-        // Setting Custom Color for the Scroll bar indicator of the Tab View
-        tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+        // Give the SlidingTabLayout the ViewPager
+        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tabs);
+        // Set custom tab layout
+        slidingTabLayout.setCustomTabView(R.layout.custom_tab_view, 0);
+        // Center the tabs in the layout
+        slidingTabLayout.setDistributeEvenly(true);
+        // Customize tab color
+        slidingTabLayout.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
             @Override
             public int getIndicatorColor(int position) {
-                return getResources().getColor(R.color.colorTabsScrollColor);
+                return getResources().getColor(R.color.colorPrimary);
             }
         });
+        slidingTabLayout.setViewPager(viewPager);
 
-        // Setting the ViewPager For the SlidingTabsLayout
-        tabs.setViewPager(pager);
+
     }
 
     @Override

@@ -1,11 +1,10 @@
-package com.example.anna.shedule;
+package com.example.anna.shedule.tabs;
 
 import android.graphics.Color;
 
 import android.R;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.TypedValue;

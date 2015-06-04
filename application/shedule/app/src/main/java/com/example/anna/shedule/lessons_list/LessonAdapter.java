@@ -1,4 +1,4 @@
-package com.example.anna.shedule;
+package com.example.anna.shedule.lessons_list;
 
 /**
  * Created by Anna on 29.05.2015.
@@ -10,9 +10,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.anna.shedule.R;
 
 import java.util.ArrayList;
 
@@ -59,6 +60,12 @@ public class LessonAdapter extends BaseAdapter{
         rowView = inflater.inflate(R.layout.card_layout, null);
         TextView tw_lesson = (TextView) rowView.findViewById(R.id.textLesson);
         TextView tw_group = (TextView) rowView.findViewById(R.id.textGroup);
+        TextView tw_type = (TextView) rowView.findViewById(R.id.textType);
+        TextView tw_start = (TextView) rowView.findViewById(R.id.startTime);
+        TextView tw_end = (TextView) rowView.findViewById(R.id.endTime);
+        tw_start.setText(les.getStart());
+        tw_end.setText(les.getEnd());
+        tw_type.setText(les.getType());
         tw_lesson.setText(les.getLesson());
         tw_group.setText(les.getGroup());
         rowView.setOnClickListener(new OnClickListener() {
