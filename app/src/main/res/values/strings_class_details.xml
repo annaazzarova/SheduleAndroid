@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lesson_details_page_title">Занятие</string>
+    <string name="lesson_create_page_title">Создание занятия</string>
+    <string name="lesson_edit_page_title">Редактироваие занятия</string>
+
+    <string name="lesson_type_practice">Практика</string>
+    <string name="lesson_type_lection">Лекция</string>
+
+    <string name="lesson_housing_first">I</string>
+    <string name="lesson_housing_second">II</string>
+    <string name="lesson_housing_third">III</string>
+    <string name="lesson_housing_fourth">IV</string>
+    <string name="lesson_housing_fifth">V</string>
+
+    <string name="lesson_status_normal">Будет проведена</string>
+    <string name="lesson_status_cancelled">Отменена</string>
+
+    <string name="lesson_time_first">08:00 - 09:35</string>
+    <string name="lesson_time_second">09:45 - 11:20</string>
+    <string name="lesson_time_third">11:30 - 13:05</string>
+    <string name="lesson_time_fourth">13:30 - 15:05</string>
+    <string name="lesson_time_fifth">15:15 - 16:50</string>
+    <string name="lesson_time_sixth">17:00 - 18:35</string>
+    <string name="lesson_time_seventh">18:48 - 20:20</string>
+    <string name="title_activity_settings">settings</string>
+</resources>

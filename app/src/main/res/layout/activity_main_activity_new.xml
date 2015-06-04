@@ -1,0 +1,59 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/color_background_activity"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="P"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rectangle_rounded_all_blue"
+        android:id="@+id/textLogo"
+        android:width="164dp"
+        android:height="164dp"
+        android:textAlignment="center"
+        android:textSize="85dp"
+        android:paddingTop="30dp"
+        android:paddingLeft="61dp"
+        android:layout_marginTop="84dp"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/btnStudent"
+        android:layout_width="158dp"
+        android:layout_height="36dp"
+        android:background="@drawable/rectangle_rounded_all_red_for_buttons"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="78dp"
+        android:text="@string/btnStudentName"
+        android:singleLine="true" />
+        <!--android:textSize="12dp"-->
+
+    <Button
+        android:id="@+id/btnTeacher"
+        android:layout_width="158dp"
+        android:layout_height="36dp"
+        android:background="@drawable/rectangle_rounded_all_blue_for_buttons"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:text="@string/btnTeacherName"
+        android:singleLine="true" />
+        <!--android:textSize="12dp"-->
+
+    <Button
+        android:id="@+id/btnSteward"
+        android:layout_width="158dp"
+        android:layout_height="35dp"
+        android:background="@drawable/rectangle_rounded_all_blue_for_buttons"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:text="@string/btnStewardName"
+        android:singleLine="true" />
+        <!--android:textSize="12dp"-->
+</LinearLayout>

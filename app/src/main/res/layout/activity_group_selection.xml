@@ -1,0 +1,143 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.anna.shedule.GroupSelectionActivity"
+    android:clickable="true">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:gravity="left"
+        android:singleLine="true"
+        android:text="@string/select_faculty"
+        android:textColor="@android:color/black"
+        android:textSize="12dp" />
+
+    <Spinner
+        android:id="@+id/facultySpiner"
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:layout_marginTop="12dp"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:minHeight="17dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/collor_for_view_underscore" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="left"
+        android:singleLine="true"
+        android:text="@string/select_specialty"
+        android:textColor="@android:color/black"
+        android:textSize="12dp" />
+
+    <Spinner
+        android:id="@+id/specialtySpiner"
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:layout_marginTop="12dp"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:minHeight="17dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/collor_for_view_underscore" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="left"
+        android:singleLine="true"
+        android:text="@string/select_course"
+        android:textColor="@android:color/black"
+        android:textSize="12dp" />
+
+    <Spinner
+        android:id="@+id/courseSpiner"
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:layout_marginTop="12dp"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:minHeight="17dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/collor_for_view_underscore" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="left"
+        android:singleLine="true"
+        android:text="@string/select_group"
+        android:textColor="@android:color/black"
+        android:textSize="12dp" />
+
+    <Spinner
+        android:id="@+id/groupSpiner"
+        android:layout_width="match_parent"
+        android:layout_height="17dp"
+        android:layout_marginTop="12dp"
+        android:gravity="left"
+        android:layout_gravity="left"
+        android:minHeight="17dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/collor_for_view_underscore" />
+
+
+    <LinearLayout
+        android:layout_width="111dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rectangle_rounded_all_blue_for_buttons"
+        android:orientation="horizontal"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_sign_in"
+            android:textSize="16dp"
+            android:paddingLeft="25dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorLightText"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/right_arrow"/>
+
+    </LinearLayout>
+
+</LinearLayout>

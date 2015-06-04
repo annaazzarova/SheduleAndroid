@@ -1,0 +1,5 @@
+<!-- res/drawable/myrect_active_active.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#6a9b9f" />
+</shape>

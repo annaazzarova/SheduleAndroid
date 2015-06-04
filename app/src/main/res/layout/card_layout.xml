@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:divider="@color/colorListDividor">
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="18dp"
+        android:id="@+id/tableLayout">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/table">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="70dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="17dp"
+                android:showDividers="middle|beginning|end">
+
+                <TextView
+                    android:id="@+id/startTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/time_text_size"
+                    android:text="9:00"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTimeText"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/endTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/time_text_size"
+                    android:text="11:30"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTimeText"
+                    android:layout_marginTop="20dp"/>
+            </LinearLayout>
+            <View
+                android:id="@+id/line1"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#FF909090"
+                android:padding="2dp" />
+            >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/textType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/lesson_type_text_size"
+                    android:text="Лекция"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:id="@+id/textLesson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/main_text_size"
+                    android:text="TextView"
+                    android:textColor="@color/colorMainText"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:id="@+id/textGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/more_info_text_size"
+                    android:text="text"
+                    android:textColor="@color/colorSecondaryText"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="4dp" />
+
+
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tableLayout"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:textAlignment="center">
+        <TextView
+            android:layout_width="77dp"
+            android:layout_height="17dp"
+            android:text="@string/cancel"
+            android:id="@+id/label_cancel"
+            android:textSize="@dimen/label_text_size"
+            android:textColor="@color/colorLightText"
+            android:background="@drawable/rectangle_rounded_all_red_for_buttons"
+            android:textAlignment="center"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tableLayout"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/ic_assignment_grey"
+        android:layout_marginTop="20dp"
+        android:id="@+id/ic_notes"/>
+
+</RelativeLayout>
