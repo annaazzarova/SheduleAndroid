@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.example.anna.shedule.tabs.SampleFragmentPagerAdapter;
 import com.example.anna.shedule.tabs.SlidingTabLayout;
+import com.example.anna.shedule.application.database.Database;
 import com.example.anna.shedule.application.schedule.model.StaticLesson;
 import com.example.anna.shedule.application.schedule.model.WeekPeriodicity;
 import com.example.anna.shedule.application.schedule.service.StaticLessonsService;
@@ -80,27 +81,16 @@ public class MainActivity extends ActionBarActivity implements
 
             final StaticLessonsService staticLessonsService = new StaticLessonsService();
 
-            List<StaticLesson> lessons1 = staticLessonsService.getLessons(WeekPeriodicity.RED, 1);
-            List<StaticLesson> lessons33 = staticLessonsService.getLessons(WeekPeriodicity.RED, 5);
-            List<StaticLesson> lessons34 = staticLessonsService.getLessons(WeekPeriodicity.BLUE, 5);
+//            List<StaticLesson> lessons1 = staticLessonsService.getLessons(WeekPeriodicity.RED, 1);
+//            List<StaticLesson> lessons33 = staticLessonsService.getLessons(WeekPeriodicity.RED, 5);
+//            List<StaticLesson> lessons34 = staticLessonsService.getLessons(WeekPeriodicity.BLUE, 5);
 
         } else {
-
-            userService.loginTeacher("Нехорошкова Л.Г.", "нехорошкова", new UserService.LoginListener() {
+            userService.login("нехорошкова л.г.", "NJZR4QB_S", new UserService.LoginListener() {
                 @Override
                 public void onSuccess(User user) {
-                    new Thread(new Runnable() {
-
-                        final StaticLessonsService staticLessonsService = new StaticLessonsService();
-                        @Override
-                        public void run() {
-
-                            staticLessonsService.updateLessons();
-                            Log.e("", "");
-                            List<StaticLesson> lessons = staticLessonsService.getAllLessons();
-                            Log.e("", "");
-                        }
-                    }).start();
+                    final StaticLessonsService staticLessonsService = new StaticLessonsService();
+                    staticLessonsService.updateLessons();
                 }
 
                 @Override
@@ -108,7 +98,6 @@ public class MainActivity extends ActionBarActivity implements
                 }
             });
         }
-        
 
     }
 

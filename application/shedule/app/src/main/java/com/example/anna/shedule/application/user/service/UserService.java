@@ -2,9 +2,7 @@ package com.example.anna.shedule.application.user.service;
 
 
 import com.example.anna.shedule.application.user.model.User;
-import com.example.anna.shedule.application.user.model.UserType;
 import com.example.anna.shedule.server.Server;
-import com.example.anna.shedule.server.dto.LoginDTO;
 import com.example.anna.shedule.server.dto.response.ServerResponse;
 
 import static com.example.anna.shedule.application.database.Database.getDbInstance;
@@ -23,14 +21,6 @@ public class UserService {
             user = getUserFromDb();
         }
         return user;
-    }
-
-    public void loginTeacher(String username, String password, LoginListener listener) {
-        login(UserType.TEACHER, username, password, listener);
-    }
-
-    public void loginClassLeader(String username, String password, LoginListener listener) {
-        login(UserType.CLASS_LEADER, username, password, listener);
     }
 
     public User loginStudent(String groupId) {
@@ -59,13 +49,13 @@ public class UserService {
         return getDbInstance().getOneByQuery(User.class, selectUserQuery);
     }
 
-    private void login(final UserType userType, final String username, final String password, final LoginListener listener) {
+    public void login(final String username, final String password, final LoginListener listener) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                ServerResponse<LoginDTO> response = Server.login(username, password);
+                ServerResponse<User> response = Server.login(username, password);
                 if (response.isSuccess()) {
-                    login(userType, response.getResponse(), listener);
+                    login(response.getResponse(), listener);
                 } else {
                     listener.onError(response.getCode(), response.getMessage());
                 }
@@ -73,12 +63,8 @@ public class UserService {
         }).start();
     }
 
-    private void login(UserType userType, LoginDTO loginDto, LoginListener listener) {
-        User newUser = new User();
-        newUser.setName(loginDto.getName());
-        newUser.setType(userType);
-        newUser.setExtendedId(loginDto.getTeacherId());
-        user = getDbInstance().save(newUser);
+    private void login(User user, LoginListener listener) {
+        user = getDbInstance().save(user);
         listener.onSuccess(user);
     }
 }

@@ -1,7 +1,10 @@
 package com.example.anna.shedule.application.schedule.service;
 
+import com.example.anna.shedule.application.database.Database;
 import com.example.anna.shedule.application.schedule.model.Group;
 import com.example.anna.shedule.application.schedule.model.StaticLesson;
+import com.example.anna.shedule.server.Server;
+import com.example.anna.shedule.server.dto.response.ServerResponseArray;
 import com.example.anna.shedule.utils.StringUtils;
 
 import java.util.ArrayList;
@@ -63,7 +66,7 @@ public class GroupService {
         Set<String> specialities = new HashSet<>();
         for (Group group: getGroups()) {
             String groupFaculty = group.getFaculty();
-            String speciality = group.getSpecialty();
+            String speciality = group.getSpeciality();
             if (faculty.equals(groupFaculty) && speciality != null) {
                 specialities.add(speciality);
             }
@@ -75,7 +78,7 @@ public class GroupService {
         Set<String> courses = new HashSet<>();
         for (Group group: getGroups()) {
             String groupFaculty = group.getFaculty();
-            String groupSpecialty = group.getSpecialty();
+            String groupSpecialty = group.getSpeciality();
             String course = group.getCourse();
             if (faculty.equals(groupFaculty) && speciality.equals(groupSpecialty) && course != null) {
                 courses.add(course);
@@ -88,7 +91,7 @@ public class GroupService {
         List<Group> groups = new ArrayList<>();
         for (Group group: getGroups()) {
             String groupFaculty = group.getFaculty();
-            String groupSpecialty = group.getSpecialty();
+            String groupSpecialty = group.getSpeciality();
             String groupCourse = group.getCourse();
             if (faculty.equals(groupFaculty) && speciality.equals(groupSpecialty) && course.equals(groupCourse)) {
                 groups.add(group);
@@ -122,6 +125,16 @@ public class GroupService {
             groups = getGroupsFromDb();
         }
         return groups;
+    }
+
+    public boolean update() {
+        ServerResponseArray<Group> response = Server.getAllGroups();
+        if (response.isSuccess()) {
+            Database db = getDbInstance();
+            db.dropAllElements(Group.TABLE_NAME);
+            db.save(response.getResponse());
+        }
+        return response.isSuccess();
     }
 
     public List<Group> getGroupsFromDb() {
