@@ -1,25 +1,20 @@
 package com.example.anna.shedule;
 
-import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.anna.shedule.tabs.SampleFragmentPagerAdapter;
-import com.example.anna.shedule.tabs.SlidingTabLayout;
-import com.example.anna.shedule.application.database.Database;
-import com.example.anna.shedule.application.schedule.model.StaticLesson;
-import com.example.anna.shedule.application.schedule.model.WeekPeriodicity;
 import com.example.anna.shedule.application.schedule.service.StaticLessonsService;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.service.UserService;
+import com.example.anna.shedule.tabs.SampleFragmentPagerAdapter;
+import com.example.anna.shedule.tabs.SlidingTabLayout;
 import com.example.anna.shedule.utils.ContextUtils;
 
-import java.util.List;
 import java.util.Calendar;
 
 

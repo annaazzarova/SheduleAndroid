@@ -22,6 +22,8 @@
         fab:fab_colorNormal="@color/fab_colorNormal"
         fab:fab_colorPressed="@color/fab_colorPressed"
         fab:fab_colorRipple="@color/fab_colorRipple"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="false"
         android:layout_alignBottom="@+id/listView" />
