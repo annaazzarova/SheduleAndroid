@@ -120,7 +120,8 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/rectangle_rounded_all_blue_for_buttons"
         android:orientation="horizontal"
-        android:clickable="true">
+        android:clickable="true"
+        android:id="@+id/btnEntry">
 
         <TextView
             android:layout_width="wrap_content"

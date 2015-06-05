@@ -1,5 +1,6 @@
 package com.example.anna.shedule;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -7,6 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.anna.shedule.application.schedule.service.GroupService;
+import com.example.anna.shedule.application.services.Services;
+import com.example.anna.shedule.utils.ContextUtils;
 
 
 public class MainActivityNew extends ActionBarActivity implements View.OnClickListener {
@@ -19,6 +25,29 @@ public class MainActivityNew extends ActionBarActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity_new);
+
+        final ProgressDialog prog1 = new ProgressDialog(MainActivityNew.this);
+        prog1.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        prog1.setMessage("wait please");
+        prog1.setIndeterminate(true); // выдать значек ожидания
+        prog1.setCancelable(true);
+        prog1.show();
+
+        ContextUtils.setContext(getApplicationContext());
+        final GroupService groupService = Services.getService(GroupService.class);
+        groupService.update(new GroupService.GroupListener() {
+            @Override
+            public void onSuccess() {
+                prog1.cancel();
+            }
+
+            @Override
+            public void onError() {
+                Toast.makeText(getApplicationContext(), "Проверьте соединение с интернетом!", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
 
         btnStudent = (Button) findViewById(R.id.btnStudent);
         btnTeacher = (Button) findViewById(R.id.btnTeacher);
