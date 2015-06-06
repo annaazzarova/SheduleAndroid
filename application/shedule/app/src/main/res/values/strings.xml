@@ -11,12 +11,6 @@
     <string name="nav_item_friends">Friends</string>
     <string name="nav_item_notifications">Messages</string>
 
-    <!-- navigation drawer item labels  -->
-    <string-array name="nav_drawer_labels">
-        <item>@string/nav_item_home</item>
-        <item>@string/nav_item_friends</item>
-        <item>@string/nav_item_notifications</item>
-    </string-array>
 
     <string name="title_messages">Messages</string>
     <string name="title_friends">Friends</string>
@@ -34,4 +28,10 @@
     <string name="btnStewardName">Староста</string>
 
     <string name="cancel">Отменена</string>
+    <string name="class_leader">Староста</string>
+    <string name="input_note_text_hint">Введите сообщение...</string>
+    <string name="create_note_activity_title">Новая заметка</string>
+    <string name="notes_list_activity_title">Изменения</string>
+    <string name="action_save">Сохранить</string>
+    <string name="empty_note_hint">Заметка не может быть пустой</string>
 </resources>

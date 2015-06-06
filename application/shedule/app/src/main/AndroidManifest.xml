@@ -16,18 +16,27 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/CustomActionBarTheme" >
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="stateHidden">
-        </activity>
-        <activity
-            android:name=".MainActivityNew"
-            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivityNew"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".activities.CreateNoteLayout"
+            android:label="@string/create_note_activity_title">
+        </activity>
+
+        <activity
+            android:name=".activities.NotesListActivity"
+            android:label="@string/notes_list_activity_title" >
         </activity>
         <activity
             android:name=".login.LoginActivity"
@@ -52,12 +61,9 @@
         <receiver
             android:enabled="false"
             android:name=".service.receivers.BootReceiver" >
-
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
     </application>
-
 </manifest>

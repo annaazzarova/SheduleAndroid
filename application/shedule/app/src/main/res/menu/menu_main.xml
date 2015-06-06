@@ -5,8 +5,7 @@
     <item
         android:id="@+id/action_search"
         android:orderInCategory="200"
-        android:title="СЕГОДНЯ"
+        android:title="zСЕГОДНЯ"
         android:textSize="14dp"
-        app:showAsAction="ifRoom"
-        ></item>
+        app:showAsAction="ifRoom" />
 </menu>

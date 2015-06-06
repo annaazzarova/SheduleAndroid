@@ -46,11 +46,8 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.5.3'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
 
+    compile 'com.github.clans:fab:1.5.0'
+
     provided "org.projectlombok:lombok:1.12.6"
     apt "org.projectlombok:lombok:1.12.6"
 }
-
-dependencies {
-    compile 'com.github.clans:fab:1.5.0'
-}
-

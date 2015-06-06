@@ -30,7 +30,6 @@ public class LoginActivity extends ActionBarActivity {
     private EditText mLoginView = null;
     private EditText mPasswordView = null;
     private Button mLoginSignInButton = null;
-    private Toolbar toolbar = null;
 /*    private View mProgressView;
     private View mLoginFormView;*/
 
@@ -38,9 +37,6 @@ public class LoginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_login);
-
-        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
 
         // Set up the login form.
         mLoginView = (EditText) findViewById(login);
