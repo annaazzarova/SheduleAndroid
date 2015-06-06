@@ -33,7 +33,7 @@ public class Server {
         return getScheduleByPath(schedulePath);
     }
 
-    public static ServerResponseArray<StaticLesson> getScheduleByTeacherId(String teacherId) {
+    public static ServerResponseArray<StaticLesson> getSchedule() {
         String schedulePath = SERVER_ULR + "lesson";
         return getScheduleByPath(schedulePath);
     }
@@ -78,11 +78,6 @@ public class Server {
     public static ServerResponse<Note> createNoteByClassLeader(Note note, String classLeaderId) {
         // todo implement me
         return new ServerResponse<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<StaticLesson> getScheduleByClassLeaderId(String classLeaderId) {
-        // todo implement me
-        return new ServerResponseArray<StaticLesson>(ServerResponse.NO_CONNECTION_ERROR);
     }
 
     public static ServerResponseArray<Note> getAllNotesByClassLeaderId(String classLeaderId) {

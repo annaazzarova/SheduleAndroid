@@ -110,7 +110,7 @@ public class RequestFactory {
 
         @Override
         public ServerResponseArray<StaticLesson> getSchedule(String userId) {
-            return Server.getScheduleByTeacherId(userId);
+            return Server.getSchedule();
         }
 
         @Override
@@ -168,7 +168,7 @@ public class RequestFactory {
 
         @Override
         public ServerResponseArray<StaticLesson> getSchedule(String userId) {
-            return Server.getScheduleByClassLeaderId(userId);
+            return Server.getSchedule();
         }
 
         @Override

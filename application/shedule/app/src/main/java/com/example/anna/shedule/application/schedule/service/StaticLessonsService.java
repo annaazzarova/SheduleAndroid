@@ -12,11 +12,9 @@ import static com.example.anna.shedule.application.database.Database.getDbInstan
 
 public class StaticLessonsService {
 
-    private GroupService groupService;
     private RequestFactory requests;
 
     public StaticLessonsService() {
-        this.groupService = new GroupService();
         this.requests = new RequestFactory();
     }
 
@@ -25,17 +23,11 @@ public class StaticLessonsService {
                 + " WHERE dayOfWeek='" + dayOfWeek
                 + "' AND " + getPeriodicityCondition(periodicity);
 
-        return getLessonsByQuery(query);
+        return getDbInstance().getByQuery(StaticLesson.class, query);
     }
 
     private String getPeriodicityCondition(WeekPeriodicity periodicity) {
         return "(weekPeriodicity='" + periodicity.getId() + "' OR weekPeriodicity='" + WeekPeriodicity.BOTH.getId() + "')";
-    }
-
-    private List<StaticLesson> getLessonsByQuery(String query) {
-        List<StaticLesson> lessons = getDbInstance().getByQuery(StaticLesson.class, query);
-        groupService.mapGroupsOnLessons(lessons);
-        return lessons;
     }
 
     public boolean update() {
@@ -55,6 +47,6 @@ public class StaticLessonsService {
 
     public List<StaticLesson> getAllLessons() {
         String query = "SELECT * FROM " + StaticLesson.TABLE_NAME;
-        return getLessonsByQuery(query);
+        return getDbInstance().getByQuery(StaticLesson.class, query);
     }
 }

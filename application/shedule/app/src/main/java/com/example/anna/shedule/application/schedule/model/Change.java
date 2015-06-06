@@ -67,8 +67,6 @@ public class Change implements Entity {
 
     private String groupIds;
 
-    private transient List<Group> groups;
-
     @JsonSetter("groups")
     private void groupJsonSetter(List<String> strings) {
         groupIds = StringUtils.join(strings, ",");
