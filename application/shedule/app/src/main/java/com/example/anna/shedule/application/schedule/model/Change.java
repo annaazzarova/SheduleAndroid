@@ -4,6 +4,10 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.example.anna.shedule.application.database.Entity;
+import com.example.anna.shedule.application.schedule.model.helper.LessonStatus;
+import com.example.anna.shedule.application.schedule.model.helper.LessonTime;
+import com.example.anna.shedule.application.schedule.model.helper.LessonType;
+import com.example.anna.shedule.application.schedule.model.helper.WeekPeriodicity;
 import com.example.anna.shedule.utils.DateUtils;
 import com.example.anna.shedule.utils.StringUtils;
 import com.fasterxml.jackson.annotation.JsonProperty;

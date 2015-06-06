@@ -1,9 +1,8 @@
-package com.example.anna.shedule.application.schedule.model;
+package com.example.anna.shedule.application.schedule.model.helper;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import lombok.Getter;

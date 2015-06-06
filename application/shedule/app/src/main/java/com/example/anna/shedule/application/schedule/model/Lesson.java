@@ -1,5 +1,11 @@
 package com.example.anna.shedule.application.schedule.model;
 
+import com.example.anna.shedule.application.schedule.model.helper.LessonStatus;
+import com.example.anna.shedule.application.schedule.model.helper.LessonTime;
+import com.example.anna.shedule.application.schedule.model.helper.LessonType;
+import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
+import com.example.anna.shedule.application.schedule.model.helper.WeekPeriodicity;
+
 import java.util.List;
 
 import lombok.NoArgsConstructor;

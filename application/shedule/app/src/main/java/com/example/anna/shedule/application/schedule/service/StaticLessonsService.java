@@ -1,8 +1,8 @@
 package com.example.anna.shedule.application.schedule.service;
 
 import com.example.anna.shedule.application.database.Database;
-import com.example.anna.shedule.application.schedule.model.StaticLesson;
-import com.example.anna.shedule.application.schedule.model.WeekPeriodicity;
+import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
+import com.example.anna.shedule.application.schedule.model.helper.WeekPeriodicity;
 import com.example.anna.shedule.application.user.service.RequestFactory;
 import com.example.anna.shedule.server.dto.response.ServerResponseArray;
 

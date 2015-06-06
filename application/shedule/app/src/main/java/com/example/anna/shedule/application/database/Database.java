@@ -9,7 +9,7 @@ import android.util.Log;
 import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.Group;
-import com.example.anna.shedule.application.schedule.model.StaticLesson;
+import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.utils.ContextUtils;
 

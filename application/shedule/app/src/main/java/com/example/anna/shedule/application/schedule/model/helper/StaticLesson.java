@@ -1,4 +1,4 @@
-package com.example.anna.shedule.application.schedule.model;
+package com.example.anna.shedule.application.schedule.model.helper;
 
 
 import android.content.ContentValues;

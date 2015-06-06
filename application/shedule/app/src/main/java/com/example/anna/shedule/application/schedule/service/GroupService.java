@@ -3,7 +3,6 @@ package com.example.anna.shedule.application.schedule.service;
 import com.example.anna.shedule.application.database.Database;
 import com.example.anna.shedule.application.schedule.model.Group;
 import com.example.anna.shedule.application.schedule.model.Lesson;
-import com.example.anna.shedule.application.schedule.model.StaticLesson;
 import com.example.anna.shedule.server.Server;
 import com.example.anna.shedule.server.dto.response.ServerResponseArray;
 import com.example.anna.shedule.utils.StringUtils;
