@@ -1,20 +1,31 @@
 package com.example.anna.shedule.application.schedule.model;
 
+import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.schedule.model.helper.LessonStatus;
 import com.example.anna.shedule.application.schedule.model.helper.LessonTime;
 import com.example.anna.shedule.application.schedule.model.helper.LessonType;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.schedule.model.helper.WeekPeriodicity;
 
+import java.util.Collections;
 import java.util.List;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
 public class Lesson {
     private StaticLesson lesson;
     private Change change;
-    private List<Group> groups;
+
+    @Getter
+    @Setter
+    private List<Note> notes = Collections.emptyList();
+
+    @Getter
+    @Setter
+    private List<Group> groups = Collections.emptyList();
 
     public Lesson(StaticLesson lesson, Change change) {
         this.lesson = lesson;
@@ -143,11 +154,19 @@ public class Lesson {
         return teacherName;
     }
 
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
-    }
-
     public boolean isChangedLesson() {
         return change != null;
+    }
+
+    public String getLessonId() {
+        return (lesson != null) ? lesson.getLessonId() : null;
+    }
+
+    public String getChangeId() {
+        return (change != null) ? change.getChangeId() : null;
+    }
+
+    public boolean hasNotes() {
+        return !notes.isEmpty();
     }
 }

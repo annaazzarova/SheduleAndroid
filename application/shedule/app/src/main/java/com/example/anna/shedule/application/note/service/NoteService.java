@@ -1,6 +1,7 @@
 package com.example.anna.shedule.application.note.service;
 
 import com.example.anna.shedule.application.note.model.Note;
+import com.example.anna.shedule.application.schedule.model.Lesson;
 import com.example.anna.shedule.application.user.service.RequestFactory;
 import com.example.anna.shedule.server.dto.response.ServerResponse;
 import com.example.anna.shedule.server.dto.response.ServerResponseArray;
@@ -49,12 +50,11 @@ public class NoteService {
         return note == null ? null : note.getNoteId();
     }
 
-    public List<Note> getNotesByLesson(String lessonId, String changeId, int year, int month, int day) {
-        long startOfLessonDay = DateUtils.startOfDay(year, month, day);
+    private List<Note> getNotesByLesson(String lessonId, String changeId, long startOfDay) {
         String queryByLesson = getQueryForSelectingNoteByLesson(lessonId, changeId);
         String query = "SELECT * FROM " + Note.TABLE_NAME + " WHERE " + queryByLesson
-                + " AND " + "date >= '" + startOfLessonDay + "'"
-                + " AND  date <= '" + (startOfLessonDay + DateUtils.DAY) + "' "
+                + " AND " + "date >= '" + startOfDay + "'"
+                + " AND  date <= '" + (startOfDay + DateUtils.DAY) + "' "
                 + " ORDER BY noteId DESC";
         return getDbInstance().getByQuery(Note.class, query);
     }
@@ -71,5 +71,20 @@ public class NoteService {
 
     public List<Note> getNotes() {
         return getAllNotes(0, 100);
+    }
+
+    public List<Lesson> mapNotesOnLessons(List<Lesson> lessons, int year, int month, int day) {
+        long startOfDay = DateUtils.startOfDay(year, month, day);
+        for (Lesson lesson: lessons) {
+            List<Note> notes = getNotesByLesson(lesson, startOfDay);
+            lesson.setNotes(notes);
+        }
+        return lessons;
+    }
+
+    private List<Note> getNotesByLesson(Lesson lesson, long startOfDay) {
+        String lessonId = lesson.getLessonId();
+        String changeId = lesson.getChangeId();
+        return getNotesByLesson(lessonId, changeId, startOfDay);
     }
 }

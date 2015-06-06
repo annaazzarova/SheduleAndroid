@@ -1,5 +1,6 @@
 package com.example.anna.shedule.application.schedule.service;
 
+import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.Lesson;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
@@ -17,11 +18,13 @@ public class ScheduleService {
     private StaticLessonsService lessonsService;
     private LessonsChangesService changesService;
     private GroupService groupService;
+    private NoteService noteService;
 
     public ScheduleService() {
         lessonsService = Services.getService(StaticLessonsService.class);
         changesService = Services.getService(LessonsChangesService.class);
         groupService = Services.getService(GroupService.class);
+        noteService = Services.getService(NoteService.class);
     }
 
     public List<Lesson> getSchedule(int year, int month, int day) {
@@ -31,7 +34,13 @@ public class ScheduleService {
         List<StaticLesson> lessons = lessonsService.getLessons(periodicity, dayOfWeek);
         List<Change> changes = changesService.getChanges(year, month, day);
         List<Lesson> lessonsWithChanges = merge(lessons, changes, dayOfWeek, periodicity);
-        return groupService.mapGroupsOnLessons(lessonsWithChanges);
+        return mapExtendedDataOnLesson(lessonsWithChanges, year, month, day);
+    }
+
+    private List<Lesson> mapExtendedDataOnLesson(List<Lesson> lessons, int year, int month, int day) {
+        groupService.mapGroupsOnLessons(lessons);
+        noteService.mapNotesOnLessons(lessons, year, month, day);
+        return lessons;
     }
 
     public boolean update() {
