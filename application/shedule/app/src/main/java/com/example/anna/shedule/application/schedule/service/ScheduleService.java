@@ -38,8 +38,13 @@ public class ScheduleService {
     }
 
     private List<Lesson> mapExtendedDataOnLesson(List<Lesson> lessons, int year, int month, int day) {
+        long startOfLessonDay = DateUtils.startOfDay(year, month, day);
+        for (Lesson lesson: lessons) {
+            lesson.setStartOfLessonDay(startOfLessonDay);
+        }
+
         groupService.mapGroupsOnLessons(lessons);
-        noteService.mapNotesOnLessons(lessons, year, month, day);
+        noteService.mapNotesOnLessons(lessons);
         return lessons;
     }
 

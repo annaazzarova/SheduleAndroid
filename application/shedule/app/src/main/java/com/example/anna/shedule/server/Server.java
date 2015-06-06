@@ -1,5 +1,6 @@
 package com.example.anna.shedule.server;
 
+import com.example.anna.shedule.application.note.dto.CreateNoteRequest;
 import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.Group;
@@ -70,16 +71,6 @@ public class Server {
         return new ServerResponse<Change>(ServerResponse.NO_CONNECTION_ERROR);
     }
 
-    public static ServerResponse<Note> createNoteByTeacher(Note note, String teacherId) {
-        // todo implement me
-        return new ServerResponse<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponse<Note> createNoteByClassLeader(Note note, String classLeaderId) {
-        // todo implement me
-        return new ServerResponse<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
     public static ServerResponseArray<Note> getNotesByGroupId(String lastNoteId, String groupId) {
         String notePath = SERVER_ULR + "note/group/" + groupId + "?lastNoteId=" + lastNoteId;
         ResponseWithStatusCode response = MessageTransfer.get(notePath);
@@ -108,5 +99,17 @@ public class Server {
         String notePath = SERVER_ULR + "note?lastNoteId=" + lastNoteId;
         ResponseWithStatusCode response = MessageTransfer.get(notePath);
         return convertToArrayResponse(response, Note.class);
+    }
+
+    public static ServerResponse<Note> createNoteToChange(CreateNoteRequest request, String changeId) {
+        String notePath = SERVER_ULR + "note/change/" + changeId;
+        ResponseWithStatusCode response = MessageTransfer.post(notePath, request);
+        return convertToObjectResponse(response, Note.class);
+    }
+
+    public static ServerResponse<Note> createNoteToLesson(CreateNoteRequest request, String lessonId) {
+        String notePath = SERVER_ULR + "note/lesson/" + lessonId;
+        ResponseWithStatusCode response = MessageTransfer.post(notePath, request);
+        return convertToObjectResponse(response, Note.class);
     }
 }

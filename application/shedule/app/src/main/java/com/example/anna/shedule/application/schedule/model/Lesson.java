@@ -7,6 +7,7 @@ import com.example.anna.shedule.application.schedule.model.helper.LessonType;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.schedule.model.helper.WeekPeriodicity;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-public class Lesson {
+public class Lesson implements Serializable {
     private StaticLesson lesson;
     private Change change;
 
@@ -26,6 +27,10 @@ public class Lesson {
     @Getter
     @Setter
     private List<Group> groups = Collections.emptyList();
+
+    @Getter
+    @Setter
+    private long startOfLessonDay;
 
     public Lesson(StaticLesson lesson, Change change) {
         this.lesson = lesson;

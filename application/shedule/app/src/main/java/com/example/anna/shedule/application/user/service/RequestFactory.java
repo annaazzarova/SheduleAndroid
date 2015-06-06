@@ -1,6 +1,7 @@
 package com.example.anna.shedule.application.user.service;
 
 
+import com.example.anna.shedule.application.note.dto.CreateNoteRequest;
 import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
@@ -49,11 +50,6 @@ public class RequestFactory {
         return getRequestsByUser(user).updateChange(change, user.getGroupId());
     }
 
-    public ServerResponse<Note> createNote(Note note) {
-        User user = userService.getCurrentUser();
-        return getRequestsByUser(user).createNote(note, user.getGroupId());
-    }
-
     public ServerResponseArray<StaticLesson> getScheduleByCurrentUser() {
         User user = userService.getCurrentUser();
         return getRequestsByUser(user).getSchedule(user.getGroupId());
@@ -63,6 +59,18 @@ public class RequestFactory {
         User user = userService.getCurrentUser();
         return getRequestsByUser(user).getNotes(lastNoteId, user.getGroupId());
     }
+
+    public ServerResponse<Note> createNoteToLesson(CreateNoteRequest request, String lessonId) {
+        User user = userService.getCurrentUser();
+        return getRequestsByUser(user).createNoteToLesson(request, lessonId);
+    }
+
+
+    public ServerResponse<Note> createNoteToChange(CreateNoteRequest request, String changeId) {
+        User user = userService.getCurrentUser();
+        return getRequestsByUser(user).createNoteToChange(request, changeId);
+    }
+
 
     private abstract static class Requests {
         public ServerResponseArray<Change> getScheduleChanges(User user, long dateFrom, long dateTo) {
@@ -81,16 +89,20 @@ public class RequestFactory {
             return new ServerResponse<Change>(ServerResponse.LOGIC_ERROR);
         }
 
-        public ServerResponse<Note> createNote(Note note, String userId) {
-            return new ServerResponse<Note>(ServerResponse.LOGIC_ERROR);
-        }
-
         public ServerResponseArray<StaticLesson> getSchedule(String userId) {
             return new ServerResponseArray<StaticLesson>(ServerResponse.LOGIC_ERROR);
         }
 
         public ServerResponseArray<Note> getNotes(String lastNoteId, String userId) {
             return new ServerResponseArray<Note>(ServerResponse.LOGIC_ERROR);
+        }
+
+        public ServerResponse<Note> createNoteToLesson(CreateNoteRequest request, String lessonId) {
+            return new ServerResponse<Note>(ServerResponse.LOGIC_ERROR);
+        }
+
+        public ServerResponse<Note> createNoteToChange(CreateNoteRequest request, String changeId) {
+            return new ServerResponse<Note>(ServerResponse.LOGIC_ERROR);
         }
     }
 
@@ -104,11 +116,6 @@ public class RequestFactory {
         }
 
         @Override
-        public ServerResponse<Note> createNote(Note note, String userId) {
-            return Server.createNoteByTeacher(note, userId);
-        }
-
-        @Override
         public ServerResponseArray<StaticLesson> getSchedule(String userId) {
             return Server.getSchedule();
         }
@@ -118,6 +125,16 @@ public class RequestFactory {
             return (lastNoteId == null)
                     ? Server.getAllNotes()
                     : Server.getNotes(lastNoteId);
+        }
+
+        @Override
+        public ServerResponse<Note> createNoteToLesson(CreateNoteRequest request, String lessonId) {
+            return Server.createNoteToLesson(request, lessonId);
+        }
+
+        @Override
+        public ServerResponse<Note> createNoteToChange(CreateNoteRequest request, String changeId) {
+            return Server.createNoteToChange(request, changeId);
         }
     };
 
@@ -162,11 +179,6 @@ public class RequestFactory {
         }
 
         @Override
-        public ServerResponse<Note> createNote(Note note, String userId) {
-            return Server.createNoteByClassLeader(note, userId);
-        }
-
-        @Override
         public ServerResponseArray<StaticLesson> getSchedule(String userId) {
             return Server.getSchedule();
         }
@@ -176,6 +188,16 @@ public class RequestFactory {
             return (lastNoteId == null)
                     ? Server.getAllNotes()
                     : Server.getNotes(lastNoteId);
+        }
+
+        @Override
+        public ServerResponse<Note> createNoteToLesson(CreateNoteRequest request, String lessonId) {
+            return Server.createNoteToLesson(request, lessonId);
+        }
+
+        @Override
+        public ServerResponse<Note> createNoteToChange(CreateNoteRequest request, String changeId) {
+            return Server.createNoteToChange(request, changeId);
         }
     };
 }
