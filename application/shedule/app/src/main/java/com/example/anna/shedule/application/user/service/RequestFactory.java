@@ -100,7 +100,7 @@ public class RequestFactory {
     private static Requests TEACHER_REQUESTS = new Requests() {
         @Override
         public ServerResponseArray<Change> getScheduleChanges(User user, long dateFrom, long dateTo) {
-            return Server.getScheduleChangesByTeacher(dateFrom, dateTo, user.getGroupId());
+            return Server.getScheduleChanges(dateFrom, dateTo);
         }
 
         @Override
@@ -143,7 +143,7 @@ public class RequestFactory {
     private static Requests CLASS_LEADER_REQUESTS = new Requests() {
         @Override
         public ServerResponseArray<Change> getScheduleChanges(User user, long dateFrom, long dateTo) {
-            return Server.getScheduleChangesByClassLeader(dateFrom, dateTo, user.getGroupId());
+            return Server.getScheduleChanges(dateFrom, dateTo);
         }
 
         @Override

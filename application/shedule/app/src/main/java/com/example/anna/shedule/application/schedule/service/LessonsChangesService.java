@@ -21,7 +21,7 @@ public class LessonsChangesService {
 
     private RequestFactory requests = Services.getService(RequestFactory.class);
 
-    public boolean updateChanges() {
+    public boolean update() {
         long currentTime = System.currentTimeMillis();
         long timeOffset = TimeUnit.DAYS.toMillis(DAYS_OFFSET);
 

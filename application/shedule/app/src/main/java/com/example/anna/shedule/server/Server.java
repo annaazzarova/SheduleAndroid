@@ -44,18 +44,15 @@ public class Server {
     }
 
     public static ServerResponseArray<Change> getScheduleChangesByStudent(long fromDate, long toDate, String groupId) {
-        // todo implement me
-        return new ServerResponseArray<Change>(ServerResponse.NO_CONNECTION_ERROR);
+        String changePath = SERVER_ULR + "change/group/" + groupId;
+        ResponseWithStatusCode response = MessageTransfer.get(changePath);
+        return convertToArrayResponse(response, Change.class);
     }
 
-    public static ServerResponseArray<Change> getScheduleChangesByTeacher(long dateFrom, long dateTo, String teacherId) {
-        // todo implement me
-        return new ServerResponseArray<Change>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Change> getScheduleChangesByClassLeader(long fromDate, long toDate, String classLeaderId) {
-        // todo implement me
-        return new ServerResponseArray<Change>(ServerResponse.NO_CONNECTION_ERROR);
+    public static ServerResponseArray<Change> getScheduleChanges(long dateFrom, long dateTo) {
+        String changePath = SERVER_ULR + "change";
+        ResponseWithStatusCode response = MessageTransfer.get(changePath);
+        return convertToArrayResponse(response, Change.class);
     }
 
     public static ServerResponse<Object> cancelChange(String changeId, String classLeaderId) {

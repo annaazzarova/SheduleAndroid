@@ -32,7 +32,7 @@ public class ScheduleService {
     }
 
     public boolean update() {
-        return lessonsService.updateLessons() && changesService.updateChanges();
+        return lessonsService.updateLessons() && changesService.update();
     }
 
     private List<Lesson> merge(List<StaticLesson> staticLessons, List<Change> changes, int dayOfWeek, WeekPeriodicity periodicity) {
