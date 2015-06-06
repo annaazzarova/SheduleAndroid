@@ -4,6 +4,7 @@ import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.user.service.RequestFactory;
 import com.example.anna.shedule.server.dto.response.ServerResponse;
 import com.example.anna.shedule.server.dto.response.ServerResponseArray;
+import com.example.anna.shedule.utils.DateUtils;
 
 import java.util.List;
 
@@ -46,5 +47,29 @@ public class NoteService {
         String query = "SELECT * FROM " + Note.TABLE_NAME + " ORDER BY noteId DESC LIMIT 1";
         Note note = getDbInstance().getOneByQuery(Note.class, query);
         return note == null ? null : note.getNoteId();
+    }
+
+    public List<Note> getNotesByLesson(String lessonId, String changeId, int year, int month, int day) {
+        long startOfLessonDay = DateUtils.startOfDay(year, month, day);
+        String queryByLesson = getQueryForSelectingNoteByLesson(lessonId, changeId);
+        String query = "SELECT * FROM " + Note.TABLE_NAME + " WHERE " + queryByLesson
+                + " AND " + "date >= '" + startOfLessonDay + "'"
+                + " AND  date <= '" + (startOfLessonDay + DateUtils.DAY) + "' "
+                + " ORDER BY noteId DESC";
+        return getDbInstance().getByQuery(Note.class, query);
+    }
+
+    private String getQueryForSelectingNoteByLesson(String lessonId, String changeId) {
+        if (lessonId == null) {
+            return " changeId='" + changeId + "' ";
+        } else if (changeId == null) {
+            return " lessonId='" + lessonId + "' ";
+        } else {
+            return " (lessonId='" + lessonId + "' OR changeId='" + changeId + "') ";
+        }
+    }
+
+    public List<Note> getNotes() {
+        return getAllNotes(0, 100);
     }
 }

@@ -116,8 +116,8 @@ public class RequestFactory {
         @Override
         public ServerResponseArray<Note> getNotes(String lastNoteId, String userId) {
             return (lastNoteId == null)
-                    ? Server.getAllNotesByTeacherId(userId)
-                    : Server.getNotesByTeacherId(lastNoteId, userId);
+                    ? Server.getAllNotes()
+                    : Server.getNotes(lastNoteId);
         }
     };
 
@@ -174,8 +174,8 @@ public class RequestFactory {
         @Override
         public ServerResponseArray<Note> getNotes(String lastNoteId, String classLeaderId) {
             return (lastNoteId == null)
-                    ? Server.getAllNotesByClassLeaderId(classLeaderId)
-                    : Server.getNotesByClassLeaderId(lastNoteId, classLeaderId);
+                    ? Server.getAllNotes()
+                    : Server.getNotes(lastNoteId);
         }
     };
 }

@@ -80,39 +80,33 @@ public class Server {
         return new ServerResponse<Note>(ServerResponse.NO_CONNECTION_ERROR);
     }
 
-    public static ServerResponseArray<Note> getAllNotesByClassLeaderId(String classLeaderId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Note> getNotesByClassLeaderId(String lastNoteId, String classLeaderId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
     public static ServerResponseArray<Note> getNotesByGroupId(String lastNoteId, String groupId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
+        String notePath = SERVER_ULR + "note/group/" + groupId + "?lastNoteId=" + lastNoteId;
+        ResponseWithStatusCode response = MessageTransfer.get(notePath);
+        return convertToArrayResponse(response, Note.class);
     }
 
     public static ServerResponseArray<Note> getAllNotesByGroupId(String groupId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Note> getAllNotesByTeacherId(String userId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Note> getNotesByTeacherId(String lastNoteId, String userId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
+        String notePath = SERVER_ULR + "note/group/" + groupId;
+        ResponseWithStatusCode response = MessageTransfer.get(notePath);
+        return convertToArrayResponse(response, Note.class);
     }
 
     public static ServerResponseArray<Group> getAllGroups() {
         String groupsPath = SERVER_ULR + "group";
         ResponseWithStatusCode response = MessageTransfer.get(groupsPath);
         return convertToArrayResponse(response, Group.class);
+    }
+
+    public static ServerResponseArray<Note> getAllNotes() {
+        String notePath = SERVER_ULR + "note";
+        ResponseWithStatusCode response = MessageTransfer.get(notePath);
+        return convertToArrayResponse(response, Note.class);
+    }
+
+    public static ServerResponseArray<Note> getNotes(String lastNoteId) {
+        String notePath = SERVER_ULR + "note?lastNoteId=" + lastNoteId;
+        ResponseWithStatusCode response = MessageTransfer.get(notePath);
+        return convertToArrayResponse(response, Note.class);
     }
 }
