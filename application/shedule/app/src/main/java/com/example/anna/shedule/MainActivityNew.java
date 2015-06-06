@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.services.Services;
+import com.example.anna.shedule.login.GroupSelectionActivity;
 import com.example.anna.shedule.utils.ContextUtils;
 
 
@@ -85,14 +86,17 @@ public class MainActivityNew extends ActionBarActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnStudent:
+                intent = new Intent(MainActivityNew.this, GroupSelectionActivity.class);
                 intent.putExtra("TypeUser", R.id.btnStudent);
                 startActivity(intent);
                 break;
             case R.id.btnTeacher:
+                intent = new Intent(MainActivityNew.this, com.example.anna.shedule.login.LoginActivity.class);
                 intent.putExtra("TypeUser", R.id.btnTeacher);
                 startActivity(intent);
                 break;
             case R.id.btnSteward:
+                intent = new Intent(MainActivityNew.this, com.example.anna.shedule.login.LoginActivity.class);
                 intent.putExtra("TypeUser", R.id.btnSteward);
                 startActivity(intent);
                 break;

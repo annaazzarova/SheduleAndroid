@@ -3,12 +3,14 @@ package com.example.anna.shedule.lessons_list;
 /**
  * Created by Anna on 29.05.2015.
  */
+import android.app.Dialog;
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,7 +58,7 @@ public class LessonAdapter extends BaseAdapter{
     public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         LessonData les = getLesson(position);
-        View rowView;
+        final View rowView;
         rowView = inflater.inflate(R.layout.card_layout, null);
         TextView tw_lesson = (TextView) rowView.findViewById(R.id.textLesson);
         TextView tw_group = (TextView) rowView.findViewById(R.id.textGroup);
@@ -70,9 +72,20 @@ public class LessonAdapter extends BaseAdapter{
         tw_group.setText(les.getGroup());
         rowView.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View arg0) {
+                final Dialog dialog = new Dialog(arg0.getContext());
+                dialog.setContentView(R.layout.dialog_layout);
+                //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                //dialogButton.setOnClickListener(new OnClickListener() {
+                //    @Override
+                //    public void onClick(View v) {
+                //        dialog.dismiss();
+                //    }
+                //});
+
+                dialog.show();
                 // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked", Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "You Clicked", Toast.LENGTH_LONG).show();
             }
         });
         return rowView;

@@ -1,6 +1,7 @@
 package com.example.anna.shedule.login;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.anna.shedule.MainActivity;
 import com.example.anna.shedule.R;
 import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.services.Services;
@@ -154,12 +156,12 @@ public class GroupSelectionActivity extends ActionBarActivity {
         btnEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Переход по нажатию на кнопку!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                /*final Intent intent = new Intent(LoginActivity.this,
-                        com.example.anna.shedule.login.GroupSelectionActivity.class);
-                intent.putExtra("user", user.toString());
-                startActivity(intent);*/
-                Toast.makeText(getApplicationContext(), "Переход на следующий экран!", Toast.LENGTH_SHORT).show();
+                //Переход по нажатию на кнопку!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                final Intent intent = new Intent(GroupSelectionActivity.this,
+                        MainActivity.class);
+                //intent.putExtra("user", user.toString());
+                startActivity(intent);
+                //Toast.makeText(getApplicationContext(), "Переход на следующий экран!", Toast.LENGTH_SHORT).show();
             }
         });
 

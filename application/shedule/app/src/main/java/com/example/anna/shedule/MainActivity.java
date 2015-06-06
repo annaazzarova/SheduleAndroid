@@ -33,15 +33,11 @@ public class MainActivity extends ActionBarActivity{
 
         Calendar c = Calendar.getInstance();
         int date = c.get(Calendar.DATE);
-        int day_of_week = c.get(Calendar.DAY_OF_WEEK);
+        int day_of_week = c.get(Calendar.DAY_OF_WEEK)-1;
         int firstdate = date - day_of_week +1;
         for (int i = 0; i != 6; ++i){
             Titles[i] = String.valueOf(firstdate++);
         }
-
-        Titles[0] = String.valueOf(date);
-        Titles[1] = String.valueOf(day_of_week);
-        Titles[2] = String.valueOf(firstdate);
         // Creating The Toolbar and setting it as the Toolbar for the activity
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
