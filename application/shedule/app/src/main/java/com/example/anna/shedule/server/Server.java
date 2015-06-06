@@ -1,9 +1,10 @@
 package com.example.anna.shedule.server;
 
+import com.example.anna.shedule.application.note.dto.CreateNoteRequest;
 import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.Group;
-import com.example.anna.shedule.application.schedule.model.StaticLesson;
+import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.server.dto.request.LoginRequest;
 import com.example.anna.shedule.server.utils.ResponseWithStatusCode;
@@ -33,7 +34,7 @@ public class Server {
         return getScheduleByPath(schedulePath);
     }
 
-    public static ServerResponseArray<StaticLesson> getScheduleByTeacherId(String teacherId) {
+    public static ServerResponseArray<StaticLesson> getSchedule() {
         String schedulePath = SERVER_ULR + "lesson";
         return getScheduleByPath(schedulePath);
     }
@@ -44,18 +45,15 @@ public class Server {
     }
 
     public static ServerResponseArray<Change> getScheduleChangesByStudent(long fromDate, long toDate, String groupId) {
-        // todo implement me
-        return new ServerResponseArray<Change>(ServerResponse.NO_CONNECTION_ERROR);
+        String changePath = SERVER_ULR + "change/group/" + groupId;
+        ResponseWithStatusCode response = MessageTransfer.get(changePath);
+        return convertToArrayResponse(response, Change.class);
     }
 
-    public static ServerResponseArray<Change> getScheduleChangesByTeacher(long dateFrom, long dateTo, String teacherId) {
-        // todo implement me
-        return new ServerResponseArray<Change>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Change> getScheduleChangesByClassLeader(long fromDate, long toDate, String classLeaderId) {
-        // todo implement me
-        return new ServerResponseArray<Change>(ServerResponse.NO_CONNECTION_ERROR);
+    public static ServerResponseArray<Change> getScheduleChanges(long dateFrom, long dateTo) {
+        String changePath = SERVER_ULR + "change";
+        ResponseWithStatusCode response = MessageTransfer.get(changePath);
+        return convertToArrayResponse(response, Change.class);
     }
 
     public static ServerResponse<Object> cancelChange(String changeId, String classLeaderId) {
@@ -73,54 +71,45 @@ public class Server {
         return new ServerResponse<Change>(ServerResponse.NO_CONNECTION_ERROR);
     }
 
-    public static ServerResponse<Note> createNoteByTeacher(Note note, String teacherId) {
-        // todo implement me
-        return new ServerResponse<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponse<Note> createNoteByClassLeader(Note note, String classLeaderId) {
-        // todo implement me
-        return new ServerResponse<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<StaticLesson> getScheduleByClassLeaderId(String classLeaderId) {
-        // todo implement me
-        return new ServerResponseArray<StaticLesson>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Note> getAllNotesByClassLeaderId(String classLeaderId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Note> getNotesByClassLeaderId(String lastNoteId, String classLeaderId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
     public static ServerResponseArray<Note> getNotesByGroupId(String lastNoteId, String groupId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
+        String notePath = SERVER_ULR + "note/group/" + groupId + "?lastNoteId=" + lastNoteId;
+        ResponseWithStatusCode response = MessageTransfer.get(notePath);
+        return convertToArrayResponse(response, Note.class);
     }
 
     public static ServerResponseArray<Note> getAllNotesByGroupId(String groupId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Note> getAllNotesByTeacherId(String userId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
-    }
-
-    public static ServerResponseArray<Note> getNotesByTeacherId(String lastNoteId, String userId) {
-        // todo implement me
-        return new ServerResponseArray<Note>(ServerResponse.NO_CONNECTION_ERROR);
+        String notePath = SERVER_ULR + "note/group/" + groupId;
+        ResponseWithStatusCode response = MessageTransfer.get(notePath);
+        return convertToArrayResponse(response, Note.class);
     }
 
     public static ServerResponseArray<Group> getAllGroups() {
         String groupsPath = SERVER_ULR + "group";
         ResponseWithStatusCode response = MessageTransfer.get(groupsPath);
         return convertToArrayResponse(response, Group.class);
+    }
+
+    public static ServerResponseArray<Note> getAllNotes() {
+        String notePath = SERVER_ULR + "note";
+        ResponseWithStatusCode response = MessageTransfer.get(notePath);
+        return convertToArrayResponse(response, Note.class);
+    }
+
+    public static ServerResponseArray<Note> getNotes(String lastNoteId) {
+        String notePath = SERVER_ULR + "note?lastNoteId=" + lastNoteId;
+        ResponseWithStatusCode response = MessageTransfer.get(notePath);
+        return convertToArrayResponse(response, Note.class);
+    }
+
+    public static ServerResponse<Note> createNoteToChange(CreateNoteRequest request, String changeId) {
+        String notePath = SERVER_ULR + "note/change/" + changeId;
+        ResponseWithStatusCode response = MessageTransfer.post(notePath, request);
+        return convertToObjectResponse(response, Note.class);
+    }
+
+    public static ServerResponse<Note> createNoteToLesson(CreateNoteRequest request, String lessonId) {
+        String notePath = SERVER_ULR + "note/lesson/" + lessonId;
+        ResponseWithStatusCode response = MessageTransfer.post(notePath, request);
+        return convertToObjectResponse(response, Note.class);
     }
 }

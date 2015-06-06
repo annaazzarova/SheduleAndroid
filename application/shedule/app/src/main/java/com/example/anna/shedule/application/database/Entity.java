@@ -3,7 +3,9 @@ package com.example.anna.shedule.application.database;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-public interface Entity {
+import java.io.Serializable;
+
+public interface Entity extends Serializable {
 
     public static final long INVALID_ID = -1;
 

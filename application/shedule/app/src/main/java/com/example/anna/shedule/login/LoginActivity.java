@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.anna.shedule.R;
+import com.example.anna.shedule.application.login.model.LoginError;
+import com.example.anna.shedule.application.login.model.LoginProgress;
+import com.example.anna.shedule.application.login.service.LoginService;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.service.UserService;
@@ -24,7 +28,10 @@ import static com.example.anna.shedule.R.layout.activity_login;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends AppCompatActivity {
+
+
+    private final LoginService loginService = Services.getService(LoginService.class);
 
     // UI references.
     private EditText mLoginView = null;
@@ -63,8 +70,7 @@ public class LoginActivity extends ActionBarActivity {
                 prog1.setCancelable(true);
                 prog1.show();
 
-                final UserService userService = Services.getService(UserService.class);
-                userService.login(mLoginView.getText().toString(), mPasswordView.getText().toString(), new UserService.LoginListener() {
+                loginService.login(mLoginView.getText().toString(), mPasswordView.getText().toString(), new LoginService.LoginListener() {
                     @Override
                     public void onSuccess(User user) {
                         final Intent intent = new Intent(LoginActivity.this,
@@ -74,9 +80,18 @@ public class LoginActivity extends ActionBarActivity {
                     }
 
                     @Override
-                    public void onError(int errorCode, String message) {
+                    public void onError(LoginError loginError) {
+                        int messageRes = R.string.no_internet_connection;
+                        if (loginError == LoginError.INVALID_USERNAME_OR_PASSWORD) {
+                            messageRes = R.string.invalid_password_or_login;
+                        }
                         prog1.cancel();
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), messageRes, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onProgress(LoginProgress progress) {
+
                     }
                 });
             }

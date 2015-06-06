@@ -21,9 +21,11 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 
 
+import com.example.anna.shedule.MainActivity;
 import com.example.anna.shedule.R;
 import com.example.anna.shedule.activities.CreateNoteLayout;
 import com.example.anna.shedule.activities.NotesListActivity;
+import com.example.anna.shedule.application.note.service.NoteService;
 
 import java.util.ArrayList;
 
@@ -189,11 +191,11 @@ public class BaseActivity extends AppCompatActivity {
     private Class<?> getActivityByMenuPos(int position) {
         switch (position) {
             case 0:
-                return NotesListActivity.class;
+                return MainActivity.class;
             case 1:
-                return CreateNoteLayout.class;
+                return NotesListActivity.class;
             case 2:
-                return null;
+                return CreateNoteLayout.class;
             case 3:
                 return null;
             default:

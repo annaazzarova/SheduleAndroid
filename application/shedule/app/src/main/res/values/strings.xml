@@ -34,4 +34,6 @@
     <string name="notes_list_activity_title">Изменения</string>
     <string name="action_save">Сохранить</string>
     <string name="empty_note_hint">Заметка не может быть пустой</string>
+    <string name="no_internet_connection">Нет соединения с интернетом</string>
+    <string name="invalid_password_or_login">Неверный логин или пароль</string>
 </resources>

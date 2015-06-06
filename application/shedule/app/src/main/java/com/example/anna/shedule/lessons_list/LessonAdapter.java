@@ -22,6 +22,11 @@ import java.util.ArrayList;
 public class LessonAdapter extends BaseAdapter{
     Context context;
 
+
+    public class LessonHolder {
+
+    }
+
     ArrayList<LessonData> objects;
     private static LayoutInflater inflater=null;
     public LessonAdapter(FragmentActivity mainActivity, ArrayList<LessonData> lessons) {
@@ -74,6 +79,7 @@ public class LessonAdapter extends BaseAdapter{
             @Override
             public void onClick(View arg0) {
                 final Dialog dialog = new Dialog(arg0.getContext());
+                dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog_layout);
                 //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 //dialogButton.setOnClickListener(new OnClickListener() {

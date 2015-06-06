@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.anna.shedule.MainActivity;
 import com.example.anna.shedule.R;
+import com.example.anna.shedule.application.login.service.LoginService;
 import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.utils.ContextUtils;
@@ -24,7 +26,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class GroupSelectionActivity extends ActionBarActivity {
+public class GroupSelectionActivity extends AppCompatActivity {
+
+    final LoginService loginService = Services.getService(LoginService.class);
 
     private GroupService groupService = null;
     private String START_ITEM_SPINNER = "Не выбрано";
@@ -157,11 +161,11 @@ public class GroupSelectionActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 //Переход по нажатию на кнопку!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                final Intent intent = new Intent(GroupSelectionActivity.this,
-                        MainActivity.class);
+                final Intent intent = new Intent(GroupSelectionActivity.this, MainActivity.class);
+
                 //intent.putExtra("user", user.toString());
                 startActivity(intent);
-                //Toast.makeText(getApplicationContext(), "Переход на следующий экран!", Toast.LENGTH_SHORT).show();
+
             }
         });
 
