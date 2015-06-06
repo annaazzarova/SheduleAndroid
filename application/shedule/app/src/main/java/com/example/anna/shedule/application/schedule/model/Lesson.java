@@ -3,7 +3,6 @@ package com.example.anna.shedule.application.schedule.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @NoArgsConstructor
 public class Lesson {
     private StaticLesson lesson;

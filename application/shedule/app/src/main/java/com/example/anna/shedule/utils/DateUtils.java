@@ -28,7 +28,7 @@ public class DateUtils {
     public static int dayOfWeek(int year, int month, int day) {
         synchronized (CALENDAR) {
             CALENDAR.set(year, month, day);
-            return CALENDAR.get(Calendar.DAY_OF_WEEK);
+            return (CALENDAR.get(Calendar.DAY_OF_WEEK) + 6) % 7;
         }
     }
 }

@@ -38,7 +38,7 @@ public class StaticLessonsService {
         return lessons;
     }
 
-    public boolean updateLessons() {
+    public boolean update() {
         ServerResponseArray<StaticLesson> response = requests.getScheduleByCurrentUser();
         boolean isSuccess = response.isSuccess();
         if (isSuccess) {

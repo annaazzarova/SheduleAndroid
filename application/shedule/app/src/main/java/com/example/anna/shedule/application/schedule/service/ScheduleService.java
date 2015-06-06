@@ -32,7 +32,7 @@ public class ScheduleService {
     }
 
     public boolean update() {
-        return lessonsService.updateLessons() && changesService.update();
+        return lessonsService.update() && changesService.update();
     }
 
     private List<Lesson> merge(List<StaticLesson> staticLessons, List<Change> changes, int dayOfWeek, WeekPeriodicity periodicity) {
@@ -57,7 +57,7 @@ public class ScheduleService {
         for (Change change: newLessons) {
             WeekPeriodicity changePeriodicity = change.getWeekPeriodicity();
             if (change.getDayOfWeek() == dayOfWeek &&
-                    (changePeriodicity == WeekPeriodicity.BLUE
+                    (changePeriodicity == periodicity
                             || changePeriodicity == WeekPeriodicity.BOTH)) {
                 Lesson lesson = new Lesson(change);
                 lessons.add(lesson);

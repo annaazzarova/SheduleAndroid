@@ -22,6 +22,11 @@ public class GroupService {
 
     private List<Group> groups;
 
+    public interface GroupListener{
+        void onSuccess();
+        void onError();
+    }
+
     public List<StaticLesson> mapGroupsOnLessons(List<StaticLesson> lessons) {
         Set<String> setOfGroupIds = new HashSet<>();
         Map<Long, List<String>> lessonIdToGroupIds = new HashMap<>();
@@ -125,6 +130,19 @@ public class GroupService {
             groups = getGroupsFromDb();
         }
         return groups;
+    }
+
+    public void update(final GroupListener listener){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                if (update()) {
+                    listener.onSuccess();
+                } else {
+                    listener.onError();
+                }
+            }
+        }).start();
     }
 
     public boolean update() {
