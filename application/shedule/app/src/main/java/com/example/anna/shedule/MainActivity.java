@@ -8,14 +8,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.anna.shedule.application.database.Database;
-import com.example.anna.shedule.application.schedule.model.StaticLesson;
-import com.example.anna.shedule.application.schedule.model.WeekPeriodicity;
+import com.example.anna.shedule.application.login.model.LoginError;
+import com.example.anna.shedule.application.login.model.LoginProgress;
+import com.example.anna.shedule.application.login.service.LoginService;
+import com.example.anna.shedule.application.note.model.Note;
+import com.example.anna.shedule.application.note.service.NoteService;
+import com.example.anna.shedule.application.schedule.model.Change;
+import com.example.anna.shedule.application.schedule.model.Lesson;
+import com.example.anna.shedule.application.schedule.model.Teacher;
+import com.example.anna.shedule.application.schedule.service.GroupService;
+import com.example.anna.shedule.application.schedule.service.LessonsChangesService;
+import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.schedule.service.StaticLessonsService;
+import com.example.anna.shedule.application.schedule.service.TeacherService;
+import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.utils.ContextUtils;
 
 import java.util.List;
+import java.util.Set;
 
 
 public class MainActivity extends ActionBarActivity implements
@@ -29,29 +41,27 @@ public class MainActivity extends ActionBarActivity implements
 
         Database.dropDatabase();
 
-        final UserService userService = new UserService();
+        final LoginService loginService  = Services.getService(LoginService.class);
 
-        if (userService.isLogin()) {
+//      loginService.login("нехорошкова л.г.", "NJZR4QB_S", new LoginService.LoginListener() {
+        loginService.login("ФИиВТ ПС-31", "41WM2R5cH", new LoginService.LoginListener() {
+            @Override
+            public void onSuccess(User user) {
+                final ScheduleService scheduleService = Services.getService(ScheduleService.class);
 
-            final StaticLessonsService staticLessonsService = new StaticLessonsService();
+                List<Lesson> lessons = scheduleService.getSchedule(2015, 5, 5);
+                Log.e("t", "y");
+            }
 
-//            List<StaticLesson> lessons1 = staticLessonsService.getLessons(WeekPeriodicity.RED, 1);
-//            List<StaticLesson> lessons33 = staticLessonsService.getLessons(WeekPeriodicity.RED, 5);
-//            List<StaticLesson> lessons34 = staticLessonsService.getLessons(WeekPeriodicity.BLUE, 5);
+            @Override
+            public void onError(LoginError loginError) {
+            }
 
-        } else {
-            userService.login("нехорошкова л.г.", "NJZR4QB_S", new UserService.LoginListener() {
-                @Override
-                public void onSuccess(User user) {
-                    final StaticLessonsService staticLessonsService = new StaticLessonsService();
-                    staticLessonsService.updateLessons();
-                }
+            @Override
+            public void onProgress(LoginProgress progress) {
 
-                @Override
-                public void onError(int errorCode, String message) {
-                }
-            });
-        }
+            }
+        });
 
     }
 
