@@ -34,4 +34,6 @@
     <string name="btnStewardName">Староста</string>
 
     <string name="cancel">Отменена</string>
+    <string name="no_internet_connection">Нет соединения с интернетом</string>
+    <string name="invalid_password_or_login">Неверный логин или пароль</string>
 </resources>
