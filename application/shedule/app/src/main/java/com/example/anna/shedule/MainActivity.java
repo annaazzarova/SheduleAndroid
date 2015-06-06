@@ -8,15 +8,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.anna.shedule.application.schedule.service.StaticLessonsService;
+import com.example.anna.shedule.application.login.model.LoginError;
+import com.example.anna.shedule.application.login.model.LoginProgress;
+import com.example.anna.shedule.application.login.service.LoginService;
+import com.example.anna.shedule.application.note.service.NoteService;
+import com.example.anna.shedule.application.schedule.model.Lesson;
+import com.example.anna.shedule.application.schedule.service.ScheduleService;
+import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
-import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.tabs.SampleFragmentPagerAdapter;
 import com.example.anna.shedule.tabs.SlidingTabLayout;
 import com.example.anna.shedule.utils.ContextUtils;
 
 import java.util.Calendar;
-
+import java.util.List;
 
 public class MainActivity extends ActionBarActivity{
     
@@ -68,29 +73,30 @@ public class MainActivity extends ActionBarActivity{
 
         //Database.dropDatabase();
 
-        final UserService userService = new UserService();
+        final LoginService loginService  = Services.getService(LoginService.class);
 
-        if (userService.isLogin()) {
+//      loginService.login("нехорошкова л.г.", "NJZR4QB_S", new LoginService.LoginListener() {
+        loginService.login("ФИиВТ ПС-31", "41WM2R5cH", new LoginService.LoginListener() {
+            @Override
+            public void onSuccess(User user) {
+                final ScheduleService scheduleService = Services.getService(ScheduleService.class);
+                final NoteService noteService = Services.getService(NoteService.class);
 
-            final StaticLessonsService staticLessonsService = new StaticLessonsService();
+                List<Lesson> lessons = scheduleService.getSchedule(2015, 5, 5);
 
-//            List<StaticLesson> lessons1 = staticLessonsService.getLessons(WeekPeriodicity.RED, 1);
-//            List<StaticLesson> lessons33 = staticLessonsService.getLessons(WeekPeriodicity.RED, 5);
-//            List<StaticLesson> lessons34 = staticLessonsService.getLessons(WeekPeriodicity.BLUE, 5);
+//                boolean isSuccess = noteService.createNote("Note from application!", lessons.get(0));
 
-        } else {
-            userService.login("����������� �.�.", "NJZR4QB_S", new UserService.LoginListener() {
-                @Override
-                public void onSuccess(User user) {
-                    final StaticLessonsService staticLessonsService = new StaticLessonsService();
-                    staticLessonsService.updateLessons();
-                }
+            }
 
-                @Override
-                public void onError(int errorCode, String message) {
-                }
-            });
-        }
+            @Override
+            public void onError(LoginError loginError) {
+            }
+
+            @Override
+            public void onProgress(LoginProgress progress) {
+
+            }
+        });
 
     }
 

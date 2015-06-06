@@ -1,4 +1,4 @@
-package com.example.anna.shedule.application.schedule.model;
+package com.example.anna.shedule.application.schedule.model.helper;
 
 
 import android.content.ContentValues;
@@ -54,8 +54,6 @@ public class StaticLesson implements Entity {
 
     private String groupIds;
 
-    private transient List<Group> groups;
-
     @JsonSetter("groups")
     private void groupJsonSetter(List<String> strings) {
         groupIds = StringUtils.join(strings, ",");
@@ -73,6 +71,7 @@ public class StaticLesson implements Entity {
         if (lessonTime != null) values.put("lessonTime", lessonTime.getId());
         if (weekPeriodicity != null) values.put("weekPeriodicity", weekPeriodicity.getId());
         if (type != null) values.put("type", type.getId());
+        values.put("groupIds", groupIds);
     }
 
     @Override
@@ -88,6 +87,7 @@ public class StaticLesson implements Entity {
         lessonId = cursor.getString(8);
         teacherName = cursor.getString(9);
         type = LessonType.getByTypeId(cursor.getString(10));
+        groupIds = cursor.getString(11);
     }
 
     @Override
@@ -99,6 +99,6 @@ public class StaticLesson implements Entity {
     public String getSqlTableFields() {
         return "title VARCHAR, hull VARCHAR, auditory VARCHAR, dayOfWeek INTEGER, " +
                 "teacherId VARCHAR, weekPeriodicity INTEGER, lessonTime INTEGER, " +
-                "lessonId VARCHAR, teacherName VARCHAR, type VARCHAR";
+                "lessonId VARCHAR, teacherName VARCHAR, type VARCHAR, groupIds VARCHAR";
     }
 }

@@ -9,8 +9,9 @@ import java.util.concurrent.TimeUnit;
 public class DateUtils {
 
     private static final Calendar CALENDAR = Calendar.getInstance();
-    private static final long HALF_DAY = TimeUnit.DAYS.toMillis(1) / 2;
 
+    public static final long DAY = TimeUnit.DAYS.toMillis(1);
+    public static final long HALF_DAY = DAY / 2;
 
     public static Date toDate(Cursor cursor, int pos) {
         long timeInMs = cursor.getLong(pos);
@@ -28,7 +29,15 @@ public class DateUtils {
     public static int dayOfWeek(int year, int month, int day) {
         synchronized (CALENDAR) {
             CALENDAR.set(year, month, day);
-            return CALENDAR.get(Calendar.DAY_OF_WEEK);
+            return (CALENDAR.get(Calendar.DAY_OF_WEEK) + 6) % 7;
+        }
+    }
+
+    public static long startOfDay(int year, int month, int day) {
+        synchronized (CALENDAR) {
+            CALENDAR.set(year, month, day);
+            long startDayTime = CALENDAR.getTimeInMillis();
+            return startDayTime;
         }
     }
 }
