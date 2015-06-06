@@ -19,6 +19,11 @@ public class NoteService {
 
     private RequestFactory requests = new RequestFactory();
 
+    public interface NoteCreateListener {
+        void onSuccess();
+        void onError();
+    }
+
     public boolean update() {
         String lastNoteId = null; //todo fix ME ?? getLastNoteId();
         ServerResponseArray<Note> response = requests.getNotes(lastNoteId);
@@ -74,6 +79,20 @@ public class NoteService {
             lesson.setNotes(notes);
         }
         return lessons;
+    }
+
+    public void createNote(final String text, final Lesson lesson, final NoteCreateListener listener) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean isSuccess = createNote(text, lesson);
+                if (isSuccess) {
+                    listener.onSuccess();
+                } else {
+                    listener.onError();
+                }
+            }
+        }).start();
     }
 
     public boolean createNote(String text, Lesson lesson) {

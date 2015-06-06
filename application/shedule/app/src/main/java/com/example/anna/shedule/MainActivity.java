@@ -48,8 +48,12 @@ public class MainActivity extends ActionBarActivity implements
             @Override
             public void onSuccess(User user) {
                 final ScheduleService scheduleService = Services.getService(ScheduleService.class);
+                final NoteService noteService = Services.getService(NoteService.class);
 
                 List<Lesson> lessons = scheduleService.getSchedule(2015, 5, 5);
+
+//                boolean isSuccess = noteService.createNote("Note from application!", lessons.get(0));
+
                 Log.e("t", "y");
             }
 

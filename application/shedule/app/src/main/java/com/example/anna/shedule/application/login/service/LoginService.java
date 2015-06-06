@@ -5,11 +5,13 @@ import com.example.anna.shedule.application.login.model.LoginProgress;
 import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.schedule.service.LessonsChangesService;
+import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.schedule.service.StaticLessonsService;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.server.dto.response.ServerResponse;
+import com.example.anna.shedule.service.ScheduleIntentService;
 
 public class LoginService {
 
@@ -40,6 +42,7 @@ public class LoginService {
 
     public void logout() {
         userService.logout();
+        ScheduleIntentService.disable();
     }
 
     public synchronized void loginAsStudent(String groupId, LoginListener loginListener) {
@@ -97,6 +100,7 @@ public class LoginService {
             return;
         }
 
+        ScheduleIntentService.enable();
         listener.onSuccess(userService.getCurrentUser());
     }
 }

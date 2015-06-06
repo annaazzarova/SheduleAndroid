@@ -3,6 +3,7 @@ package com.example.anna.shedule.application.schedule.service;
 
 import com.example.anna.shedule.application.database.Database;
 import com.example.anna.shedule.application.schedule.model.Change;
+import com.example.anna.shedule.application.schedule.dto.UpdateChangeRequest;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.service.RequestFactory;
 import com.example.anna.shedule.server.dto.response.ServerResponse;
@@ -12,6 +13,8 @@ import com.example.anna.shedule.utils.DateUtils;
 import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import lombok.SneakyThrows;
 
 import static com.example.anna.shedule.application.database.Database.getDbInstance;
 
@@ -61,15 +64,6 @@ public class LessonsChangesService {
         }
     }
 
-    public Change createChange(Change change) {
-        ServerResponse<Change> response = requests.createChange(change);
-        if (response.isSuccess()) {
-            return getDbInstance().save(response.getResponse());
-        } else {
-            return null;
-        }
-    }
-
     private List<Change> getChanges(long time) {
         String query = "SELECT * FROM " + Change.TABLE_NAME
                 + " WHERE (dateFrom <= '" + time + "' AND '" + time + "' <= dateTo) ";
@@ -81,5 +75,4 @@ public class LessonsChangesService {
         db.dropAllElements(Change.TABLE_NAME);
         return db.save(changes);
     }
-
 }
