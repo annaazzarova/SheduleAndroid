@@ -1,33 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:weightSum="1">
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context=".MainActivity">
 
-    <fragment
-        android:name="com.example.anna.shedule.WeekList"
-        android:id="@+id/fragment1"
-        android:layout_weight="0.2"
-        android:layout_width="0px"
-        android:layout_height="match_parent"
-        tools:layout="@layout/left_column" />
+    <com.example.anna.shedule.tabs.SlidingTabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:background="@color/colorTabsBackground"/>
 
-    <FrameLayout
-        android:id="@+id/blue_line"
-        android:layout_weight="0.01"
-        android:layout_width="0px"
-        android:layout_height="match_parent"
-        android:background="#ff59c9cc"
-        android:touchscreenBlocksFocus="true"
-        android:focusable="false"
-        android:focusableInTouchMode="false" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"></android.support.v4.view.ViewPager>
 
-    <FrameLayout
-        android:id="@+id/fragment2"
-        android:layout_weight="0.79"
-        android:layout_width="0px"
-        android:layout_height="match_parent"
-        tools:layout = "@layout/right_recycle_list" />
-
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:src="@drawable/ic_action"
+        fab:fab_colorNormal="@color/fab_colorNormal"
+        fab:fab_colorPressed="@color/fab_colorPressed"
+        fab:fab_colorRipple="@color/fab_colorRipple"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="false"
+        android:layout_alignBottom="@+id/listView" />
 </LinearLayout>

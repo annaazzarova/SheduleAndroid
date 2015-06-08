@@ -1,0 +1,20 @@
+<resources>
+    <string name="title_activity_login">Вход</string>
+
+    <string name="text_invitation">Пожалуйста, введите:</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_login">Логин</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Войти</string>
+    <string name="action_sign_in_short">Sign in</string>
+
+    <!--<string name="error_invalid_login">This login is invalid</string>-->
+    <string name="error_invalid_login">Этот логин не действителен</string>
+    <!--<string name="error_invalid_password">This password is too short</string>-->
+    <string name="error_invalid_password">Этот пароль слишком короткий</string>
+    <!--<string name="error_incorrect_password">This password is incorrect</string>-->
+    <string name="error_incorrect_password">Этот пароль не подходит</string>
+    <!--<string name="error_field_required">This field is required</string>-->
+    <string name="error_field_required">Это поле обязательно к заполнению</string>
+</resources>

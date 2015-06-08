@@ -15,9 +15,6 @@ public class LoginRequest {
     @JsonProperty
     private String password;
 
-    @JsonProperty
-    private boolean isMobile = true;
-
     public LoginRequest(String username, String password){
         this.username = username;
         this.password = password;

@@ -2,8 +2,6 @@ package com.example.anna.shedule.server.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class ServerResponse<T> {
 
     public static final int SUCCESS_RESPONSE_CODE = 0;
+    public static final int LOGIC_ERROR = -0xfd;
     public static final int NO_CONNECTION_ERROR = -0xfe;
     public static final int PARSE_RESPONSE_ERROR = -0xff;
 
@@ -38,4 +37,7 @@ public class ServerResponse<T> {
         return code == SUCCESS_RESPONSE_CODE;
     }
 
+    public static <T> ServerResponseArray<T> getLogicError(Class<T> cs) {
+        return new ServerResponseArray<T>(LOGIC_ERROR);
+    }
 }

@@ -1,9 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="color_status_bar">#222b60</color>
+    <color name="color_background_for_blue_buttons">#3F51B5</color>
+    <color name="color_background_for_red_buttons">#fc5b5b</color>
+    <color name="color_background_activity">#ff2a347c</color>
     <color name="color_list_item_active">#85c2c5</color>
     <color name="color_list_item_inactive">#6A9B9F</color>
     <color name="color_list_item_inactive_text">#b5c1c1</color>
     <color name="color_list_item_active_text">#E3EEF0</color>
+    <color name="color_list_item_background">#606062</color>
+    <color name="color_list_shadow_right_inactive">#486b6d</color>
+    <color name="color_list_shadow_right">#3c3c3e</color>
+    <color name="color_list_shadow_bottom">#3e3e40</color>
 
+    <color name="collor_for_view_underscore">#e0e0e0</color>
+    
+    <color name="colorLightText">#ffffff</color>
+
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#2e3b84</color>
+
+    <color name="fab_colorNormal">#3f51b5</color>
+    <color name="fab_colorPressed">#2e3b84</color>
+    <color name="fab_colorRipple">#2e3b84</color>
+
+    <color name="colorTabDayText">#dedede</color>
+    <color name="colorTabDateText">#bdbdbd</color>
+    <color name="colorTabDateActiveText">#3f51b5</color>
+
+    <color name="colorTabsBackground">#ffffff</color>
+    <color name="colorTabsTextColorActive">#3F51B5</color>
+    <color name="colorTabsTextColorInctive">#BCBCBC</color>
+    <color name="colorTabsScrollColor">#3f51b5</color>
+
+    <color name="colorMainText">#212121</color>
+    <color name="colorSecondaryText">#212121</color>
+    <!--757575-->
+    <color name="colorTimeText">#707070</color>
+
+    <color name="colorButton">#FC5B5B</color>
+    <color name="note_title">#212121</color>
+    <color name="gray">#757575</color>
+
+    <color name="text_light">@color/gray</color>
+    <color name="class_leader_icon_background">#C5CAE9</color>
+    <color name="teacher_icon_background">#FC5B5B</color>
+    <color name="notes_list_background_color">#EDEDED</color>
+    <color name="color_primary">#3F51B5</color>
+    <color name="window_background">#fff</color>
+
+    <color name="menu_icon_color">@color/gray</color>
+    <color name="selected_menu_item">@color/color_primary</color>
+
+    <color name="colorListDividor">#f7f7f7</color>
 </resources>

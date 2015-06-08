@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/notes_list_background_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NotesListActivity">
+
+    <ListView
+        android:id="@+id/notes_list"
+        android:dividerHeight="12dp"
+        android:headerDividersEnabled="true"
+        android:footerDividersEnabled="true"
+        android:clickable="false"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="@android:color/transparent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>
