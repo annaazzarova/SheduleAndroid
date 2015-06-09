@@ -1,3 +1,13 @@
-/nbproject/private/
-/ParserSpec/nbproject/private/
-/ParserSpec/build/
+syntax: glob
+.gradle/*
+local.properties
+.idea/*
+.DS_Store
+gradle/*
+app/build/*
+build/*
+.gradle*
+*.log
+*.iml
+*.orig
+*.rej

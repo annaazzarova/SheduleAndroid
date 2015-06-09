@@ -174,4 +174,9 @@ public class Lesson implements Serializable {
     public boolean hasNotes() {
         return !notes.isEmpty();
     }
+
+    public String getGroupsAsString() {
+
+        return null;
+    }
 }

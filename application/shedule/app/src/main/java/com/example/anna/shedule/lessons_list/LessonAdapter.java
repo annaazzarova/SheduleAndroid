@@ -16,22 +16,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anna.shedule.R;
+import com.example.anna.shedule.application.note.service.NoteService;
+import com.example.anna.shedule.application.schedule.model.Lesson;
+import com.example.anna.shedule.application.schedule.service.ScheduleService;
+import com.example.anna.shedule.application.services.Services;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LessonAdapter extends BaseAdapter{
     Context context;
 
+    List<Lesson> lessons;
 
     public class LessonHolder {
 
     }
 
-    ArrayList<LessonData> objects;
     private static LayoutInflater inflater=null;
-    public LessonAdapter(FragmentActivity mainActivity, ArrayList<LessonData> lessons) {
+    public LessonAdapter(FragmentActivity mainActivity, List<Lesson> lessons1) {
         // TODO Auto-generated constructor stub
-        objects = lessons;
+        lessons = lessons1;
         context=mainActivity;
         inflater = ( LayoutInflater )context.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -40,7 +45,7 @@ public class LessonAdapter extends BaseAdapter{
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return objects.size();
+        return lessons.size();
     }
 
     @Override
@@ -49,9 +54,6 @@ public class LessonAdapter extends BaseAdapter{
         return position;
     }
 
-    LessonData getLesson(int position) {
-        return objects.get(position);
-    }
 
     @Override
     public long getItemId(int position) {
@@ -62,7 +64,6 @@ public class LessonAdapter extends BaseAdapter{
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
-        LessonData les = getLesson(position);
         final View rowView;
         rowView = inflater.inflate(R.layout.card_layout, null);
         TextView tw_lesson = (TextView) rowView.findViewById(R.id.textLesson);
@@ -70,11 +71,11 @@ public class LessonAdapter extends BaseAdapter{
         TextView tw_type = (TextView) rowView.findViewById(R.id.textType);
         TextView tw_start = (TextView) rowView.findViewById(R.id.startTime);
         TextView tw_end = (TextView) rowView.findViewById(R.id.endTime);
-        tw_start.setText(les.getStart());
-        tw_end.setText(les.getEnd());
-        tw_type.setText(les.getType());
-        tw_lesson.setText(les.getLesson());
-        tw_group.setText(les.getGroup());
+        tw_start.setText(lessons.get(position).getTime().getStartTime());
+        tw_end.setText(lessons.get(position).getTime().getEndTime());
+        tw_type.setText(lessons.get(position).getType().toString());
+        tw_lesson.setText(lessons.get(position).getTitle());
+        tw_group.setText(lessons.get(position).getGroupsAsString());
         rowView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {

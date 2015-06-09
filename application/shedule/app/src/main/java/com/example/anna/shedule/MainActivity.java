@@ -1,11 +1,13 @@
 package com.example.anna.shedule;
 
+import android.app.Service;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.anna.shedule.activities.menu.BaseActivity;
 import com.example.anna.shedule.application.login.model.LoginError;
@@ -16,9 +18,12 @@ import com.example.anna.shedule.application.schedule.model.Lesson;
 import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
+import com.example.anna.shedule.application.user.model.UserType;
+import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.tabs.SampleFragmentPagerAdapter;
 import com.example.anna.shedule.tabs.SlidingTabLayout;
 import com.example.anna.shedule.utils.ContextUtils;
+import com.github.clans.fab.FloatingActionButton;
 
 import java.util.Calendar;
 import java.util.List;
@@ -28,18 +33,26 @@ public class MainActivity extends BaseActivity {
     // Declaring Your View and Variables
 
     public String[] Titles= new String[] {"", "", "", "", "", ""};
-
+    private UserService user_service;
+    User main_activity_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ContextUtils.setContext(getApplicationContext());
+        user_service = Services.getService(UserService.class);
+        main_activity_user = user_service.getCurrentUser();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        if (main_activity_user.getType() != UserType.CLASS_LEADER) {
+            fab.setVisibility(View.GONE);
+        }
 
         Calendar c = Calendar.getInstance();
         int date = c.get(Calendar.DATE);
         int day_of_week = c.get(Calendar.DAY_OF_WEEK)-1;
-        int firstdate = date - day_of_week +1;
+        int firstdate = date - day_of_week;
         for (int i = 0; i != 6; ++i){
             Titles[i] = String.valueOf(firstdate++);
         }

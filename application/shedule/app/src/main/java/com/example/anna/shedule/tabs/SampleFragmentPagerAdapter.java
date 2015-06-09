@@ -13,11 +13,13 @@ import com.example.anna.shedule.PageFragment;
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 6;
     private String tabTitles[] = new String[] {"", "", "", "", "", ""};
+    private String titles[] = new String[]{};
     private Context context;
 
 
     public SampleFragmentPagerAdapter(FragmentManager fm, Context context, String Titles[]) {
         super(fm);
+        this.titles = Titles;
         this.tabTitles = Titles;
         this.context = context;
     }
@@ -29,7 +31,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        PageFragment pg = new PageFragment().newInstance(position);
+        PageFragment pg = new PageFragment().newInstance(Integer.parseInt(titles[position+1],10));
         return pg;
     }
 
