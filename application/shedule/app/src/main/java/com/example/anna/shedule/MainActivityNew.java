@@ -56,7 +56,6 @@ public class MainActivityNew extends ActionBarActivity implements View.OnClickLi
         btnStudent.setOnClickListener(this);
         btnSteward.setOnClickListener(this);
         btnTeacher.setOnClickListener(this);
-        intent = new Intent(MainActivityNew.this, com.example.anna.shedule.login.LoginActivity.class);
     }
 
     @Override
@@ -85,15 +84,15 @@ public class MainActivityNew extends ActionBarActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnStudent:
-                intent.putExtra("TypeUser", R.id.btnStudent);
+                intent = new Intent(MainActivityNew.this, com.example.anna.shedule.login.GroupSelectionActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnTeacher:
-                intent.putExtra("TypeUser", R.id.btnTeacher);
+                intent = new Intent(MainActivityNew.this, com.example.anna.shedule.login.LoginActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnSteward:
-                intent.putExtra("TypeUser", R.id.btnSteward);
+                intent = new Intent(MainActivityNew.this, com.example.anna.shedule.login.LoginActivity.class);
                 startActivity(intent);
                 break;
         }

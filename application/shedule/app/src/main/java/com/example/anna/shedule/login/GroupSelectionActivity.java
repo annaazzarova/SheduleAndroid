@@ -1,6 +1,7 @@
 package com.example.anna.shedule.login;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -14,8 +15,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.anna.shedule.R;
+import com.example.anna.shedule.application.login.model.LoginError;
+import com.example.anna.shedule.application.login.model.LoginProgress;
+import com.example.anna.shedule.application.login.service.LoginService;
+import com.example.anna.shedule.application.schedule.model.Group;
 import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.services.Services;
+import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.utils.ContextUtils;
 
 import java.util.ArrayList;
@@ -44,6 +50,10 @@ public class GroupSelectionActivity extends ActionBarActivity {
     private ArrayAdapter<String> adapterCour = null;
     private ArrayAdapter<String> adapterGroup = null;
 
+    private final LoginService loginService = Services.getService(LoginService.class);
+
+    private List<Group> groupsList = null;
+    private String groupId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,11 +133,12 @@ public class GroupSelectionActivity extends ActionBarActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String fac = spinnFac.getSelectedItem().toString();
                 String sp = spinnSpec.getSelectedItem().toString();
-                String gr = spinnCour.getSelectedItem().toString();
+                String cr = spinnCour.getSelectedItem().toString();
                 groups.clear();
                 groups.add(START_ITEM_SPINNER);
                 progressBarWaiting();
-                List grs = groupService.getGroups(fac, sp, gr);
+                List grs = groupService.getGroups(fac, sp, cr);
+                groupsList = grs;
                 groups.addAll(grs.subList(0, grs.size()));
                 spinnGroup.setAdapter(adapterGroup);
                 adapterGroup.notifyDataSetChanged();
@@ -142,24 +153,54 @@ public class GroupSelectionActivity extends ActionBarActivity {
         spinnGroup.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                int posSelected = spinnGroup.getSelectedItemPosition();
+                if (posSelected != 0)
+                    groupId = groupsList.get(posSelected - 1).getGroupId();
+                else
+                    groupId = null;
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
+                groupId = null;
             }
         });
 
-        btnEntry = (LinearLayout)findViewById(R.id.btnEntry);
+        btnEntry = (LinearLayout) findViewById(R.id.btnEntry);
         btnEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // Переход по нажатию на кнопку!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 /*final Intent intent = new Intent(LoginActivity.this,
                         com.example.anna.shedule.login.GroupSelectionActivity.class);
                 intent.putExtra("user", user.toString());
                 startActivity(intent);*/
-                Toast.makeText(getApplicationContext(), "Переход на следующий экран!", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Переход на следующий экран!", Toast.LENGTH_SHORT).show();
+                if (groupId != null)
+                    loginService.loginAsStudent(groupId, new LoginService.LoginListener() {
+                        @Override
+                        public void onSuccess(User user) {
+                            final Intent intent = new Intent(GroupSelectionActivity.this,
+                                    com.example.anna.shedule.MainActivity.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onError(LoginError loginError) {
+                            int messageRes = R.string.no_internet_connection;
+                            if (loginError == LoginError.INVALID_USERNAME_OR_PASSWORD) {
+                                messageRes = R.string.invalid_password_or_login;
+                            }
+                            prog1.cancel();
+                            Toast.makeText(getApplicationContext(), "Авторизация не удалась! Проверьте логин и пароль!", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onProgress(LoginProgress progress) {
+
+                        }
+                    });
             }
         });
 

@@ -32,11 +32,14 @@
         </activity>
         <activity
             android:name=".login.GroupSelectionActivity"
-            android:label="@string/title_activity_group_selection"
+            android:label="@string/enter"
             android:parentActivityName=".login.LoginActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".login.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".MainActivity">
         </activity>
 
         <service

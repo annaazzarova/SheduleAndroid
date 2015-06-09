@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +16,6 @@ import com.example.anna.shedule.application.login.model.LoginProgress;
 import com.example.anna.shedule.application.login.service.LoginService;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
-import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.utils.ContextUtils;
 
 import static com.example.anna.shedule.R.id.login;
@@ -28,7 +26,7 @@ import static com.example.anna.shedule.R.layout.activity_login;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends ActionBarActivity {
 
 
     private final LoginService loginService = Services.getService(LoginService.class);
@@ -78,8 +76,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(User user) {
                         final Intent intent = new Intent(LoginActivity.this,
-                                com.example.anna.shedule.login.GroupSelectionActivity.class);
+                                com.example.anna.shedule.MainActivity.class);
                         intent.putExtra("user", user.toString());
+                        prog1.cancel();
                         startActivity(intent);
                     }
 
@@ -90,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                             messageRes = R.string.invalid_password_or_login;
                         }
                         prog1.cancel();
-                        Toast.makeText(getApplicationContext(), messageRes, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Авторизация не удалась! Проверьте логин и пароль!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
