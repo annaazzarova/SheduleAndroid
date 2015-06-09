@@ -11,8 +11,11 @@ import android.widget.TextView;
 
 import com.example.anna.shedule.activities.menu.BaseActivity;
 import com.example.anna.shedule.R;
+import com.example.anna.shedule.application.note.model.Note;
+import com.example.anna.shedule.application.note.service.NoteService;
+import com.example.anna.shedule.application.services.Services;
+import com.example.anna.shedule.utils.ContextUtils;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -28,6 +31,10 @@ public class NotesListActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.notes_list_activity);
+        ContextUtils.setContext(getApplicationContext());
+
+        NoteService noteService = Services.getService(NoteService.class);
+
         ListView mNotesList = (ListView) findViewById(R.id.notes_list);
 
         classLeader = getString(R.string.class_leader);
@@ -38,19 +45,7 @@ public class NotesListActivity extends BaseActivity {
         mNotesList.addFooterView(new View(context), null, true);
         mNotesList.addHeaderView(new View(context), null, true);
 
-        // specify an adapter (see also next example)
-        List<Note> texts = new ArrayList<>();
-        texts.add(new Note("Нехорошкова Л.Г.", "Пара Теория управления (13:30) 27 мая отменена.", new Date(System.currentTimeMillis() - 1000 * 60 * 24 * 60 * 2), true));
-        texts.add(new Note("Нехорошкова Л.Г.", "Пара ПП (11:30) 15 марта отменена.", new Date(), false));
-        texts.add(new Note("Нехорошкова Л.Г.", "Пара Теория управления (13:30) 27 мая отменена.", new Date(), true));
-        texts.add(new Note("Нехорошкова Л.Г.", "Пара ПП (11:30) 15 марта отменена мая отменена.", new Date(System.currentTimeMillis() - 1000 * 60 * 24 * 60 * 2), true));
-        texts.add(new Note("Нехорошкова Л.Г.", "Пара Теория управления (13:30) 27 мая отменена.", new Date(System.currentTimeMillis() - 1000 * 60 * 24 * 60 * 2), true));
-        texts.add(new Note("Нехорошкова Л.Г.", "Пара ПП (11:30) 15 марта отменена мая отменена.", new Date(), true));
-        texts.add(new Note("Нехорошкова Л.Г.", "Пара Теория управления (13:30) 27 мая отменена.", new Date(), false));
-        texts.add(new Note("Нехорошкова Л.Г.", "Пара ПП (11:30) 15 марта отменена мая отменена.", new Date(), false));
-
-
-        MyAdapter mAdapter = new MyAdapter(getApplicationContext(), texts);
+        MyAdapter mAdapter = new MyAdapter(getApplicationContext(), noteService.getNotes());
         mNotesList.setAdapter(mAdapter);
     }
 
@@ -75,7 +70,7 @@ public class NotesListActivity extends BaseActivity {
             date.setText(generateCreateDateText(note.getDate()));
             text.setText(note.getText());
 
-            int iconBackgroundColor = (note.isTeacher())
+            int iconBackgroundColor = ("teacher".equals(note.getOwnerType()))
                     ? R.color.teacher_icon_background
                     : R.color.class_leader_icon_background;
             icon.setText(String.valueOf(getFirstLetter(owner)));
@@ -123,9 +118,9 @@ public class NotesListActivity extends BaseActivity {
         }
 
         private String getOwner(Note note) {
-            String owner = (note.isTeacher())
-                    ? note.getOwner()
-                    : classLeader;
+            String owner = ("classLeader".equals(note.getOwnerType()))
+                    ? classLeader
+                    : note.getOwnerExtraData();
             return owner == null ? "" : owner;
         }
     }
@@ -175,21 +170,5 @@ public class NotesListActivity extends BaseActivity {
         public int getCount() {
             return values.size();
         }
-    }
-
-    @Data
-    private class Note {
-        private String owner;
-        private String text;
-        private Date date;
-        private boolean teacher;
-
-        public Note(String owner, String text, Date date, boolean teacher) {
-            this.owner = owner;
-            this.text = text;
-            this.date = date;
-            this.teacher = teacher;
-        }
-
     }
 }

@@ -14,6 +14,7 @@ import com.example.anna.shedule.application.database.Database;
 import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.schedule.model.Change;
+import com.example.anna.shedule.application.schedule.model.helper.LessonStatus;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.schedule.service.ScheduleService;
@@ -154,14 +155,14 @@ public class ScheduleIntentService extends IntentService {
     }
 
     private List<String> concatenate(Map<String, Change> oldChanges, Map<String, Change> newChanges) {
-        List<String> removedChanges = getRemovedChanges(oldChanges, newChanges);
+//        List<String> removedChanges = getRemovedChanges(oldChanges, newChanges);
         List<String> addedChanges = getAddedChanges(oldChanges, newChanges);
         List<String> changedChanges = getUpdatedChanges(oldChanges, newChanges);
 
         List<String> allChanges = new ArrayList<>();
         allChanges.addAll(addedChanges);
         allChanges.addAll(changedChanges);
-        allChanges.addAll(removedChanges);
+//        allChanges.addAll(removedChanges);
         return allChanges;
     }
 
@@ -170,10 +171,38 @@ public class ScheduleIntentService extends IntentService {
         for (String change: oldChanges.keySet()) {
             Change other = newChanges.get(change);
             if (other != null && !other.equals(oldChanges.get(change))) {
-                updated.add(change);
+                Change ch1 = (oldChanges.get(change));
+                if (!isEquals(ch1, other)) {
+                    updated.add(change);
+                }
             }
         }
         return updated;
+    }
+
+    private boolean isEquals(Change ch1, Change ch2) {
+        return isEquals(ch1.getTitle(), ch2.getTitle()) && isEquals(ch1.getAuditory(), ch2.getAuditory())
+                && isEquals(ch1.getHull(), ch1.getHull()) && isEquals(ch1.getStatus(), ch2.getStatus());
+    }
+
+    private boolean isEquals(LessonStatus s1, LessonStatus s2) {
+        if (s1 == null) {
+            s1 = LessonStatus.NORMAL;
+        }
+        if (s2 == null) {
+            s2 = LessonStatus.NORMAL;
+        }
+        return  s1 == s2;
+    }
+
+    private boolean isEquals(String s1, String s2) {
+        if (s1 == null ) {
+            s1 = "";
+        }
+        if (s2 == null) {
+            s2 = "";
+        }
+        return s1.equals(s2);
     }
 
     private List<String> getAddedChanges(Map<String, Change> oldChanges, Map<String, Change> newChanges) {
