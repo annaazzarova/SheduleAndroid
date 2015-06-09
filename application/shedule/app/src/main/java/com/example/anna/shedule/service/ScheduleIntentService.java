@@ -1,13 +1,20 @@
 package com.example.anna.shedule.service;
 
 import android.app.IntentService;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
+import com.example.anna.shedule.MainActivity;
+import com.example.anna.shedule.R;
 import com.example.anna.shedule.application.database.Database;
 import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.schedule.model.Change;
+import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.services.Services;
@@ -28,6 +35,10 @@ import static com.example.anna.shedule.application.database.Database.getDbInstan
 
 public class ScheduleIntentService extends IntentService {
 
+    public static final int NOTE_NOTIFY = 1;
+    public static final int CHANGE_NOTIFY = 2;
+    NotificationManager mNotificationManager;
+
     public ScheduleIntentService() {
         this("Schedule service");
     }
@@ -38,10 +49,11 @@ public class ScheduleIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
+        Log.e("SERVICE", "Start sync");
         ContextUtils.setContext(getApplicationContext());
-        android.os.Debug.waitForDebugger();
         synchronize();
         AlarmReceiver.completeWakefulIntent(intent);
+        Log.e("SERVICE", "Done sync");
     }
 
     public static void enable() {
@@ -66,20 +78,59 @@ public class ScheduleIntentService extends IntentService {
         List<Change> updatedChanges = getChangedChanges(stateBefore, stateAfter);
 
         if (newNoteIds.size() > 0) {
-            showNewNotesNotify();
+            Note note = getNoteById(newNoteIds.get(0));
+            showNewNotesNotify(note);
         }
 
         if (updatedChanges.size() > 0) {
-            showLessonChangesNotify();
+            Change change = updatedChanges.get(0);
+            showLessonChangesNotify(change);
         }
     }
 
-    private void showNewNotesNotify() {
-        //TODO show me mew
+    private Note getNoteById(String id) {
+        String query = "SELECT * FROM " + Note.TABLE_NAME + " WHERE noteId = '" + id + "'";
+        return getDbInstance().getOneByQuery(Note.class, query);
     }
 
-    private void showLessonChangesNotify() {
-        //TODO show me mew
+    private void showNewNotesNotify(Note note) {
+        String changeTitle = getString(R.string.note_notify_title);
+        sendNotification(note.getText(), changeTitle, CHANGE_NOTIFY, MainActivity.class);
+    }
+
+    private void showLessonChangesNotify(Change change) {
+        String noteTitle = getString(R.string.change_notify_title);
+        String lessonTitle = getTitle(change);
+        sendNotification(lessonTitle, noteTitle, NOTE_NOTIFY, MainActivity.class);
+    }
+
+    private String getTitle(Change change) {
+        String title = "";
+        if (change.getTitle() != null) {
+            title = change.getTitle();
+        } else if (change.getLessonId() != null) {
+            String query = "SELECT * FROM " + StaticLesson.TABLE_NAME + " WHERE lessonId='" + change.getLessonId() +"'";
+            StaticLesson lesson = getDbInstance().getOneByQuery(StaticLesson.class, query);
+            title = lesson.getTitle();
+        }
+        return title;
+    }
+
+    private void sendNotification(String msg, String title, int notifyId, Class<?> activity) {
+        if (mNotificationManager == null) {
+            mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+        }
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, activity), 0);
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle(title)
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(msg))
+                        .setContentText(msg);
+
+        mBuilder.setContentIntent(contentIntent);
+        mNotificationManager.notify(notifyId, mBuilder.build());
     }
 
     private List<Change> getChangedChanges(DataState stateBefore, DataState stateAfter) {
@@ -109,8 +160,8 @@ public class ScheduleIntentService extends IntentService {
 
         List<String> allChanges = new ArrayList<>();
         allChanges.addAll(addedChanges);
-        allChanges.addAll(removedChanges);
         allChanges.addAll(changedChanges);
+        allChanges.addAll(removedChanges);
         return allChanges;
     }
 

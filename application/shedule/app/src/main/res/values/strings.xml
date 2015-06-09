@@ -16,6 +16,9 @@
     <string name="title_friends">Friends</string>
     <string name="title_home">Home</string>
 
+    <string name="note_notify_title">Новое замечание</string>
+    <string name="change_notify_title">Изменение в расписании</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="select_faculty">Выберите факультет:</string>
     <string name="select_specialty">Выберите специальность:</string>
