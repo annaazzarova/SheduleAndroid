@@ -7,22 +7,15 @@
     android:theme="@style/Theme.AppCompat.NoActionBar"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="P"
-        android:textColor="@android:color/white"
+    <ImageView
+        android:layout_width="164dp"
+        android:layout_height="164dp"
         android:background="@drawable/rectangle_rounded_all_blue"
-        android:id="@+id/textLogo"
-        android:width="164dp"
-        android:height="164dp"
-        android:textAlignment="center"
-        android:textSize="85dp"
-        android:paddingTop="30dp"
-        android:paddingLeft="61dp"
+        android:src="@drawable/start"
+        android:id="@+id/logo"
         android:layout_marginTop="84dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:padding="15dp" />
 
     <Button
         android:id="@+id/btnStudent"

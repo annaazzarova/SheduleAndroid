@@ -78,17 +78,17 @@ public class GroupSelectionActivity extends ActionBarActivity {
         prog1.cancel();
 
 
-        adapterFac = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, faculties);
+        adapterFac = new ArrayAdapter<String>(this, R.layout.simple_spinner_item_custom, faculties);
         adapterFac.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnFac.setAdapter(adapterFac);
 
-        adapterCour = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, course);
+        adapterCour = new ArrayAdapter<String>(this, R.layout.simple_spinner_item_custom, course);
         adapterCour.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        adapterGroup = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, groups);
+        adapterGroup = new ArrayAdapter<String>(this, R.layout.simple_spinner_item_custom, groups);
         adapterGroup.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        adapterSpec = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, specialty);
+        adapterSpec = new ArrayAdapter<String>(this, R.layout.simple_spinner_item_custom, specialty);
         adapterSpec.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnFac.setOnItemSelectedListener(new OnItemSelectedListener() {
