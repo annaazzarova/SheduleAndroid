@@ -127,4 +127,9 @@ public class Change implements Entity {
                 "time INTEGER, title VARCHAR, hull VARCHAR, auditory VARCHAR, teacherId VARCHAR, " +
                 "teacherName VARCHAR, groupIds VARCHAR";
     }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacherName = teacher.getName();
+        this.teacherId = teacher.getTeacherId();
+    }
 }

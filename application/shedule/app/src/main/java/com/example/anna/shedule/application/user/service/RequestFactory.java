@@ -3,6 +3,9 @@ package com.example.anna.shedule.application.user.service;
 
 import com.example.anna.shedule.application.note.dto.CreateNoteRequest;
 import com.example.anna.shedule.application.note.model.Note;
+import com.example.anna.shedule.application.schedule.dto.CreateChangeByLessonRequest;
+import com.example.anna.shedule.application.schedule.dto.CreateNewLessonRequest;
+import com.example.anna.shedule.application.schedule.dto.UpdateChangeRequest;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.services.Services;
@@ -35,19 +38,21 @@ public class RequestFactory {
         return getRequestsByUser(user).getScheduleChanges(user, dateFrom, dateTo);
     }
 
-    public ServerResponse<Object> cancelChange(String changeId) {
+    public ServerResponse<Object> deleteCancel(String changeId) {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).cancelChange(changeId, user.getGroupId());
+        return getRequestsByUser(user).deleteCancel(changeId);
     }
 
-    public ServerResponse<Change> createChange(Change change) {
+    public ServerResponse<Change> createNewLesson(Change change) {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).createChange(change, user.getGroupId());
+        CreateNewLessonRequest request = new CreateNewLessonRequest(change);
+        return getRequestsByUser(user).createNewLesson(request);
     }
 
-    public ServerResponse<Change> updateChange(Change change) {
+    public ServerResponse<Object> updateChange(Change change) {
         User user = userService.getCurrentUser();
-        return getRequestsByUser(user).updateChange(change, user.getGroupId());
+        UpdateChangeRequest request = new UpdateChangeRequest(change);
+        return getRequestsByUser(user).updateChange(request, change.getChangeId());
     }
 
     public ServerResponseArray<StaticLesson> getScheduleByCurrentUser() {
@@ -71,22 +76,28 @@ public class RequestFactory {
         return getRequestsByUser(user).createNoteToChange(request, changeId);
     }
 
+    public ServerResponse<Change> changeExistsLesson(Change change) {
+        User user = userService.getCurrentUser();
+        CreateChangeByLessonRequest request = new CreateChangeByLessonRequest(change);
+        return getRequestsByUser(user).createNewChangeToLesson(request, change.getLessonId());
+    }
+
 
     private abstract static class Requests {
         public ServerResponseArray<Change> getScheduleChanges(User user, long dateFrom, long dateTo) {
             return ServerResponse.getLogicError(Change.class);
         }
 
-        public ServerResponse<Object> cancelChange(String changeId, String userId) {
+        public ServerResponse<Object> deleteCancel(String changeId) {
             return new ServerResponse<Object>(ServerResponse.LOGIC_ERROR);
         }
 
-        public ServerResponse<Change> createChange(Change change, String userId) {
+        public ServerResponse<Change> createNewLesson(CreateNewLessonRequest change) {
             return new ServerResponse<Change>(ServerResponse.LOGIC_ERROR);
         }
 
-        public ServerResponse<Change> updateChange(Change change, String userId) {
-            return new ServerResponse<Change>(ServerResponse.LOGIC_ERROR);
+        public ServerResponse<Object> updateChange(UpdateChangeRequest request, String changeId) {
+            return new ServerResponse<Object>(ServerResponse.LOGIC_ERROR);
         }
 
         public ServerResponseArray<StaticLesson> getSchedule(String userId) {
@@ -103,6 +114,10 @@ public class RequestFactory {
 
         public ServerResponse<Note> createNoteToChange(CreateNoteRequest request, String changeId) {
             return new ServerResponse<Note>(ServerResponse.LOGIC_ERROR);
+        }
+
+        public ServerResponse<Change> createNewChangeToLesson(CreateChangeByLessonRequest request, String lessonId) {
+            return new ServerResponse<Change>(ServerResponse.LOGIC_ERROR);
         }
     }
 
@@ -164,18 +179,22 @@ public class RequestFactory {
         }
 
         @Override
-        public ServerResponse<Object> cancelChange(String changeId, String userId) {
-            return Server.cancelChange(changeId, userId);
+        public ServerResponse<Object> deleteCancel(String changeId) {
+            return Server.deleteCancel(changeId);
         }
 
         @Override
-        public ServerResponse<Change> createChange(Change change, String userId) {
-            return Server.createChange(change, userId);
+        public ServerResponse<Change> createNewLesson(CreateNewLessonRequest change) {
+            return Server.createNewLesson(change);
         }
 
         @Override
-        public ServerResponse<Change> updateChange(Change change, String userId) {
-            return Server.updateChange(change, userId);
+        public ServerResponse<Object> updateChange(UpdateChangeRequest change, String changeId) {
+            return Server.updateChange(change, changeId);
+        }
+
+        public ServerResponse<Change> createNewChangeToLesson(CreateChangeByLessonRequest request, String lessonId) {
+            return Server.createNewChangeToLesson(request, lessonId);
         }
 
         @Override

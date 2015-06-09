@@ -45,10 +45,15 @@ public class LoginService {
         ScheduleIntentService.disable();
     }
 
-    public synchronized void loginAsStudent(String groupId, LoginListener loginListener) {
+    public synchronized void loginAsStudent(final String groupId, final LoginListener loginListener) {
         loginListener.onProgress(LoginProgress.AUTHORIZATION);
-        userService.loginStudent(groupId);
-        loadLessons(loginListener);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                userService.loginStudent(groupId);
+                loadLessons(loginListener);
+            }
+        }).start();
     }
 
     public synchronized void login(String username, String password, final LoginListener loginListener) {

@@ -49,7 +49,7 @@ public class JsonParser {
                 .constructParametrizedType(parametrized, parametrized, parameter);
         try {
             return MAPPER.readValue(jsonString, javaType);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

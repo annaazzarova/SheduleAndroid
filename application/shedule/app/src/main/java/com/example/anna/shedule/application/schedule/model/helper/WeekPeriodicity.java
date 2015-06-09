@@ -53,4 +53,7 @@ public enum WeekPeriodicity {
         return (currentWeek % 2 == 0) ? BLUE : RED;
     }
 
+    public String getAsString() {
+        return name().toLowerCase();
+    }
 }

@@ -136,6 +136,10 @@ public class Database {
         db.delete(tableName, "id=" + elementId, null);
     }
 
+    public void delete(String tableName, String query) {
+        db.delete(tableName, query, null);
+    }
+
     private Database() {
         boolean isExists = isDatabaseExists();
         db = ContextUtils.getContext().openOrCreateDatabase(DB_PATH, Context.MODE_PRIVATE, null);
