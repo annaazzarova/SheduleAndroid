@@ -25,7 +25,7 @@
     <Spinner
         android:id="@+id/facultySpiner"
         android:layout_width="match_parent"
-        android:layout_height="17dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:gravity="left"
         android:layout_gravity="left"
@@ -50,7 +50,7 @@
     <Spinner
         android:id="@+id/specialtySpiner"
         android:layout_width="match_parent"
-        android:layout_height="17dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:gravity="left"
         android:layout_gravity="left"
@@ -75,7 +75,7 @@
     <Spinner
         android:id="@+id/courseSpiner"
         android:layout_width="match_parent"
-        android:layout_height="17dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:gravity="left"
         android:layout_gravity="left"
@@ -90,7 +90,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:gravity="left"
         android:singleLine="true"
         android:text="@string/select_group"
@@ -100,7 +100,7 @@
     <Spinner
         android:id="@+id/groupSpiner"
         android:layout_width="match_parent"
-        android:layout_height="17dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:gravity="left"
         android:layout_gravity="left"

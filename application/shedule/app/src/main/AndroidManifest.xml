@@ -52,7 +52,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".login.LoginActivity" />
         </activity>
-
         <service
             android:name=".service.ScheduleIntentService"
             android:label="@string/service_name" />

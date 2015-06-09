@@ -29,6 +29,7 @@
     <string name="btnStudentName">Студент</string>
     <string name="btnTeacherName">Преподаватель</string>
     <string name="btnStewardName">Староста</string>
+    <string name="enter">Вход</string>
 
     <string name="cancel">Отменена</string>
     <string name="class_leader">Староста</string>
