@@ -15,7 +15,7 @@ import java.util.Calendar;
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 6;
     private String tabTitles[] = new String[] {"", "", "", "", "", ""};
-    private String Titles[] = new String[]{};
+    private String Titles[] = new String[]{"", "", "", "", "", ""};
     private Context context;
 
 
@@ -23,12 +23,11 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         Calendar c = Calendar.getInstance();
         int date = c.get(Calendar.DATE);
-        int day_of_week = c.get(Calendar.DAY_OF_WEEK)-1;
-        int firstdate = date - day_of_week;
+        int day_of_week = c.get(Calendar.DAY_OF_WEEK) - 1;
+        int firstdate = date - day_of_week +1;
         for (int i = 0; i != 6; ++i){
             Titles[i] = String.valueOf(firstdate++);
         }
-        Titles[0] = String.valueOf(c.get(Calendar.DATE));
         this.tabTitles = Titles;
         this.context = context;
     }
@@ -40,7 +39,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        PageFragment pg = new PageFragment().newInstance(Integer.parseInt(Titles[position],10));
+        PageFragment pg = new PageFragment().newInstance(Integer.parseInt(Titles[position],10)-1);
         return pg;
     }
 
