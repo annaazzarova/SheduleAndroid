@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 public class ResponseWithStatusCode {
 
     public static final int NO_INTERNET_ERROR = -1;
+    public static final int FATAL_ERROR = -2;
 
     private int code;
     private String response;

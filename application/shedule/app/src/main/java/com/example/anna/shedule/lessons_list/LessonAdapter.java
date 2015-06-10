@@ -5,6 +5,7 @@ package com.example.anna.shedule.lessons_list;
  */
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,8 @@ import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.model.UserType;
 import com.example.anna.shedule.application.user.service.UserService;
 import com.github.clans.fab.FloatingActionButton;
+import com.example.anna.shedule.activities.CreateNoteLayout;
+import com.example.anna.shedule.application.note.service.NoteService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,13 +101,17 @@ public class LessonAdapter extends BaseAdapter{
                 final Dialog dialog = new Dialog(arg0.getContext());
                 dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
                 dialog.setContentView(R.layout.dialog_layout);
-                //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                //dialogButton.setOnClickListener(new OnClickListener() {
-                //    @Override
-                //    public void onClick(View v) {
-                //        dialog.dismiss();
-                //    }
-                //});
+                dialog.findViewById(R.id.add_note_button).setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, CreateNoteLayout.class);
+                        intent.putExtra("changeId", ""); //TODO TO DO DO DO
+                        intent.putExtra("lessonId", "");
+                        intent.putExtra("startOfDay", (long) 0);
+                        dialog.cancel();
+                        context.startActivity(intent);
+                    }
+                });
 
                 dialog.show();
                 // TODO Auto-generated method stub

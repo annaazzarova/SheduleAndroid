@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -126,5 +127,10 @@ public class Change implements Entity {
                 "dayOfWeek INTEGER, weekPeriodicity INTEGER, type VARCHAR, status VARCHAR, " +
                 "time INTEGER, title VARCHAR, hull VARCHAR, auditory VARCHAR, teacherId VARCHAR, " +
                 "teacherName VARCHAR, groupIds VARCHAR";
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacherName = teacher.getName();
+        this.teacherId = teacher.getTeacherId();
     }
 }

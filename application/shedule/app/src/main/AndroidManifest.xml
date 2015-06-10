@@ -37,7 +37,11 @@
 
         <activity
             android:name=".activities.NotesListActivity"
+            android:parentActivityName=".MainActivity"
             android:label="@string/notes_list_activity_title" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".login.LoginActivity"
@@ -53,7 +57,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".login.LoginActivity" />
         </activity>
-
         <service
             android:name=".service.ScheduleIntentService"
             android:label="@string/service_name" />

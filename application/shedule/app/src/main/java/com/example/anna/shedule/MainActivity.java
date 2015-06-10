@@ -70,40 +70,12 @@ public class MainActivity extends BaseActivity {
             }
         });
         slidingTabLayout.setViewPager(viewPager);
-
-        //Database.dropDatabase();
-
-        final LoginService loginService  = Services.getService(LoginService.class);
-
-//      loginService.login("нехорошкова л.г.", "NJZR4QB_S", new LoginService.LoginListener() {
-        loginService.login("ФИиВТ ПС-31", "41WM2R5cH", new LoginService.LoginListener() {
-            @Override
-            public void onSuccess(User user) {
-                final ScheduleService scheduleService = Services.getService(ScheduleService.class);
-                final NoteService noteService = Services.getService(NoteService.class);
-
-                List<Lesson> lessons = scheduleService.getSchedule(2015, 5, 5);
-
-//                boolean isSuccess = noteService.createNote("Note from application!", lessons.get(0));
-
-            }
-
-            @Override
-            public void onError(LoginError loginError) {
-            }
-
-            @Override
-            public void onProgress(LoginProgress progress) {
-
-            }
-        });
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_create_note, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

@@ -1,5 +1,6 @@
 package com.example.anna.shedule.application.schedule.model.helper;
 
+import com.example.anna.shedule.utils.DateUtils;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.Calendar;
@@ -53,4 +54,7 @@ public enum WeekPeriodicity {
         return (currentWeek % 2 == 0) ? BLUE : RED;
     }
 
+    public String getAsString() {
+        return name().toLowerCase();
+    }
 }

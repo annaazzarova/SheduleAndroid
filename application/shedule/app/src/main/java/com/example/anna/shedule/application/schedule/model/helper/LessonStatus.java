@@ -1,6 +1,7 @@
 package com.example.anna.shedule.application.schedule.model.helper;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import lombok.Getter;
 

@@ -10,6 +10,7 @@ import com.example.anna.shedule.utils.DateUtils;
 
 import java.util.List;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import static com.example.anna.shedule.application.database.Database.getDbInstance;
@@ -18,6 +19,26 @@ import static com.example.anna.shedule.application.database.Database.getDbInstan
 public class NoteService {
 
     private RequestFactory requests = new RequestFactory();
+
+    @Data
+    @NoArgsConstructor
+    public static class CreateNote {
+        private String text;
+        private String changeId;
+        private String lessonId;
+        private long startOfDay;
+
+        public CreateNote(String text, String lessonId, String changeId, long startOfDay) {
+            this.text = text;
+            this.lessonId = lessonId;
+            this.changeId = changeId;
+            this.startOfDay = startOfDay;
+        }
+
+        public boolean isRelatedToChange() {
+            return changeId != null;
+        }
+    }
 
     public interface NoteCreateListener {
         void onSuccess();
@@ -81,11 +102,11 @@ public class NoteService {
         return lessons;
     }
 
-    public void createNote(final String text, final Lesson lesson, final NoteCreateListener listener) {
+    public void createNote(final String text, final CreateNote note, final NoteCreateListener listener) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                boolean isSuccess = createNote(text, lesson);
+                boolean isSuccess = createNote(text, note);
                 if (isSuccess) {
                     listener.onSuccess();
                 } else {
@@ -95,20 +116,20 @@ public class NoteService {
         }).start();
     }
 
-    public boolean createNote(String text, Lesson lesson) {
-        ServerResponse<Note> request = createNoteOnServer(text, lesson);
+    public boolean createNote(String text, CreateNote note) {
+        ServerResponse<Note> request = createNoteOnServer(text, note);
         if (request.isSuccess()) {
             getDbInstance().save(request.getResponse());
         }
         return request.isSuccess();
     }
 
-    private ServerResponse<Note> createNoteOnServer(String text, Lesson lesson) {
-        long date = lesson.getStartOfLessonDay() + DateUtils.DAY;
+    private ServerResponse<Note> createNoteOnServer(String text, CreateNote note) {
+        long date = note.getStartOfDay() + DateUtils.DAY;
         CreateNoteRequest noteRequest = new CreateNoteRequest(text, date);
-        return (lesson.isChangedLesson())
-                ? requests.createNoteToChange(noteRequest, lesson.getChangeId())
-                : requests.createNoteToLesson(noteRequest, lesson.getLessonId());
+        return (note.isRelatedToChange())
+                ? requests.createNoteToChange(noteRequest, note.getChangeId())
+                : requests.createNoteToLesson(noteRequest, note.getLessonId());
 
     }
 

@@ -47,13 +47,19 @@ public class MessageTransfer {
         return execute(request);
     }
 
+    public static ResponseWithStatusCode delete(String url) {
+        HttpDeleteWithBody request = new HttpDeleteWithBody(url);
+        return execute(request);
+    }
+
+
     private static void setRequestBodyAsJson(HttpEntityEnclosingRequestBase request, Object data) {
         HttpEntity entity = new ByteArrayEntity(JsonParser.toJson(data));
         request.setHeader("Content-Type", "application/json");
         request.setEntity(entity);
     }
 
-    private static ResponseWithStatusCode execute(HttpUriRequest request) {
+    private static synchronized ResponseWithStatusCode execute(HttpUriRequest request) {
         CustomResponseHandler responseHandler = new CustomResponseHandler();
         try {
             HttpClient httpclient = getHttpClient();
@@ -63,6 +69,9 @@ public class MessageTransfer {
         } catch (IOException e) {
             e.printStackTrace();
             return new ResponseWithStatusCode(ResponseWithStatusCode.NO_INTERNET_ERROR);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseWithStatusCode(ResponseWithStatusCode.FATAL_ERROR);
         }
     }
 

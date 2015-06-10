@@ -2,6 +2,9 @@ package com.example.anna.shedule.server;
 
 import com.example.anna.shedule.application.note.dto.CreateNoteRequest;
 import com.example.anna.shedule.application.note.model.Note;
+import com.example.anna.shedule.application.schedule.dto.CreateChangeByLessonRequest;
+import com.example.anna.shedule.application.schedule.dto.CreateNewLessonRequest;
+import com.example.anna.shedule.application.schedule.dto.UpdateChangeRequest;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.Group;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
@@ -56,19 +59,28 @@ public class Server {
         return convertToArrayResponse(response, Change.class);
     }
 
-    public static ServerResponse<Object> cancelChange(String changeId, String classLeaderId) {
-        // todo implement me
-        return new ServerResponse<Object>(ServerResponse.NO_CONNECTION_ERROR);
+    public static ServerResponse<Object> deleteCancel(String changeId) {
+        String deletePath = SERVER_ULR + "change/" + changeId;
+        ResponseWithStatusCode response = MessageTransfer.delete(deletePath);
+        return convertToObjectResponse(response, Object.class);
     }
 
-    public static ServerResponse<Change> createChange(Change change, String classLeaderId) {
-        // todo implement me
-        return new ServerResponse<Change>(ServerResponse.NO_CONNECTION_ERROR);
+    public static ServerResponse<Change> createNewLesson(CreateNewLessonRequest change) {
+        String changePath = SERVER_ULR + "change";
+        ResponseWithStatusCode response = MessageTransfer.post(changePath, change);
+        return convertToObjectResponse(response, Change.class);
     }
 
-    public static ServerResponse<Change> updateChange(Change change, String userId) {
-        // todo implement me
-        return new ServerResponse<Change>(ServerResponse.NO_CONNECTION_ERROR);
+    public static ServerResponse<Change> createNewChangeToLesson(CreateChangeByLessonRequest change, String lessonId) {
+        String changePath = SERVER_ULR + "change/" + lessonId;
+        ResponseWithStatusCode response = MessageTransfer.post(changePath, change);
+        return convertToObjectResponse(response, Change.class);
+    }
+
+    public static ServerResponse<Object> updateChange(UpdateChangeRequest change, String changeId) {
+        String changePath = SERVER_ULR + "change/" + changeId;
+        ResponseWithStatusCode response = MessageTransfer.put(changePath, change);
+        return convertToObjectResponse(response, Object.class);
     }
 
     public static ServerResponseArray<Note> getNotesByGroupId(String lastNoteId, String groupId) {
