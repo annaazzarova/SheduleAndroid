@@ -90,11 +90,12 @@ public class LessonAdapter extends BaseAdapter{
         TextView tw_type = (TextView) rowView.findViewById(R.id.textType);
         TextView tw_start = (TextView) rowView.findViewById(R.id.startTime);
         TextView tw_end = (TextView) rowView.findViewById(R.id.endTime);
-        tw_start.setText(lessons.get(position).getTime().getStartTime());
-        tw_end.setText(lessons.get(position).getTime().getEndTime());
-        tw_type.setText(lessons.get(position).getType().toString());
-        tw_lesson.setText(lessons.get(position).getTitle());
-        tw_group.setText(lessons.get(position).getHull() + " " + lessons.get(position).getAuditory() + " / " + lessons.get(position).getGroupsAsString());
+        final Lesson lesson = lessons.get(position);
+        tw_start.setText(lesson.getTime().getStartTime());
+        tw_end.setText(lesson.getTime().getEndTime());
+        tw_type.setText(lesson.getType().toString());
+        tw_lesson.setText(lesson.getTitle());
+        tw_group.setText(lesson.getHull() + " " + lesson.getAuditory() + " / " + lesson.getGroupsAsString());
         rowView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -105,28 +106,15 @@ public class LessonAdapter extends BaseAdapter{
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(context, CreateNoteLayout.class);
-                        intent.putExtra("changeId", ""); //TODO TO DO DO DO
-                        intent.putExtra("lessonId", "");
-                        intent.putExtra("startOfDay", (long) 0);
+                        intent.putExtra("changeId", lesson.getChangeId());
+                        intent.putExtra("lessonId", lesson.getLessonId());
+                        intent.putExtra("startOfDay", lesson.getStartOfLessonDay());
                         dialog.cancel();
                         context.startActivity(intent);
                     }
                 });
 
-                dialog.findViewById(R.id.edit_button).setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(context, CreateNoteLayout.class);
-                        intent.putExtra("changeId", ""); //TODO TO DO DO DO
-                        intent.putExtra("lessonId", "");
-                        intent.putExtra("startOfDay", (long) 0);
-                        dialog.cancel();
-                        context.startActivity(intent);
-                    }
-                });
                 dialog.show();
-                // TODO Auto-generated method stub
-                //Toast.makeText(context, "You Clicked", Toast.LENGTH_LONG).show();
             }
         });
         return rowView;

@@ -2,6 +2,7 @@ package com.example.anna.shedule.activities;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -97,9 +98,14 @@ public class CreateNoteLayout extends AppCompatActivity {
             @Override
             public void onError() {
                 prog.dismiss();
-                Toast
-                    .makeText(getApplicationContext(), R.string.error_create_note, Toast.LENGTH_SHORT)
-                    .show();
+                CreateNoteLayout.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast
+                                .makeText(getApplicationContext(), R.string.error_create_note, Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
             }
         });
     }
