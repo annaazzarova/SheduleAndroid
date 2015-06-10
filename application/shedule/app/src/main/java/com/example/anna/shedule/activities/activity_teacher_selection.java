@@ -18,7 +18,7 @@ public class activity_teacher_selection extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_teacher_selection);
+        setContentView(R.layout.activity_teacher_selection);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 

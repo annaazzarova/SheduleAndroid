@@ -50,7 +50,7 @@ public class activity_lesson_details extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_lesson_details);
+        setContentView(R.layout.activity_lesson_details);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
