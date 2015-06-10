@@ -191,12 +191,6 @@ public class GroupSelectionActivity extends AppCompatActivity {
         btnEntry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Переход по нажатию на кнопку!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                /*final Intent intent = new Intent(LoginActivity.this,
-                        com.example.anna.shedule.login.GroupSelectionActivity.class);
-                intent.putExtra("user", user.toString());
-                startActivity(intent);*/
-//                Toast.makeText(getApplicationContext(), "Переход на следующий экран!", Toast.LENGTH_SHORT).show();
                 progress.show();
                 if (groupId != null)
                     loginService.loginAsStudent(groupId, new LoginService.LoginListener() {
@@ -238,13 +232,4 @@ public class GroupSelectionActivity extends AppCompatActivity {
         progress.setCanceledOnTouchOutside(false);
         progress.show();
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_group_selection, menu);
-        return true;
-    }
-
 }

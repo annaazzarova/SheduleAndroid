@@ -19,6 +19,7 @@ import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.services.Services;
+import com.example.anna.shedule.application.settings.SettingsService;
 import com.example.anna.shedule.service.receivers.AlarmReceiver;
 import com.example.anna.shedule.utils.ContextUtils;
 
@@ -71,7 +72,11 @@ public class ScheduleIntentService extends IntentService {
         DataState stateBefore = getDataState();
         updateAllServices();
         DataState stateAfter = getDataState();
-        notifyAboutChanges(stateBefore, stateAfter);
+
+        SettingsService settingsService = Services.getService(SettingsService.class);
+        if (settingsService.getValueAsBool("push")) {
+            notifyAboutChanges(stateBefore, stateAfter);
+        }
     }
 
     private void notifyAboutChanges(DataState stateBefore, DataState stateAfter) {

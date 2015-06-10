@@ -47,7 +47,7 @@
         </activity>
         <activity
             android:name=".login.GroupSelectionActivity"
-            android:label="@string/title_activity_group_selection"
+            android:label="@string/title_activity_login"
             android:parentActivityName=".login.LoginActivity"
             android:windowSoftInputMode="stateHidden" >
             <meta-data

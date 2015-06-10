@@ -1,41 +1,81 @@
 package com.example.anna.shedule;
 
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceActivity;
-import android.preference.PreferenceCategory;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
-import android.preference.RingtonePreference;
-import android.text.TextUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.CheckBox;
+
+import com.example.anna.shedule.activities.menu.BaseActivity;
+import com.example.anna.shedule.application.login.service.LoginService;
+import com.example.anna.shedule.application.settings.SettingsService;
+import com.example.anna.shedule.application.services.Services;
+import com.example.anna.shedule.utils.ContextUtils;
 
 
-import java.util.List;
+public class SettingsActivity extends BaseActivity {
 
-/**
- * A {@link PreferenceActivity} that presents a set of application settings. On
- * handset devices, settings are presented as a single list. On tablets,
- * settings are split by category, with category headers shown to the left of
- * the list of settings.
- * <p/>
- * See <a href="http://developer.android.com/design/patterns/settings.html">
- * Android Design: Settings</a> for design guidelines and the <a
- * href="http://developer.android.com/guide/topics/ui/settings.html">Settings
- * API Guide</a> for more information on developing a Settings UI.
- */
-public class SettingsActivity extends PreferenceActivity {
+    private LoginService loginService;
+    private SettingsService settingsService;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.settings_layout);
+        ContextUtils.setContext(getApplicationContext());
 
-        addPreferencesFromResource(R.xml.pref_general);
+        loginService = Services.getService(LoginService.class);
+        settingsService = Services.getService(SettingsService.class);
+
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        initButtons();
+    }
+
+    private void initButtons() {
+        final View pushButton = findViewById(R.id.push_button);
+        final CheckBox pushCheckbox = (CheckBox) findViewById(R.id.push_checkbox);
+        pushCheckbox.setChecked(settingsService.getValueAsBool("push"));
+
+        pushButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean value = pushCheckbox.isChecked();
+                pushCheckbox.setChecked(!value);
+                settingsService.setValue("push", !value);
+            }
+        });
+
+        View exitButton = findViewById(R.id.exit_button);
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginService.logout();
+                openStartPage();
+            }
+        });
+    }
+
+    private void openStartPage() {
+        Intent intent = new Intent(this, StartPageActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }
