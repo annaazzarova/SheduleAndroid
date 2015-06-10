@@ -20,17 +20,6 @@ public class SettingsActivity extends BaseActivity {
     private LoginService loginService;
     private SettingsService settingsService;
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +29,6 @@ public class SettingsActivity extends BaseActivity {
 
         loginService = Services.getService(LoginService.class);
         settingsService = Services.getService(SettingsService.class);
-
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
 
         initButtons();
     }
