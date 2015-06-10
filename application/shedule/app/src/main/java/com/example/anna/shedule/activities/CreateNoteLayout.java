@@ -1,14 +1,19 @@
 package com.example.anna.shedule.activities;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anna.shedule.R;
+import com.example.anna.shedule.application.note.service.NoteService;
+import com.example.anna.shedule.application.services.Services;
 
 public class CreateNoteLayout extends AppCompatActivity {
 
@@ -40,8 +45,24 @@ public class CreateNoteLayout extends AppCompatActivity {
             case R.id.action_save:
                 createNote();
                 break;
+            case android.R.id.home:
+                finish();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void hideSoftKeyboard() {
+        if(getCurrentFocus()!=null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+    }
+
+    @Override
+    public void finish() {
+        hideSoftKeyboard();
+        super.finish();
     }
 
     public void createNote() {
@@ -56,8 +77,42 @@ public class CreateNoteLayout extends AppCompatActivity {
         }
     }
 
-    private void createNote(String note) {
-        finish();
+    private void createNote(String text) {
+        Bundle extra = getIntent().getExtras();
+        String lessonId = extra.getString("lessonId");
+        String changeId = extra.getString("changeId");
+        long startOfDay = extra.getLong("startOfDay");
+
+        final ProgressDialog prog = createProgressDialog();
+
+        NoteService.CreateNote note = new NoteService.CreateNote(text, lessonId, changeId, startOfDay);
+
+        NoteService noteService = Services.getService(NoteService.class);
+        noteService.createNote(text, note, new NoteService.NoteCreateListener() {
+            @Override
+            public void onSuccess() {
+                prog.cancel();
+                finish();
+            }
+
+            @Override
+            public void onError() {
+                prog.cancel();
+                Toast
+                    .makeText(getApplicationContext(), R.string.error_create_note, Toast.LENGTH_SHORT)
+                    .show();
+            }
+        });
+    }
+
+    private ProgressDialog createProgressDialog() {
+        final ProgressDialog prog = new ProgressDialog(CreateNoteLayout.this);
+        prog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        prog.setMessage(getString(R.string.pleas_wait));
+        prog.setIndeterminate(true);
+        prog.setCancelable(true);
+        prog.show();
+        return prog;
     }
 
 }

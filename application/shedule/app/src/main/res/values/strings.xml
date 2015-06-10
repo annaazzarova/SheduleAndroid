@@ -18,6 +18,8 @@
 
     <string name="note_notify_title">Новое замечание</string>
     <string name="change_notify_title">Изменение в расписании</string>
+    <string name="pleas_wait">Пожайлуста подождите</string>
+    <string name="error_create_note">Возникли проблемы при создании замечания</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="select_faculty">Выберите факультет:</string>
