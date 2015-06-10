@@ -60,7 +60,7 @@ public class activity_lesson_details extends ActionBarActivity {
         audience = "";
 
         teachers = new String[] {
-                "Преподаватель"
+                "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
         };
 
         housings = new String[] {
@@ -120,7 +120,7 @@ public class activity_lesson_details extends ActionBarActivity {
     private View.OnTouchListener spinnerOnTouch = new View.OnTouchListener() {
         public boolean onTouch(View v, MotionEvent event) {
             if (event.getAction() == MotionEvent.ACTION_UP) {
-                Intent intent = new Intent(activity_lesson_details.this, activity_teacher_selection.class);
+                Intent intent = new Intent(activity_lesson_details.this, TeacherSelectorActivity.class);
                 startActivityForResult(intent, 1);
             }
             return false;
@@ -222,11 +222,11 @@ public class activity_lesson_details extends ActionBarActivity {
         setTitle(getResources().getString(R.string.lesson_details_page_title));
 
         title_edit.setEnabled(false);
-        title_edit.setText("Длинное Имя Преподавателя");
+        title_edit.setText("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         title_edit.setTextColor(Color.parseColor("#000000"));
 
         audience_edit.setEnabled(false);
-        audience_edit.setText("123б");
+        audience_edit.setText("123пїЅ");
         audience_edit.setTextColor(Color.parseColor("#000000"));
 
         teacher_spinner.setBackgroundColor(Color.TRANSPARENT);

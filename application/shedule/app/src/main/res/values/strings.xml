@@ -44,7 +44,7 @@
     <string name="no_internet_connection">Нет соединения с интернетом</string>
     <string name="invalid_password_or_login">Неверный логин или пароль</string>
     <string name="title_activity_activity_lesson_details">activity_lesson_details</string>
-    <string name="title_activity_activity_teacher_selection">activity_teacher_selection</string>
+    <string name="title_activity_activity_teacher_selection">Преподаватели</string>
 
 
     <string name="lesson_details_page_title">Занятие</string>

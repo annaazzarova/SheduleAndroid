@@ -6,12 +6,14 @@ import android.database.Cursor;
 import com.example.anna.shedule.application.database.Entity;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class Teacher implements Entity {
+public class Teacher implements Entity, Serializable {
 
     public static final String TABLE_NAME = "teacher";
 
