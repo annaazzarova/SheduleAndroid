@@ -22,6 +22,8 @@ import com.example.anna.shedule.lessons_list.LessonData;
 import com.github.clans.fab.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -51,11 +53,17 @@ public class PageFragment extends Fragment {
         return fragment;
     }
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPage = getArguments().getInt(ARG_PAGE);
         lessons = scheduleService.getSchedule(2015, 5, mPage+1);
+        Collections.sort(lessons, new Comparator<Lesson>() {
+            public int compare(Lesson o1, Lesson o2) {
+                return new Integer(o1.getTime().getId()).compareTo(o2.getTime().getId());
+            }
+        });
     }
 
     @Override

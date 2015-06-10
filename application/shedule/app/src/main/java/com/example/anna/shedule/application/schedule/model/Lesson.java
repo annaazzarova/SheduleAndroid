@@ -6,8 +6,10 @@ import com.example.anna.shedule.application.schedule.model.helper.LessonTime;
 import com.example.anna.shedule.application.schedule.model.helper.LessonType;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
 import com.example.anna.shedule.application.schedule.model.helper.WeekPeriodicity;
+import com.example.anna.shedule.utils.StringUtils;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -176,7 +178,12 @@ public class Lesson implements Serializable {
     }
 
     public String getGroupsAsString() {
+        List<String> groupsAsStrings = new ArrayList<String>();
+        for(Group group: groups) {
+            String str = group.asPrettyString() + "/";
+            groupsAsStrings.add(str);
+        }
+        return StringUtils.join(groupsAsStrings, "/");
 
-        return null;
     }
 }

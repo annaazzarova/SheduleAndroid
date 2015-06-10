@@ -7,19 +7,28 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.anna.shedule.PageFragment;
 
+import java.util.Calendar;
+
 /**
  * Created by Anna on 31.05.2015.
  */
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 6;
     private String tabTitles[] = new String[] {"", "", "", "", "", ""};
-    private String titles[] = new String[]{};
+    private String Titles[] = new String[]{};
     private Context context;
 
 
-    public SampleFragmentPagerAdapter(FragmentManager fm, Context context, String Titles[]) {
+    public SampleFragmentPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
-        this.titles = Titles;
+        Calendar c = Calendar.getInstance();
+        int date = c.get(Calendar.DATE);
+        int day_of_week = c.get(Calendar.DAY_OF_WEEK)-1;
+        int firstdate = date - day_of_week;
+        for (int i = 0; i != 6; ++i){
+            Titles[i] = String.valueOf(firstdate++);
+        }
+        Titles[0] = String.valueOf(c.get(Calendar.DATE));
         this.tabTitles = Titles;
         this.context = context;
     }
@@ -31,7 +40,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        PageFragment pg = new PageFragment().newInstance(Integer.parseInt(titles[position+1],10));
+        PageFragment pg = new PageFragment().newInstance(Integer.parseInt(Titles[position],10));
         return pg;
     }
 

@@ -49,18 +49,12 @@ public class MainActivity extends BaseActivity {
             fab.setVisibility(View.GONE);
         }
 
-        Calendar c = Calendar.getInstance();
-        int date = c.get(Calendar.DATE);
-        int day_of_week = c.get(Calendar.DAY_OF_WEEK)-1;
-        int firstdate = date - day_of_week;
-        for (int i = 0; i != 6; ++i){
-            Titles[i] = String.valueOf(firstdate++);
-        }
+
         // Creating The Toolbar and setting it as the Toolbar for the activity
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(new SampleFragmentPagerAdapter(getSupportFragmentManager(),
-                MainActivity.this, Titles));
+                MainActivity.this));
 
         // Give the SlidingTabLayout the ViewPager
         SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tabs);

@@ -108,7 +108,8 @@
             android:textColor="@color/colorLightText"
             android:background="@drawable/rectangle_rounded_all_red_for_buttons"
             android:textAlignment="center"
-            android:gravity="center" />
+            android:gravity="center"
+            android:visibility="gone" />
     </LinearLayout>
 
     <ImageView
@@ -119,6 +120,7 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/ic_assignment_grey"
         android:layout_marginTop="20dp"
-        android:id="@+id/ic_notes"/>
+        android:id="@+id/ic_notes"
+        android:visibility="gone" />
 
 </RelativeLayout>

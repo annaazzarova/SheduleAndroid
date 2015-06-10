@@ -92,4 +92,8 @@ public class Group implements Entity {
         return " groupId VARCHAR, groupNumber VARCHAR, faculty VARCHAR, " +
                 "speciality VARCHAR, code VARCHAR, educationForm VARCHAR, course VARCHAR";
     }
+
+    public String asPrettyString() {
+        return speciality + "-" + course + group;
+    }
 }

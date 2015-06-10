@@ -18,8 +18,13 @@ import android.widget.Toast;
 import com.example.anna.shedule.R;
 import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.schedule.model.Lesson;
+import com.example.anna.shedule.application.schedule.model.helper.LessonStatus;
 import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.services.Services;
+import com.example.anna.shedule.application.user.model.User;
+import com.example.anna.shedule.application.user.model.UserType;
+import com.example.anna.shedule.application.user.service.UserService;
+import com.github.clans.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +34,8 @@ public class LessonAdapter extends BaseAdapter{
 
     List<Lesson> lessons;
 
+    private UserService user_service;
+    User main_activity_user;
     public class LessonHolder {
 
     }
@@ -66,6 +73,15 @@ public class LessonAdapter extends BaseAdapter{
         // TODO Auto-generated method stub
         final View rowView;
         rowView = inflater.inflate(R.layout.card_layout, null);
+
+        View canceled =  rowView.findViewById(R.id.label_cancel);
+        if (lessons.get(position).getStatus() == LessonStatus.CANCELED) {
+            canceled.setVisibility(View.VISIBLE);
+        }
+        View hasNotes =  rowView.findViewById(R.id.ic_notes);
+        if (lessons.get(position).hasNotes()) {
+            canceled.setVisibility(View.VISIBLE);
+        }
         TextView tw_lesson = (TextView) rowView.findViewById(R.id.textLesson);
         TextView tw_group = (TextView) rowView.findViewById(R.id.textGroup);
         TextView tw_type = (TextView) rowView.findViewById(R.id.textType);
@@ -75,7 +91,7 @@ public class LessonAdapter extends BaseAdapter{
         tw_end.setText(lessons.get(position).getTime().getEndTime());
         tw_type.setText(lessons.get(position).getType().toString());
         tw_lesson.setText(lessons.get(position).getTitle());
-        tw_group.setText(lessons.get(position).getGroupsAsString());
+        tw_group.setText(lessons.get(position).getHull() + " " + lessons.get(position).getAuditory() + " / " + lessons.get(position).getGroupsAsString());
         rowView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
