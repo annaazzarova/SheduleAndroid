@@ -1,0 +1,205 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.anna.shedule.activities.activity_lesson_details">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_input"
+        android:hint="Предмет"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Преподаватель"
+        android:id="@+id/teacher_label"
+        android:paddingTop="16dp"
+        android:textColor="@color/class_detail_labels_color"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/teacher_input"
+        />
+
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/class_detail_lines_color" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/audience_label"
+            android:layout_weight="0.45"
+            android:text="Аудитория"
+            android:textColor="@color/class_detail_labels_color"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/housing_label"
+            android:layout_weight="0.45"
+            android:text="Корпус"
+            android:textColor="@color/class_detail_labels_color"/>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Не выбрано"
+            android:id="@+id/audience_input"
+            android:layout_weight="0.45"
+            android:maxLength="4"
+            android:background="@android:color/transparent"
+            android:textColor="@color/class_detail_labels_color"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/housing_input"
+            android:hint="Не выбрано"
+            android:layout_weight="0.45"
+            android:editable="false"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/class_detail_lines_color"
+            android:layout_weight="0.45" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="0.1" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/class_detail_lines_color"
+            android:layout_weight="0.45" />
+
+    </LinearLayout>
+
+
+
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Номер пары"
+        android:id="@+id/time_label"
+        android:paddingTop="16dp"
+        android:textColor="@color/class_detail_labels_color"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/time_input"
+        android:layout_gravity="center_horizontal"
+        android:hint="Не выбрано" />
+
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/class_detail_lines_color" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Тип занятия"
+        android:id="@+id/type_label"
+        android:paddingTop="16dp"
+        android:textColor="@color/class_detail_labels_color"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/type_input" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/class_detail_lines_color" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Статус"
+        android:id="@+id/status_label"
+        android:paddingTop="16dp"
+        android:textColor="@color/class_detail_labels_color"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/status_input" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/class_detail_lines_color" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Добавить заметку"
+        android:id="@+id/add_mark"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:textColor="#fff"
+        android:background="@drawable/rounded_blue_button"
+        android:layout_marginTop="25dp"
+        android:height="36dp"
+        android:width="200dp"
+        android:onClick="sendMessage"/>
+
+</LinearLayout>

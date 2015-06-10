@@ -59,4 +59,10 @@
     <dimen name="text_size_title">18sp</dimen>
     <dimen name="text_size">16sp</dimen>
     <dimen name="text_size_mini">14sp</dimen>
+
+
+    <dimen name="teacher_selection_activity_left">0sp</dimen>
+    <dimen name="teacher_selection_activity_right">0sp</dimen>
+    <dimen name="teacher_selection_activity_top">0sp</dimen>
+    <dimen name="teacher_selection_activity_bottom">0sp</dimen>
 </resources>

@@ -84,6 +84,7 @@ public class MainActivityNew extends ActionBarActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnStudent:
+                intent = new Intent(MainActivityNew.this, com.example.anna.shedule.login.LoginActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnTeacher:
