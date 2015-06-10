@@ -113,6 +113,17 @@ public class LessonAdapter extends BaseAdapter{
                     }
                 });
 
+                dialog.findViewById(R.id.edit_button).setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, CreateNoteLayout.class);
+                        intent.putExtra("changeId", ""); //TODO TO DO DO DO
+                        intent.putExtra("lessonId", "");
+                        intent.putExtra("startOfDay", (long) 0);
+                        dialog.cancel();
+                        context.startActivity(intent);
+                    }
+                });
                 dialog.show();
                 // TODO Auto-generated method stub
                 //Toast.makeText(context, "You Clicked", Toast.LENGTH_LONG).show();
