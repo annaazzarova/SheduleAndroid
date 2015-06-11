@@ -67,10 +67,6 @@ public class LoginActivity extends AppCompatActivity {
         mLoginView = (EditText) findViewById(login);
         mPasswordView = (EditText) findViewById(password);
 
-        mLoginView.setText("ЭФ БИН-11");
-        mPasswordView.setText("N1PsR95S");
-
-
         ContextUtils.setContext(getApplicationContext());
         final Button mLoginSignInButton = (Button) findViewById(R.id.login_sign_in_button);
 
@@ -108,7 +104,14 @@ public class LoginActivity extends AppCompatActivity {
                             messageRes = R.string.invalid_password_or_login;
                         }
                         prog1.dismiss();
-                        Toast.makeText(getApplicationContext(), "Авторизация не удалась! Проверьте логин и пароль!", Toast.LENGTH_SHORT).show();
+                        LoginActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast
+                                    .makeText(getApplicationContext(), "Авторизация не удалась! Проверьте логин и пароль!", Toast.LENGTH_SHORT)
+                                    .show();
+                            }
+                        });
                     }
 
                     @Override

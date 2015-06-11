@@ -209,7 +209,14 @@ public class GroupSelectionActivity extends AppCompatActivity {
                                 messageRes = R.string.invalid_password_or_login;
                             }
                             progress.dismiss();
-                            Toast.makeText(getApplicationContext(), "Авторизация не удалась! Проверьте логин и пароль!", Toast.LENGTH_SHORT).show();
+                            GroupSelectionActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast
+                                        .makeText(getApplicationContext(), "Авторизация не удалась! Проверьте логин и пароль!", Toast.LENGTH_SHORT)
+                                        .show();
+                                }
+                            });
                         }
 
                         @Override

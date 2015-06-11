@@ -149,6 +149,7 @@ public class GroupService {
         ServerResponseArray<Group> response = Server.getAllGroups();
         if (response.isSuccess()) {
             Database db = getDbInstance();
+            groups = null;
             db.dropAllElements(Group.TABLE_NAME);
             db.save(response.getResponse());
         }
