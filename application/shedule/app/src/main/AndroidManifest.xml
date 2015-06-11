@@ -55,16 +55,17 @@
                 android:value=".login.LoginActivity" />
         </activity>
         <activity
-            android:name=".activities.activity_lesson_details"
+            android:name=".activities.LessonDetailsActivity"
             android:label="@string/title_activity_activity_lesson_details" >
         </activity>
         <activity
             android:name=".activities.TeacherSelectorActivity"
             android:label="@string/title_activity_activity_teacher_selection"
-            android:parentActivityName=".activities.activity_lesson_details" >
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".activities.LessonDetailsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.activity_lesson_details" />
+                android:value=".activities.LessonDetailsActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"

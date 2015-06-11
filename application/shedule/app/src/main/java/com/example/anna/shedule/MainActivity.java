@@ -1,21 +1,15 @@
 package com.example.anna.shedule;
 
 import android.app.Service;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.anna.shedule.activities.LessonDetailsActivity;
 import com.example.anna.shedule.activities.menu.BaseActivity;
-import com.example.anna.shedule.application.login.model.LoginError;
-import com.example.anna.shedule.application.login.model.LoginProgress;
-import com.example.anna.shedule.application.login.service.LoginService;
-import com.example.anna.shedule.application.note.service.NoteService;
-import com.example.anna.shedule.application.schedule.model.Lesson;
-import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.model.UserType;
@@ -23,10 +17,9 @@ import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.tabs.SampleFragmentPagerAdapter;
 import com.example.anna.shedule.tabs.SlidingTabLayout;
 import com.example.anna.shedule.utils.ContextUtils;
+import com.example.anna.shedule.utils.DateUtils;
 import com.github.clans.fab.FloatingActionButton;
 
-import java.util.Calendar;
-import java.util.List;
 
 public class MainActivity extends BaseActivity {
     
@@ -49,7 +42,6 @@ public class MainActivity extends BaseActivity {
             fab.setVisibility(View.GONE);
         }
 
-
         // Creating The Toolbar and setting it as the Toolbar for the activity
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -70,6 +62,16 @@ public class MainActivity extends BaseActivity {
             }
         });
         slidingTabLayout.setViewPager(viewPager);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LessonDetailsActivity.class);
+                intent.putExtra("startOfDay", DateUtils.startOfDay(2015, 5, 11)); //TODO
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

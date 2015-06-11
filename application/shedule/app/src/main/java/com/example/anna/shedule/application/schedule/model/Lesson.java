@@ -186,4 +186,8 @@ public class Lesson implements Serializable {
         return StringUtils.join(groupsAsStrings, "/");
 
     }
+
+    public Change getChange() {
+        return change;
+    }
 }

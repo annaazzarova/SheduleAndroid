@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anna.shedule.R;
+import com.example.anna.shedule.activities.LessonDetailsActivity;
 import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.schedule.model.Lesson;
 import com.example.anna.shedule.application.schedule.model.helper.LessonStatus;
@@ -113,6 +114,19 @@ public class LessonAdapter extends BaseAdapter{
                         context.startActivity(intent);
                     }
                 });
+
+                dialog.findViewById(R.id.edit_button).setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, LessonDetailsActivity.class);
+                        intent.putExtra("lesson", lesson);
+                        intent.putExtra("editMode", true);
+                        intent.putExtra("startOfDay", lesson.getStartOfLessonDay());
+                        dialog.cancel();
+                        context.startActivity(intent);
+                    }
+                });
+
 
                 dialog.show();
             }
