@@ -74,7 +74,6 @@ public class PageFragment extends Fragment {
         user_service = Services.getService(UserService.class);
         main_activity_user = user_service.getCurrentUser();
 
-
         lv=(ListView) view.findViewById(R.id.listView);
         lv.setAdapter(new LessonAdapter(getActivity(), lessons));
         return view;

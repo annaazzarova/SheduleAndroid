@@ -215,13 +215,11 @@ public class SlidingTabLayout extends HorizontalScrollView {
         }
     }
 
-    private void scrollToTab(int tabIndex, int positionOffset) {
+    public void scrollToTab(int tabIndex, int positionOffset) {
         final int tabStripChildCount = mTabStrip.getChildCount();
         if (tabStripChildCount == 0 || tabIndex < 0 || tabIndex >= tabStripChildCount) {
-            //return;
+            return;
         }
-
-
 
         View selectedChild = mTabStrip.getChildAt(tabIndex);
         if (selectedChild != null) {
@@ -231,10 +229,9 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 // If we're not at the first child and are mid-scroll, make sure we obey the offset
                 targetScrollX -= mTitleOffset;
             }
-             TextView tabTitleView = (TextView) mTabStrip.findViewById(R.id.tabTitle);
-
 
             scrollTo(targetScrollX, 0);
+
         }
     }
 
@@ -248,8 +245,17 @@ public class SlidingTabLayout extends HorizontalScrollView {
                 return;
             }
 
-            mTabStrip.onViewPagerPageChanged(position, positionOffset);
+            for (int i = 0; i != tabStripChildCount; ++i){
+                TextView tw = (TextView) mTabStrip.getChildAt(i).findViewById(R.id.tabTitle);
+                if (i == position){
+                    tw.setTextColor(getResources().getColor(R.color.colorTabDateActiveText));
+                }
+                else {
+                    tw.setTextColor(getResources().getColor(R.color.colorTabDateText));
+                }
+            }
 
+            mTabStrip.onViewPagerPageChanged(position, positionOffset);
             View selectedTitle = mTabStrip.getChildAt(position);
             int extraOffset = (selectedTitle != null)
                     ? (int) (positionOffset * selectedTitle.getWidth())

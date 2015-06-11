@@ -35,5 +35,6 @@
         android:layout_alignParentRight="false"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="false"
-        android:layout_alignBottom="@+id/listView" />
+        android:layout_alignBottom="@+id/listView"
+        android:visibility="gone" />
 </LinearLayout>

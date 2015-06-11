@@ -47,8 +47,8 @@ public class LoginActivity extends ActionBarActivity {
         mLoginView = (EditText) findViewById(login);
         mPasswordView = (EditText) findViewById(password);
 
-        mLoginView.setText("нехорошкова л.г.");
-        mPasswordView.setText("NJZR4QB_S");
+        mLoginView.setText("ЭФ БИН-11");
+        mPasswordView.setText("N1PsR95S");
 
         ContextUtils.setContext(getApplicationContext());
         final Button mLoginSignInButton = (Button) findViewById(R.id.login_sign_in_button);

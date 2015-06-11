@@ -20,6 +20,7 @@ import com.example.anna.shedule.R;
 import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.schedule.model.Lesson;
 import com.example.anna.shedule.application.schedule.model.helper.LessonStatus;
+import com.example.anna.shedule.application.schedule.model.helper.LessonType;
 import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
@@ -76,6 +77,8 @@ public class LessonAdapter extends BaseAdapter{
         // TODO Auto-generated method stub
         final View rowView;
         rowView = inflater.inflate(R.layout.card_layout, null);
+        user_service = Services.getService(UserService.class);
+        main_activity_user = user_service.getCurrentUser();
 
         View canceled =  rowView.findViewById(R.id.label_cancel);
         if (lessons.get(position).getStatus() == LessonStatus.CANCELED) {
@@ -83,7 +86,7 @@ public class LessonAdapter extends BaseAdapter{
         }
         View hasNotes =  rowView.findViewById(R.id.ic_notes);
         if (lessons.get(position).hasNotes()) {
-            canceled.setVisibility(View.VISIBLE);
+            hasNotes.setVisibility(View.VISIBLE);
         }
         TextView tw_lesson = (TextView) rowView.findViewById(R.id.textLesson);
         TextView tw_group = (TextView) rowView.findViewById(R.id.textGroup);
@@ -92,9 +95,21 @@ public class LessonAdapter extends BaseAdapter{
         TextView tw_end = (TextView) rowView.findViewById(R.id.endTime);
         tw_start.setText(lessons.get(position).getTime().getStartTime());
         tw_end.setText(lessons.get(position).getTime().getEndTime());
-        tw_type.setText(lessons.get(position).getType().toString());
+
+        if (lessons.get(position).getType() == LessonType.LECTURE){
+            tw_type.setText("Лекция");
+        }
+        else {
+            tw_type.setText("Практика");
+        }
         tw_lesson.setText(lessons.get(position).getTitle());
-        tw_group.setText(lessons.get(position).getHull() + " " + lessons.get(position).getAuditory() + " / " + lessons.get(position).getGroupsAsString());
+
+        if (main_activity_user.getType() == UserType.TEACHER) {
+            tw_group.setText(lessons.get(position).getHull() + " " + lessons.get(position).getAuditory() + " / " + lessons.get(position).getGroupsAsString());
+        }
+        else {
+            tw_group.setText(lessons.get(position).getHull() + " " + lessons.get(position).getAuditory() + " / " + lessons.get(position).getTeacherName());
+        }
         rowView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -116,7 +131,7 @@ public class LessonAdapter extends BaseAdapter{
                 dialog.findViewById(R.id.edit_button).setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(context, CreateNoteLayout.class);
+                        Intent intent = new Intent(context, com.example.anna.shedule.activities.activity_lesson_details.class);
                         intent.putExtra("changeId", ""); //TODO TO DO DO DO
                         intent.putExtra("lessonId", "");
                         intent.putExtra("startOfDay", (long) 0);
