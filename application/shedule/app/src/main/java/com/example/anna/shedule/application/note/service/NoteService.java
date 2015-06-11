@@ -61,7 +61,7 @@ public class NoteService {
     }
 
     public List<Note> getAllNotes(int offset, int limit) {
-        String query = "SELECT * FROM " + Note.TABLE_NAME + " LIMIT " + limit + " OFFSET " + offset;
+        String query = "SELECT * FROM " + Note.TABLE_NAME + " ORDER BY noteId DESC LIMIT " + limit + " OFFSET " + offset;
         return getDbInstance().getByQuery(Note.class, query);
     }
 

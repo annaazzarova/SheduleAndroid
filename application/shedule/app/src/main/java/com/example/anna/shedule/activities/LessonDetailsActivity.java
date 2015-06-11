@@ -28,6 +28,7 @@ import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.model.UserType;
 import com.example.anna.shedule.application.user.service.UserService;
+import com.example.anna.shedule.utils.ContextUtils;
 
 import java.util.Calendar;
 
@@ -63,6 +64,7 @@ public class LessonDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson_details);
+        ContextUtils.setContext(getApplicationContext());
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -122,7 +124,7 @@ public class LessonDetailsActivity extends AppCompatActivity {
 
     private void setLessonTime(LessonTime time) {
         int pos = time.getId();
-        timeSpinner.setSelection(pos);
+        timeSpinner.setSelection(pos - 1);
     }
 
     private void setLessonType(LessonType type) {
