@@ -51,7 +51,7 @@ public enum WeekPeriodicity {
         long diff = timeInMillis - START_OF_YEAR_2015;
         long days = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
         int currentWeek = (int)(days / 7);
-        return (currentWeek % 2 == 0) ? BLUE : RED;
+        return (currentWeek % 2 == 0) ? RED : BLUE;
     }
 
     public String getAsString() {

@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.anna.shedule.application.database.Database;
 import com.example.anna.shedule.application.schedule.model.Change;
+import com.example.anna.shedule.application.schedule.model.ChangeAction;
 import com.example.anna.shedule.application.schedule.model.helper.LessonStatus;
 import com.example.anna.shedule.application.schedule.model.helper.WeekPeriodicity;
 import com.example.anna.shedule.application.services.Services;
@@ -26,6 +27,11 @@ public class LessonsChangesService {
     public static final int DAYS_OFFSET = 90;
 
     private RequestFactory requests = Services.getService(RequestFactory.class);
+
+    public interface ChangeListener{
+        void onSuccess();
+        void onError();
+    }
 
     public boolean update() {
         long currentTime = System.currentTimeMillis();
@@ -142,7 +148,7 @@ public class LessonsChangesService {
             return false;
         }
 
-        if (change.getId() > 0 || change.getChangeId() == null) {
+        if (change.getId() <= 0 || change.getChangeId() == null) {
             Log.e("change", "Can update only already exists changes in db");
             return false;
         }
@@ -152,7 +158,6 @@ public class LessonsChangesService {
 
     private boolean checkNewLessonStructure(Change change) {
         if (change.getStatus() == null) {
-            change.setStatus(LessonStatus.NORMAL);
             change.setStatus(LessonStatus.NORMAL);
         } else if (change.getStatus() == LessonStatus.CANCELED) {
             Log.e("change", "Can't create lesson with canceled status");
@@ -198,5 +203,41 @@ public class LessonsChangesService {
         Database db = getDbInstance();
         db.dropAllElements(Change.TABLE_NAME);
         return db.save(changes);
+    }
+
+    public void doAction(final ChangeAction action, final Change change, final int year,
+                         final int month, final int day, final ChangeListener listener) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean isSuccess = doAction(action, change, year, month, day);
+                if (isSuccess) {
+                    listener.onSuccess();
+                } else {
+                    listener.onError();
+                }
+            }
+        }).start();
+    }
+
+    public boolean doAction(ChangeAction action, Change change, int year, int month, int day) {
+        boolean isSuccess;
+        switch (action) {
+            case CREATE_BY_EXISTS:
+                isSuccess = changeExistsLesson(change, year, month, day);
+                break;
+            case CREATE_NEW:
+                isSuccess = createNewLesson(change, year, month, day);
+                break;
+            case DELETE:
+                isSuccess = deleteChange(change);
+                break;
+            case UPDATE:
+                isSuccess = updateExistsChange(change, year, month, day);
+                break;
+            default:
+                isSuccess = false;
+        }
+        return isSuccess;
     }
 }

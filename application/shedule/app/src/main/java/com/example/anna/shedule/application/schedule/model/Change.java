@@ -130,7 +130,12 @@ public class Change implements Entity {
     }
 
     public void setTeacher(Teacher teacher) {
-        this.teacherName = teacher.getName();
-        this.teacherId = teacher.getTeacherId();
+        if (teacher == null) {
+            this.teacherName = null;
+            this.teacherId = null;
+        } else {
+            this.teacherName = teacher.getName();
+            this.teacherId = teacher.getTeacherId();
+        }
     }
 }

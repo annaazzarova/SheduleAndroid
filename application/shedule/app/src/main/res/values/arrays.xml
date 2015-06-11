@@ -15,6 +15,34 @@
         <item>дек</item>
     </string-array>
 
+    <string-array name="lesson_types">
+        <item>Практика</item>
+        <item>Лекция</item>
+    </string-array>
+
+    <string-array name="hulls">
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+    </string-array>
+
+    <string-array name="lesson_status">
+        <item>Будет проведена</item>
+        <item>Отменена</item>
+    </string-array>
+
+    <string-array name="lesson_times">
+        <item>08:00 &#8212; 09:35</item>
+        <item>09:45 &#8212; 11:20</item>
+        <item>11:30 &#8212; 13:05</item>
+        <item>13:30 &#8212; 15:05</item>
+        <item>15:15 &#8212; 16:50</item>
+        <item>17:00 &#8212; 18:35</item>
+        <item>18:48 &#8212; 20:20</item>
+    </string-array>
+
     <string-array name="nav_drawer_items">
         <item>Расписание</item>
         <item>Изменения</item>

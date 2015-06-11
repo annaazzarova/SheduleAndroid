@@ -71,7 +71,7 @@ public class PageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view;
         if (lessons.size() == 0){
-            view = inflater.inflate(R.layout.no_lessons, container, false);
+            view = inflater.inflate(R.layout.no_lesson, container, false);
         }
         else {
             view = inflater.inflate(R.layout.tab_1, container, false);

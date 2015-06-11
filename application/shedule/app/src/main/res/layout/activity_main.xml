@@ -7,34 +7,47 @@
     android:background="#ffffff"
     tools:context=".MainActivity">
 
-    <com.example.anna.shedule.tabs.SlidingTabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="2dp"
-        android:background="@color/colorTabsBackground"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_width="match_parent"></android.support.v4.view.ViewPager>
+            <com.example.anna.shedule.tabs.SlidingTabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="2dp"
+                android:background="@color/colorTabsBackground"/>
 
-    <com.github.clans.fab.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        android:src="@drawable/ic_action"
-        fab:fab_colorNormal="@color/fab_colorNormal"
-        fab:fab_colorPressed="@color/fab_colorPressed"
-        fab:fab_colorRipple="@color/fab_colorRipple"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="false"
-        android:layout_alignBottom="@+id/listView"
-        android:visibility="gone" />
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pager"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_width="match_parent" />
+
+            </LinearLayout>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/ic_action"
+            fab:fab_colorNormal="@color/fab_colorNormal"
+            fab:fab_colorPressed="@color/fab_colorPressed"
+            fab:fab_colorRipple="@color/fab_colorRipple"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            android:layout_alignBottom="@+id/listView"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true" />
+
+        </RelativeLayout>
 </LinearLayout>

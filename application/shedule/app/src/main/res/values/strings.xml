@@ -74,6 +74,10 @@
     <string name="notifications_title">Уведомления</string>
     <string name="exit_button_title">Выйти</string>
 
+    <string name="no_lessons">Занятий нет</string>
+    <string name="teacher_not_set">Учитель не указан</string>
+    <string name="teacher_field_hint">Не выбрано</string>
+    <string name="title_not_set">Название предмета не указано</string>
     <string name="lesson_details_teacher_textview">Преподаватель</string>
     <string name="lesson_details_audience_textview">Аудитория</string>
     <string name="lesson_details_corps_textview">Корпус</string>
@@ -83,6 +87,7 @@
 
     <string name="lesson_details_title_hint">Предмет</string>
     <string name="lesson_details_audience_hint">Аудитория</string>
+    <string name="error_create_change">Возникла проблема при создании изменения</string>
 
     <string name="lesson_details_add_mark_button_text">Добавить заметку</string>
 

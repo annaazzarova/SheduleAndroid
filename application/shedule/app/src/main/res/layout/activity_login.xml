@@ -34,11 +34,6 @@
                 android:inputType="text"
                 android:textStyle="normal" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#e0e0e0"/>
-
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
@@ -53,10 +48,6 @@
                 android:textStyle="normal"
                 android:textColorHint="#ff000000"
                 android:imeActionId="@+id/login"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#e0e0e0"/>
 
             <Button
                 android:id="@+id/login_sign_in_button"
