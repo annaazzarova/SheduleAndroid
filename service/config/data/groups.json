@@ -1,0 +1,1610 @@
+[
+  {
+    "faculty": "ЭФ",
+    "speciality": "БИН",
+    "course": 1,
+    "group": 1,
+    "code": "08050062",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "БИН",
+    "course": 1,
+    "group": 1,
+    "code": "08050O62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "БИН",
+    "course": 1,
+    "group": 2,
+    "code": "08050062",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ПИ",
+    "course": 1,
+    "group": 1,
+    "code": "23070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ПИ",
+    "course": 1,
+    "group": 2,
+    "code": "23070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭБ",
+    "course": 1,
+    "group": 1,
+    "code": "08010165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 1,
+    "group": 1,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 1,
+    "group": 2,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "БИН",
+    "course": 2,
+    "group": 1,
+    "code": "08050062",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "БИН",
+    "course": 2,
+    "group": 1,
+    "code": "08050O62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "БИН",
+    "course": 2,
+    "group": 2,
+    "code": "08050062",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ПИ",
+    "course": 2,
+    "group": 1,
+    "code": "23070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ПИ",
+    "course": 2,
+    "group": 2,
+    "code": "23070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭБ",
+    "course": 2,
+    "group": 1,
+    "code": "08010165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 2,
+    "group": 1,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 2,
+    "group": 2,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "БИН",
+    "course": 3,
+    "group": 1,
+    "code": "08050O62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ПИ",
+    "course": 3,
+    "group": 1,
+    "code": "23070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ПИ",
+    "course": 3,
+    "group": 2,
+    "code": "23070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭБ",
+    "course": 3,
+    "group": 1,
+    "code": "08010165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 3,
+    "group": 1,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 3,
+    "group": 2,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 3,
+    "group": 3,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ПИ",
+    "course": 4,
+    "group": 1,
+    "code": "23070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ПИ",
+    "course": 4,
+    "group": 2,
+    "code": "23070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 4,
+    "group": 1,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 4,
+    "group": 2,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЭФ",
+    "speciality": "ЭКО",
+    "course": 4,
+    "group": 3,
+    "code": "08010062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb112",
+    "faculty": "ФИиВТ",
+    "speciality": "БИ",
+    "course": 1,
+    "group": 1,
+    "code": "09030365",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb127",
+    "faculty": "ФИиВТ",
+    "speciality": "БИ",
+    "course": 1,
+    "group": 2,
+    "code": "09030365",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb13b",
+    "faculty": "ФИиВТ",
+    "speciality": "ИВТ",
+    "course": 1,
+    "group": 1,
+    "code": "23010062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb155",
+    "faculty": "ФИиВТ",
+    "speciality": "ПС",
+    "course": 1,
+    "group": 1,
+    "code": "23100062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb172",
+    "faculty": "ФИиВТ",
+    "speciality": "ПС",
+    "course": 1,
+    "group": 2,
+    "code": "23100062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb18e",
+    "faculty": "ФИиВТ",
+    "speciality": "БИ",
+    "course": 2,
+    "group": 1,
+    "code": "09030365",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb1a6",
+    "faculty": "ФИиВТ",
+    "speciality": "БИ",
+    "course": 2,
+    "group": 2,
+    "code": "09030365",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb1bc",
+    "faculty": "ФИиВТ",
+    "speciality": "ИВТ",
+    "course": 2,
+    "group": 1,
+    "code": "23010062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb1d4",
+    "faculty": "ФИиВТ",
+    "speciality": "ПС",
+    "course": 2,
+    "group": 1,
+    "code": "23100062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb1ea",
+    "faculty": "ФИиВТ",
+    "speciality": "ПС",
+    "course": 2,
+    "group": 2,
+    "code": "23100062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb200",
+    "faculty": "ФИиВТ",
+    "speciality": "БИ",
+    "course": 3,
+    "group": 1,
+    "code": "09030365",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c572a92a33391fb217",
+    "faculty": "ФИиВТ",
+    "speciality": "ИВТ",
+    "course": 3,
+    "group": 1,
+    "code": "23010062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c672a92a33391fb22e",
+    "faculty": "ФИиВТ",
+    "speciality": "ПС",
+    "course": 3,
+    "group": 1,
+    "code": "23100062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c672a92a33391fb24c",
+    "faculty": "ФИиВТ",
+    "speciality": "БИ",
+    "course": 4,
+    "group": 1,
+    "code": "09030365",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c672a92a33391fb264",
+    "faculty": "ФИиВТ",
+    "speciality": "ИВТ",
+    "course": 4,
+    "group": 1,
+    "code": "23010062",
+    "educationForm": "о"
+  },
+  {
+    "groupId": "554502c672a92a33391fb279",
+    "faculty": "ФИиВТ",
+    "speciality": "ПС",
+    "course": 4,
+    "group": 1,
+    "code": "23100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛАРх",
+    "course": 1,
+    "group": 1,
+    "code": "25070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛАРх",
+    "course": 1,
+    "group": 2,
+    "code": "25070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛСДп",
+    "course": 1,
+    "group": 1,
+    "code": "350301",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛСДп",
+    "course": 1,
+    "group": 2,
+    "code": "350301",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЭКиП",
+    "course": 1,
+    "group": 1,
+    "code": "02200062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "БТ",
+    "course": 2,
+    "group": 1,
+    "code": "24070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛАРх",
+    "course": 2,
+    "group": 1,
+    "code": "25070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛСДп",
+    "course": 2,
+    "group": 1,
+    "code": "25010П62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЭКиП",
+    "course": 2,
+    "group": 1,
+    "code": "02200062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "БТ",
+    "course": 3,
+    "group": 1,
+    "code": "24070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ИСТ",
+    "course": 3,
+    "group": 1,
+    "code": "23040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛАРх",
+    "course": 3,
+    "group": 1,
+    "code": "25070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛСД",
+    "course": 3,
+    "group": 1,
+    "code": "25010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЭКиП",
+    "course": 3,
+    "group": 1,
+    "code": "02200062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛАРх",
+    "course": 4,
+    "group": 1,
+    "code": "25070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛСД",
+    "course": 4,
+    "group": 1,
+    "code": "25010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЭКиП",
+    "course": 4,
+    "group": 1,
+    "code": "02200062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛХ",
+    "course": 5,
+    "group": 1,
+    "code": "25020165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "ЛХ",
+    "course": 5,
+    "group": 2,
+    "code": "25020165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФЛХиЭ",
+    "speciality": "СПС",
+    "course": 5,
+    "group": 1,
+    "code": "25020365",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ПВп",
+    "course": 1,
+    "group": 1,
+    "code": "200302",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ТБ",
+    "course": 1,
+    "group": 1,
+    "code": "28070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ЗУ",
+    "course": 2,
+    "group": 1,
+    "code": "12070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ПВ",
+    "course": 2,
+    "group": 1,
+    "code": "28010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ТБ",
+    "course": 2,
+    "group": 1,
+    "code": "28070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ЗУ",
+    "course": 3,
+    "group": 1,
+    "code": "12070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ПВ",
+    "course": 3,
+    "group": 1,
+    "code": "28010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ТБ",
+    "course": 3,
+    "group": 1,
+    "code": "28070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ЗУ",
+    "course": 4,
+    "group": 1,
+    "code": "12070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ПВ",
+    "course": 4,
+    "group": 1,
+    "code": "28010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФПиВР",
+    "speciality": "ТБ",
+    "course": 4,
+    "group": 1,
+    "code": "28070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "РК",
+    "course": 1,
+    "group": 1,
+    "code": "420301",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СВС",
+    "course": 1,
+    "group": 1,
+    "code": "10010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СР",
+    "course": 1,
+    "group": 1,
+    "code": "04040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СР",
+    "course": 1,
+    "group": 2,
+    "code": "04040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "ТУР",
+    "course": 1,
+    "group": 1,
+    "code": "10040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СВС",
+    "course": 2,
+    "group": 1,
+    "code": "10010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СР",
+    "course": 2,
+    "group": 1,
+    "code": "04040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "ТУР",
+    "course": 2,
+    "group": 1,
+    "code": "10040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СВС",
+    "course": 3,
+    "group": 1,
+    "code": "10010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СР",
+    "course": 3,
+    "group": 1,
+    "code": "04040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "ТУР",
+    "course": 3,
+    "group": 1,
+    "code": "10040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СВС",
+    "course": 4,
+    "group": 1,
+    "code": "10010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "СР",
+    "course": 4,
+    "group": 1,
+    "code": "04040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФСТ",
+    "speciality": "ТУР",
+    "course": 4,
+    "group": 1,
+    "code": "10040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "ГМУ",
+    "course": 1,
+    "group": 1,
+    "code": "08110062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "ГМУ",
+    "course": 1,
+    "group": 2,
+    "code": "08110062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "МТ",
+    "course": 1,
+    "group": 1,
+    "code": "08020062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "МТ",
+    "course": 1,
+    "group": 2,
+    "code": "08020062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "ГМУ",
+    "course": 2,
+    "group": 1,
+    "code": "08110062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "ГМУ",
+    "course": 2,
+    "group": 2,
+    "code": "08110062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "МТ",
+    "course": 2,
+    "group": 1,
+    "code": "08020062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "МТ",
+    "course": 2,
+    "group": 2,
+    "code": "08020062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "ГМУ",
+    "course": 3,
+    "group": 1,
+    "code": "08110062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "ГМУ",
+    "course": 3,
+    "group": 2,
+    "code": "08110062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "МТ",
+    "course": 3,
+    "group": 1,
+    "code": "08020062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "ГМУ",
+    "course": 4,
+    "group": 1,
+    "code": "08110062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "МТ",
+    "course": 4,
+    "group": 1,
+    "code": "08020062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ФУП",
+    "speciality": "МТ",
+    "course": 4,
+    "group": 2,
+    "code": "08020062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "СМ",
+    "course": 1,
+    "group": 1,
+    "code": "22170062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "СМоз",
+    "course": 1,
+    "group": 1,
+    "code": "270301",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДПп",
+    "course": 1,
+    "group": 1,
+    "code": "350302",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДПп",
+    "course": 1,
+    "group": 2,
+    "code": "350302",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "СМ",
+    "course": 2,
+    "group": 1,
+    "code": "22170062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДПп",
+    "course": 2,
+    "group": 1,
+    "code": "25040П62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДПп",
+    "course": 2,
+    "group": 2,
+    "code": "25040П62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДПп",
+    "course": 2,
+    "group": 3,
+    "code": "25040П62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "СМ",
+    "course": 3,
+    "group": 1,
+    "code": "22170062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДП",
+    "course": 3,
+    "group": 1,
+    "code": "25040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДП",
+    "course": 3,
+    "group": 2,
+    "code": "25040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДП",
+    "course": 3,
+    "group": 2,
+    "code": "25040062",
+    "educationForm": "у"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "СМ",
+    "course": 4,
+    "group": 1,
+    "code": "22170062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДП",
+    "course": 4,
+    "group": 1,
+    "code": "25040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ЛПФ",
+    "speciality": "ТЛДП",
+    "course": 4,
+    "group": 2,
+    "code": "25040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "АИп",
+    "course": 1,
+    "group": 1,
+    "code": "350306",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МС",
+    "course": 1,
+    "group": 1,
+    "code": "150301",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МСп",
+    "course": 1,
+    "group": 1,
+    "code": "150301",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МТМ",
+    "course": 1,
+    "group": 1,
+    "code": "15010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТМО",
+    "course": 1,
+    "group": 1,
+    "code": "15100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТТ",
+    "course": 1,
+    "group": 1,
+    "code": "14010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ЭТМ",
+    "course": 1,
+    "group": 1,
+    "code": "230303",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ЭТМп",
+    "course": 1,
+    "group": 1,
+    "code": "230303",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "АИ",
+    "course": 2,
+    "group": 1,
+    "code": "11080062",
+    "educationForm": "у"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "АИп",
+    "course": 2,
+    "group": 1,
+    "code": "11080П62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МС",
+    "course": 2,
+    "group": 1,
+    "code": "15070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МСп",
+    "course": 2,
+    "group": 1,
+    "code": "15070П62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МТМ",
+    "course": 2,
+    "group": 1,
+    "code": "15010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТМО",
+    "course": 2,
+    "group": 1,
+    "code": "15100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТТ",
+    "course": 2,
+    "group": 1,
+    "code": "14010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТТ",
+    "course": 2,
+    "group": 2,
+    "code": "14010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ЭТМ",
+    "course": 2,
+    "group": 1,
+    "code": "19060062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ЭТМп",
+    "course": 2,
+    "group": 1,
+    "code": "19060П62",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "АИ",
+    "course": 3,
+    "group": 1,
+    "code": "11080062",
+    "educationForm": "у"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МС",
+    "course": 3,
+    "group": 1,
+    "code": "15070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МТМ",
+    "course": 3,
+    "group": 1,
+    "code": "15010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТМО",
+    "course": 3,
+    "group": 1,
+    "code": "15100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТТ",
+    "course": 3,
+    "group": 1,
+    "code": "14010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТТ",
+    "course": 3,
+    "group": 2,
+    "code": "14010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ЭТМ",
+    "course": 3,
+    "group": 1,
+    "code": "19060062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ЭТМ",
+    "course": 3,
+    "group": 1,
+    "code": "19060062",
+    "educationForm": "у"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "КТМ",
+    "course": 4,
+    "group": 1,
+    "code": "15190062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "КТМ",
+    "course": 4,
+    "group": 2,
+    "code": "15190062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "МТМ",
+    "course": 4,
+    "group": 1,
+    "code": "15010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТМО",
+    "course": 4,
+    "group": 1,
+    "code": "15100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "ММФ",
+    "speciality": "ТТ",
+    "course": 4,
+    "group": 1,
+    "code": "14010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "БТС",
+    "course": 1,
+    "group": 1,
+    "code": "20100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ИТС",
+    "course": 1,
+    "group": 1,
+    "code": "21070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ИТС",
+    "course": 1,
+    "group": 1,
+    "code": "21070062",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ИТСм",
+    "course": 1,
+    "group": 1,
+    "code": "21070068",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ИТСм",
+    "course": 1,
+    "group": 2,
+    "code": "21070068",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "РСК",
+    "course": 1,
+    "group": 1,
+    "code": "21060165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "УиТС",
+    "course": 1,
+    "group": 1,
+    "code": "22040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ЭВС",
+    "course": 1,
+    "group": 1,
+    "code": "110303",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ЭиН",
+    "course": 1,
+    "group": 1,
+    "code": "21010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ЭиНм",
+    "course": 1,
+    "group": 1,
+    "code": "21010068",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "БТС",
+    "course": 2,
+    "group": 1,
+    "code": "20100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ИТС",
+    "course": 2,
+    "group": 1,
+    "code": "21070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ИТС",
+    "course": 2,
+    "group": 1,
+    "code": "21070062",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "РСК",
+    "course": 2,
+    "group": 1,
+    "code": "21060165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "УиТС",
+    "course": 2,
+    "group": 1,
+    "code": "22040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ЭВС",
+    "course": 2,
+    "group": 1,
+    "code": "21100062",
+    "educationForm": "оз"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ЭиН",
+    "course": 2,
+    "group": 1,
+    "code": "21010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "БТС",
+    "course": 3,
+    "group": 1,
+    "code": "20100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ИТС",
+    "course": 3,
+    "group": 1,
+    "code": "21070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "РСК",
+    "course": 3,
+    "group": 1,
+    "code": "21060165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "УиТС",
+    "course": 3,
+    "group": 1,
+    "code": "22040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ЭВС",
+    "course": 3,
+    "group": 1,
+    "code": "21100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ЭиН",
+    "course": 3,
+    "group": 1,
+    "code": "21010062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "БТС",
+    "course": 4,
+    "group": 1,
+    "code": "20100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ИТС",
+    "course": 4,
+    "group": 1,
+    "code": "21070062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "РСК",
+    "course": 4,
+    "group": 1,
+    "code": "21060165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "РТ",
+    "course": 4,
+    "group": 1,
+    "code": "21040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "УиТС",
+    "course": 4,
+    "group": 1,
+    "code": "22040062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "РТФ",
+    "speciality": "ЭВС",
+    "course": 4,
+    "group": 1,
+    "code": "21100062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 1,
+    "group": 1,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 1,
+    "group": 2,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 1,
+    "group": 3,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРп",
+    "course": 1,
+    "group": 1,
+    "code": "080301",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СУЗиС",
+    "course": 1,
+    "group": 1,
+    "code": "27110165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 2,
+    "group": 1,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 2,
+    "group": 2,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 2,
+    "group": 3,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 2,
+    "group": 4,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СУЗиС",
+    "course": 2,
+    "group": 1,
+    "code": "27110165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 3,
+    "group": 1,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 3,
+    "group": 2,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 3,
+    "group": 3,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 3,
+    "group": 4,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СУЗиС",
+    "course": 3,
+    "group": 1,
+    "code": "27110165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 4,
+    "group": 1,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 4,
+    "group": 2,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 4,
+    "group": 3,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СТРб",
+    "course": 4,
+    "group": 4,
+    "code": "27080062",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "СУЗиС",
+    "course": 4,
+    "group": 1,
+    "code": "27110165",
+    "educationForm": "о"
+  },
+  {
+    "faculty": "СФ",
+    "speciality": "ПЗ",
+    "course": 5,
+    "group": 1,
+    "code": "27011465",
+    "educationForm": "о"
+  }
+]
