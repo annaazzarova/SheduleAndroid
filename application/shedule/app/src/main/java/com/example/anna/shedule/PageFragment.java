@@ -69,13 +69,19 @@ public class PageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_1, container, false);
-        context=getActivity();
-        user_service = Services.getService(UserService.class);
-        main_activity_user = user_service.getCurrentUser();
+        View view;
+        if (lessons.size() == 0){
+            view = inflater.inflate(R.layout.no_lessons, container, false);
+        }
+        else {
+            view = inflater.inflate(R.layout.tab_1, container, false);
+            context=getActivity();
+            user_service = Services.getService(UserService.class);
+            main_activity_user = user_service.getCurrentUser();
 
-        lv=(ListView) view.findViewById(R.id.listView);
-        lv.setAdapter(new LessonAdapter(getActivity(), lessons));
+            lv=(ListView) view.findViewById(R.id.listView);
+            lv.setAdapter(new LessonAdapter(getActivity(), lessons));
+        }
         return view;
     }
 }
