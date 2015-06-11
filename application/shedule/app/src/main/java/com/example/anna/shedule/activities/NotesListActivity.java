@@ -67,7 +67,7 @@ public class NotesListActivity extends BaseActivity {
         public void setValues(Note note) {
             String owner = getOwner(note);
             initiator.setText(owner);
-            date.setText(generateCreateDateText(note.getDate()));
+            date.setText(generateCreateDateText(note.getDateCreate()));
             text.setText(note.getText());
 
             int iconBackgroundColor = ("teacher".equals(note.getOwnerType()))
