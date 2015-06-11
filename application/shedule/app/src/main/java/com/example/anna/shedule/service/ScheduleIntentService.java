@@ -11,6 +11,7 @@ import android.util.Log;
 import com.example.anna.shedule.MainActivity;
 import com.example.anna.shedule.R;
 import com.example.anna.shedule.application.database.Database;
+import com.example.anna.shedule.application.login.service.LoginService;
 import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.schedule.model.Change;
@@ -20,6 +21,7 @@ import com.example.anna.shedule.application.schedule.service.GroupService;
 import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.services.Services;
 import com.example.anna.shedule.application.settings.SettingsService;
+import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.service.receivers.AlarmReceiver;
 import com.example.anna.shedule.utils.ContextUtils;
 
@@ -69,6 +71,12 @@ public class ScheduleIntentService extends IntentService {
     }
 
     private void synchronize() {
+        LoginService loginService = Services.getService(LoginService.class);
+        if (!loginService.isLogin()) {
+            loginService.logout();
+            return;
+        }
+
         DataState stateBefore = getDataState();
         updateAllServices();
         DataState stateAfter = getDataState();
