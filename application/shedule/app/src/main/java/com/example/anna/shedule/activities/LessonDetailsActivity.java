@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anna.shedule.MainActivity;
 import com.example.anna.shedule.R;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.ChangeAction;
@@ -303,7 +304,7 @@ public class LessonDetailsActivity extends AppCompatActivity {
             return;
         }
 
-        if (change.getStatus() == LessonStatus.CANCELED && change.getChangeId() != null) {
+        if (change.getStatus() == LessonStatus.CANCELED && change.getChangeId() != null && change.getLessonId() != null) {
             action = ChangeAction.DELETE;
         } else if (isNewLesson()) {
             UserService userService = Services.getService(UserService.class);
@@ -325,7 +326,9 @@ public class LessonDetailsActivity extends AppCompatActivity {
             @Override
             public void onSuccess() {
                 prog.dismiss();
-                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class); //TODO HOT FIX
+                startActivity(intent);
+//                finish();
             }
 
             @Override

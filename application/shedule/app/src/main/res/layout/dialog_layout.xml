@@ -29,6 +29,7 @@
             android:layout_height="fill_parent"
             android:id="@+id/add_note_button"
             android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:layout_marginLeft="18dp">
             <ImageView
                 android:background="@drawable/ic_assignment_grey"
@@ -39,20 +40,20 @@
                 android:layout_marginTop="7dp"/>
             </TableRow>
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="25dp"
-            android:id="@+id/delete_button"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="18dp">
-            <ImageView
-                android:background="@drawable/ic_bin"
-                android:layout_marginRight="18dp"
-                />
-            <TextView
-                android:text="Удалить"
-                android:layout_marginTop="7dp"/>
-            </TableRow>
+        <!--<TableRow-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:layout_marginBottom="25dp"-->
+            <!--android:id="@+id/delete_button"-->
+            <!--android:layout_marginTop="25dp"-->
+            <!--android:layout_marginLeft="18dp">-->
+            <!--<ImageView-->
+                <!--android:background="@drawable/ic_bin"-->
+                <!--android:layout_marginRight="18dp"-->
+                <!--/>-->
+            <!--<TextView-->
+                <!--android:text="Удалить"-->
+                <!--android:layout_marginTop="7dp"/>-->
+            <!--</TableRow>-->
     </TableLayout>
 </LinearLayout>

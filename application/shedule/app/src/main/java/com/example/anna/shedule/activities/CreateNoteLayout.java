@@ -1,6 +1,7 @@
 package com.example.anna.shedule.activities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v7.app.ActionBar;
@@ -11,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.anna.shedule.MainActivity;
 import com.example.anna.shedule.R;
 import com.example.anna.shedule.application.note.service.NoteService;
 import com.example.anna.shedule.application.services.Services;
@@ -92,7 +94,9 @@ public class CreateNoteLayout extends AppCompatActivity {
             @Override
             public void onSuccess() {
                 prog.dismiss();
-                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class); //TODO HOT FIX
+                startActivity(intent);
+//                finish();
             }
 
             @Override
