@@ -8,6 +8,7 @@ import com.example.anna.shedule.application.schedule.service.LessonsChangesServi
 import com.example.anna.shedule.application.schedule.service.ScheduleService;
 import com.example.anna.shedule.application.schedule.service.StaticLessonsService;
 import com.example.anna.shedule.application.services.Services;
+import com.example.anna.shedule.application.settings.SettingsService;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.application.user.service.UserService;
 import com.example.anna.shedule.server.dto.response.ServerResponse;
@@ -20,6 +21,7 @@ public class LoginService {
     private final StaticLessonsService staticLessonsService;
     private final GroupService groupService;
     private final NoteService noteService;
+    private final SettingsService settingsService;
 
 
     public LoginService() {
@@ -28,6 +30,7 @@ public class LoginService {
         this.groupService = Services.getService(GroupService.class);
         this.noteService = Services.getService(NoteService.class);
         this.userService = Services.getService(UserService.class);
+        this.settingsService = Services.getService(SettingsService.class);
     }
 
     public interface LoginListener {
@@ -105,6 +108,7 @@ public class LoginService {
             return;
         }
 
+        settingsService.setValueIfNotExists("push", true);
         ScheduleIntentService.enable();
         listener.onSuccess(userService.getCurrentUser());
     }

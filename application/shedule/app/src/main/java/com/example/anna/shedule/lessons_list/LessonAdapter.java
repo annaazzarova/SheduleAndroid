@@ -110,6 +110,12 @@ public class LessonAdapter extends BaseAdapter{
         else {
             tw_group.setText(lessons.get(position).getHull() + " " + lessons.get(position).getAuditory() + " / " + lessons.get(position).getTeacherName());
         }
+        final Lesson lesson = lessons.get(position);
+        tw_start.setText(lesson.getTime().getStartTime());
+        tw_end.setText(lesson.getTime().getEndTime());
+        tw_type.setText(lesson.getType().toString());
+        tw_lesson.setText(lesson.getTitle());
+        tw_group.setText(lesson.getHull() + " " + lesson.getAuditory() + " / " + lesson.getGroupsAsString());
         rowView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -120,9 +126,9 @@ public class LessonAdapter extends BaseAdapter{
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(context, CreateNoteLayout.class);
-                        intent.putExtra("changeId", ""); //TODO TO DO DO DO
-                        intent.putExtra("lessonId", "");
-                        intent.putExtra("startOfDay", (long) 0);
+                        intent.putExtra("changeId", lesson.getChangeId());
+                        intent.putExtra("lessonId", lesson.getLessonId());
+                        intent.putExtra("startOfDay", lesson.getStartOfLessonDay());
                         dialog.cancel();
                         context.startActivity(intent);
                     }

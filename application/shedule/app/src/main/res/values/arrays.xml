@@ -19,7 +19,7 @@
         <item>Расписание</item>
         <item>Изменения</item>
         <item>Настройки</item>
-        <item>О приложении</item>
+        <!--<item>О приложении</item>-->
     </string-array>
 
     <array name="nav_drawer_icons">

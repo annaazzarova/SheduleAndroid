@@ -1,8 +1,8 @@
 package com.example.anna.shedule.activities;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -91,16 +91,21 @@ public class CreateNoteLayout extends AppCompatActivity {
         noteService.createNote(text, note, new NoteService.NoteCreateListener() {
             @Override
             public void onSuccess() {
-                prog.cancel();
+                prog.dismiss();
                 finish();
             }
 
             @Override
             public void onError() {
-                prog.cancel();
-                Toast
-                    .makeText(getApplicationContext(), R.string.error_create_note, Toast.LENGTH_SHORT)
-                    .show();
+                prog.dismiss();
+                CreateNoteLayout.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast
+                                .makeText(getApplicationContext(), R.string.error_create_note, Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
             }
         });
     }
@@ -110,7 +115,8 @@ public class CreateNoteLayout extends AppCompatActivity {
         prog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         prog.setMessage(getString(R.string.pleas_wait));
         prog.setIndeterminate(true);
-        prog.setCancelable(true);
+        prog.setCancelable(false);
+        prog.setCanceledOnTouchOutside(false);
         prog.show();
         return prog;
     }

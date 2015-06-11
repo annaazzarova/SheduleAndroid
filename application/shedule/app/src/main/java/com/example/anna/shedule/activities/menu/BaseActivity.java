@@ -23,6 +23,7 @@ import android.widget.ListView;
 
 import com.example.anna.shedule.MainActivity;
 import com.example.anna.shedule.R;
+import com.example.anna.shedule.SettingsActivity;
 import com.example.anna.shedule.activities.CreateNoteLayout;
 import com.example.anna.shedule.activities.NotesListActivity;
 import com.example.anna.shedule.application.note.service.NoteService;
@@ -195,7 +196,7 @@ public class BaseActivity extends AppCompatActivity {
             case 1:
                 return NotesListActivity.class;
             case 2:
-                return CreateNoteLayout.class;
+                return SettingsActivity.class;
             case 3:
                 return null;
             default:

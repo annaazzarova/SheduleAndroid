@@ -1,18 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/teacher_selection_activity_left"
-    android:paddingRight="@dimen/teacher_selection_activity_right"
-    android:paddingTop="@dimen/teacher_selection_activity_top"
-    android:paddingBottom="@dimen/teacher_selection_activity_bottom"
-    tools:context="com.example.anna.shedule.activities.activity_teacher_selection">
+    tools:context=".activities.TeacherSelectorActivity">
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/teacher_list"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:headerDividersEnabled="false"
+        android:footerDividersEnabled="false"
+        android:divider="@android:color/transparent"
+        android:id="@+id/teacher_list" />
 
 </RelativeLayout>

@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+    android:layout_height="56dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical">
 
 
     <TextView
-        android:id="@+id/nameChar"
+        android:id="@+id/teacher_icon"
         android:background="@drawable/rounded_red_button"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="16dp"
-        android:textSize="20dp"
+        android:textSize="19sp"
+        android:text="H"
+        android:gravity="center"
         android:textStyle="bold"
         android:textColor="#fff"/>
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/teacher_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16dp"
-        android:layout_marginLeft="26dp"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="4dp"
-        android:layout_marginTop="7dp"/>
+        android:text="HJdsadsad"
+        android:layout_marginLeft="26dp"/>
 
 </LinearLayout>

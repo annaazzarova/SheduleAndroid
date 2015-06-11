@@ -10,6 +10,7 @@ import com.example.anna.shedule.application.note.model.Note;
 import com.example.anna.shedule.application.schedule.model.Change;
 import com.example.anna.shedule.application.schedule.model.Group;
 import com.example.anna.shedule.application.schedule.model.helper.StaticLesson;
+import com.example.anna.shedule.application.settings.model.KeyValue;
 import com.example.anna.shedule.application.user.model.User;
 import com.example.anna.shedule.utils.ContextUtils;
 
@@ -116,7 +117,7 @@ public class Database {
             id = db.insert(entity.getTableName(), null, values);
             entity.setId(id);
         } else {
-            String wereClause = "id " + entity.getId();
+            String wereClause = "id='" + entity.getId() + "'";
             id = db.update(entity.getTableName(), values, wereClause, null);
         }
 
@@ -161,6 +162,7 @@ public class Database {
         createTable(Change.class);
         createTable(Note.class);
         createTable(Group.class);
+        createTable(KeyValue.class);
     }
 
     @SneakyThrows
