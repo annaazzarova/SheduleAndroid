@@ -100,35 +100,44 @@ public class LessonAdapter extends BaseAdapter{
         rowView.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                final Dialog dialog = new Dialog(arg0.getContext());
-                dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-                dialog.setContentView(R.layout.dialog_layout);
-                dialog.findViewById(R.id.add_note_button).setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(context, CreateNoteLayout.class);
-                        intent.putExtra("changeId", lesson.getChangeId());
-                        intent.putExtra("lessonId", lesson.getLessonId());
-                        intent.putExtra("startOfDay", lesson.getStartOfLessonDay());
-                        dialog.cancel();
-                        context.startActivity(intent);
-                    }
-                });
+                User user = Services.getService(UserService.class).getCurrentUser();
+                if (user.getType() == UserType.CLASS_LEADER) {
+                    final Dialog dialog = new Dialog(arg0.getContext());
+                    dialog.getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.dialog_layout);
+                    dialog.findViewById(R.id.add_note_button).setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(context, CreateNoteLayout.class);
+                            intent.putExtra("changeId", lesson.getChangeId());
+                            intent.putExtra("lessonId", lesson.getLessonId());
+                            intent.putExtra("startOfDay", lesson.getStartOfLessonDay());
+                            dialog.cancel();
+                            context.startActivity(intent);
+                        }
+                    });
 
-                dialog.findViewById(R.id.edit_button).setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(context, LessonDetailsActivity.class);
-                        intent.putExtra("lesson", lesson);
-                        intent.putExtra("editMode", true);
-                        intent.putExtra("startOfDay", lesson.getStartOfLessonDay());
-                        dialog.cancel();
-                        context.startActivity(intent);
-                    }
-                });
+                    dialog.findViewById(R.id.edit_button).setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(context, LessonDetailsActivity.class);
+                            intent.putExtra("lesson", lesson);
+                            intent.putExtra("editMode", true);
+                            intent.putExtra("startOfDay", lesson.getStartOfLessonDay());
+                            dialog.cancel();
+                            context.startActivity(intent);
+                        }
+                    });
 
 
-                dialog.show();
+                    dialog.show();
+                } else {
+                    Intent intent = new Intent(context, LessonDetailsActivity.class);
+                    intent.putExtra("lesson", lesson);
+                    intent.putExtra("startOfDay", lesson.getStartOfLessonDay());
+                    context.startActivity(intent);
+                }
+
             }
         });
         return rowView;

@@ -3,17 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.anna.shedule.activities.LessonDetailsActivity">
 
-
-    <item android:id="@+id/action_edit"
-        android:icon="@android:drawable/ic_menu_edit"
-        app:showAsAction="ifRoom"
-        android:title="Edit"
-        android:visible="true"/>
-
     <item android:id="@+id/action_save"
         android:icon="@drawable/ic_done_white_24dp"
         app:showAsAction="ifRoom"
-        android:title="Save"
+        android:title="Сохранить"
         android:visible="true"/>
 
 

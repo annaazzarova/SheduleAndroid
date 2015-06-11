@@ -45,7 +45,6 @@ public class LessonDetailsActivity extends AppCompatActivity {
     EditText auditoryEdit;
 
     MenuItem save_button;
-    MenuItem edit_button;
 
     Button addNoteButton;
 
@@ -213,16 +212,21 @@ public class LessonDetailsActivity extends AppCompatActivity {
         save_button.setVisible(false);
         if (userType == UserType.CLASS_LEADER || userType == UserType.TEACHER) {
             addNoteButton.setVisibility(View.VISIBLE);
+        } else {
+            addNoteButton.setVisibility(View.GONE);
         }
+
+        teacherName.setTextColor(Color.LTGRAY);
 
         setTitle(getResources().getString(R.string.lesson_details_page_title));
 
         for (View view: views) {
             view.setClickable(false);
+            view.setEnabled(false);
+
             if ((view instanceof Spinner)) {
                 Spinner sp = (Spinner) view;
                 sp.getSelectedView().setEnabled(false);
-                sp.setEnabled(false);
                 sp.setBackgroundColor(Color.TRANSPARENT);
             }
         }
@@ -230,7 +234,6 @@ public class LessonDetailsActivity extends AppCompatActivity {
 
     public void setEditMode() {
         save_button.setVisible(true);
-        edit_button.setVisible(false);
         addNoteButton.setVisibility(View.GONE);
 
         setTitle(getString(R.string.lesson_edit_page_title));
@@ -363,7 +366,6 @@ public class LessonDetailsActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_activity_lesson_details, menu);
 
         save_button = menu.findItem(R.id.action_save);
-        edit_button = menu.findItem(R.id.action_edit);
 
         if (isEditMode || lesson == null) {
             setEditMode();
@@ -380,14 +382,13 @@ public class LessonDetailsActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_edit) {
-            setEditMode();
+        if (id == R.id.action_save) {
+            saveChanges();
             return true;
         }
 
-        if (id == R.id.action_save) {
-            saveChanges();
+        if (id == android.R.id.home) {
+            finish();
             return true;
         }
 
